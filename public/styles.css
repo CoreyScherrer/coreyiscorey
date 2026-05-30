@@ -1,7 +1,6 @@
-/* coreyiscorey.com — placeholder styles, built on tokens from coreyscherrer.com.
-   This file is intentionally minimal. The real visual pass happens via the
-   frontend-design skill in a focused session. Goal here: legible, on-brand,
-   not embarrassing while we figure out what coreyiscorey really wants to be. */
+/* coreyiscorey.com — homepage v1.
+   Centered Anton block-letter name + outlined "Music Visualizer" button.
+   Dark theme inherits coreyscherrer.com's --color-cs-dark-* tokens. */
 
 * { box-sizing: border-box; }
 
@@ -10,132 +9,71 @@ html, body {
   padding: 0;
   background: var(--color-cs-dark-bg);
   color: var(--color-cs-dark-text-primary);
-  font-family: var(--font-family-cs-dark-body);
-  font-size: 16px;
-  line-height: 1.6;
-  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100svh; /* mobile-correct viewport unit */
 }
 
-a {
-  color: var(--color-cs-dark-accent-cyan);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-a:hover { color: var(--color-cs-dark-accent); }
-
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
-}
-
-.hero {
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--color-cs-dark-border);
-  margin-bottom: 3rem;
+.stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 3rem);
+  padding: 2rem 1.25rem;
+  text-align: center;
 }
 
-.hero h1 {
-  font-family: var(--font-family-public-heading);
-  font-weight: 800;
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  letter-spacing: -0.02em;
-  margin: 0 0 0.5rem 0;
-  color: var(--color-cs-dark-text-primary);
-}
-
-.tagline {
-  margin: 0;
-  font-size: 1.125rem;
-  color: var(--color-cs-dark-text-secondary);
-}
-
-.section-title {
-  font-family: var(--font-family-public-heading);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+/* Big block-letter name.
+   Anton is a tall, condensed display sans; tight tracking makes it read as
+   one solid block. Scales fluidly from phone to desktop. */
+.name {
+  font-family: "Anton", "Impact", "Arial Black", sans-serif;
+  font-weight: 400; /* Anton ships single-weight */
+  font-size: clamp(3.5rem, 14vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-cs-dark-text-light);
-  margin: 0 0 1.5rem 0;
-}
-
-.project-list {
-  list-style: none;
-  padding: 0;
   margin: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.project-card {
-  background: var(--color-cs-dark-surface);
-  border: 1px solid var(--color-cs-dark-border);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-.project-card:hover { border-color: var(--color-cs-dark-border-strong); }
-
-.project-card--placeholder {
-  opacity: 0.5;
-  border-style: dashed;
-}
-
-.project-link {
-  display: grid;
-  grid-template-areas:
-    "name status"
-    "blurb blurb";
-  grid-template-columns: 1fr auto;
-  gap: 0.5rem 1rem;
-  color: inherit;
-}
-.project-link:hover { color: inherit; }
-.project-link:hover .project-name { color: var(--color-cs-dark-accent-cyan); }
-
-.project-name {
-  grid-area: name;
-  font-family: var(--font-family-public-heading);
-  font-weight: 600;
-  font-size: 1.25rem;
   color: var(--color-cs-dark-text-primary);
+  /* Subtle glow keeps it from feeling flat against the near-black bg */
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.04);
 }
 
-.project-status {
-  grid-area: status;
-  align-self: center;
-  font-size: 0.6875rem;
+/* Outlined Music Visualizer button. Small, white outline, no fill. */
+.project-btn {
+  display: inline-block;
+  font-family: "Inter", system-ui, sans-serif;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.625rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-cs-dark-border-strong);
-  color: var(--color-cs-dark-text-secondary);
-}
-.project-status[data-status="building"] {
-  color: var(--color-cs-dark-warning);
-  border-color: var(--color-cs-dark-warning);
-}
-.project-status[data-status="live"] {
-  color: var(--color-cs-dark-accent);
-  border-color: var(--color-cs-dark-accent);
-}
-
-.project-blurb {
-  grid-area: blurb;
-  font-size: 0.9375rem;
-  color: var(--color-cs-dark-text-secondary);
-}
-
-.footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-cs-dark-border);
   font-size: 0.875rem;
-  color: var(--color-cs-dark-text-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0.875rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  background: transparent;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease, transform 150ms ease;
 }
-.footer p { margin: 0; }
+
+.project-btn:hover,
+.project-btn:focus-visible {
+  color: var(--color-cs-dark-bg);
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  transform: translateY(-1px);
+}
+
+.project-btn:focus-visible {
+  outline: 2px solid var(--color-cs-dark-accent-cyan);
+  outline-offset: 4px;
+}
+
+.project-btn:active {
+  transform: translateY(0);
+}
