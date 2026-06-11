@@ -77,3 +77,112 @@ html, body {
 .project-btn:active {
   transform: translateY(0);
 }
+
+/* ----------------------------------------------------------------
+   Project dropdown — centered under the Anton name block on the
+   homepage, and at the top of every project page. Data-driven from
+   PROJECTS array in /nav.js; styles below stay neutral about which
+   entries exist.
+   ---------------------------------------------------------------- */
+.nav-host { display: flex; justify-content: center; }
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font: 500 0.875rem/1 "Inter", system-ui, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cs-dark-text-primary);
+  padding: 0.875rem 1.5rem;
+  min-width: 16rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.nav-dropdown-trigger:hover,
+.nav-dropdown-trigger:focus-visible {
+  color: var(--color-cs-dark-bg);
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  transform: translateY(-1px);
+}
+
+.nav-dropdown-trigger:focus-visible {
+  outline: 2px solid var(--color-cs-dark-accent-cyan);
+  outline-offset: 4px;
+}
+
+.nav-dropdown-label {
+  flex: 1;
+  text-align: center;
+}
+
+.nav-dropdown-chevron {
+  font-size: 0.7em;
+  line-height: 1;
+  opacity: 0.7;
+  transition: transform 150ms ease;
+}
+
+.nav-dropdown.open .nav-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.25rem 0;
+  list-style: none;
+  background: var(--color-cs-dark-bg);
+  border: 1px solid var(--color-cs-dark-border-strong);
+  border-radius: 2px;
+  z-index: 10;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+.nav-dropdown-option {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-dropdown-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font: 500 0.8125rem/1.2 "Inter", system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-cs-dark-text-secondary);
+  text-decoration: none;
+  text-align: center;
+  transition: color 120ms ease, background 120ms ease;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link:focus-visible {
+  color: var(--color-cs-dark-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+.nav-dropdown-option.current .nav-dropdown-link {
+  color: var(--color-cs-dark-text-primary);
+}
+
+.nav-dropdown-option.current .nav-dropdown-link::before {
+  content: "› ";
+  color: var(--color-cs-dark-accent-cyan);
+  margin-right: 0.2em;
+}

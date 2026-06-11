@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to take it to 11 — Corey Scherrer</title>
+  <meta name="description" content="A short guide to the music visualizer's shapes and audio sources.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://coreyiscorey.com/how-to/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600&display=swap">
+
+  <link rel="stylesheet" href="/tokens.css">
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    /* Long-form layout matches /v1-1/. Visual tokens come from /tokens.css. */
+    .page {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 5rem) 1.25rem;
+    }
+    .page > .nav-host { margin-bottom: clamp(2rem, 5vw, 3rem); }
+
+    .v-title {
+      font-family: "Anton", "Impact", "Arial Black", sans-serif;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 9vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem 0;
+      color: var(--color-cs-dark-text-primary);
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.04);
+    }
+    .v-subtitle {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-cs-dark-text-secondary);
+      margin: 0 0 clamp(2rem, 5vw, 3rem) 0;
+    }
+    .lede {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(1rem, 1.6vw, 1.125rem);
+      line-height: 1.65;
+      color: var(--color-cs-dark-text-secondary);
+      max-width: 44rem;
+      margin: 0 0 clamp(2.5rem, 5vw, 4rem) 0;
+    }
+    .lede strong { color: var(--color-cs-dark-text-primary); font-weight: 600; }
+
+    .section {
+      margin: clamp(2rem, 4vw, 3rem) 0;
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+      border-top: 1px solid var(--color-cs-dark-border);
+    }
+    .section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-cs-dark-text-light);
+      padding: 0.25rem 0.625rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 2px;
+      margin-bottom: 0.875rem;
+    }
+    .section-head {
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem 0;
+      color: var(--color-cs-dark-text-primary);
+    }
+    .section-body {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--color-cs-dark-text-secondary);
+      max-width: 44rem;
+    }
+    .section-body p { margin: 0 0 1rem 0; }
+    .section-body p:last-child { margin-bottom: 0; }
+    .section-body strong { color: var(--color-cs-dark-text-primary); font-weight: 600; }
+    .section-body em {
+      color: var(--color-cs-dark-text-primary);
+      font-style: normal;
+      font-family: "JetBrains Mono", "Fira Code", "Monaco", monospace;
+      font-size: 0.9em;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.125rem 0.375rem;
+      border-radius: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Two-column grid for "what each does" lists — matches /v1-1/ .change-grid. */
+    .item-grid {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.875rem 1.5rem;
+      margin: 1.25rem 0 0 0;
+      padding: 1.25rem;
+      background: var(--color-cs-dark-surface);
+      border: 1px solid var(--color-cs-dark-border);
+      border-radius: 2px;
+    }
+    .item-name {
+      font-family: "JetBrains Mono", "Fira Code", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-cs-dark-accent-cyan);
+      align-self: center;
+      white-space: nowrap;
+    }
+    .item-desc {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--color-cs-dark-text-secondary);
+    }
+
+    /* CTA at the bottom mirrors /v1-1/. */
+    .cta {
+      margin-top: clamp(3rem, 7vw, 5rem);
+      padding: clamp(2rem, 5vw, 3rem);
+      border: 1px solid var(--color-cs-dark-border-strong);
+      border-radius: 2px;
+      background: var(--color-cs-dark-surface);
+      text-align: center;
+    }
+    .cta-eyebrow {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-cs-dark-accent-cyan);
+      margin-bottom: 0.75rem;
+    }
+    .cta-head {
+      font-family: "Anton", "Impact", sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin: 0 0 0.875rem 0;
+    }
+    .cta-note {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.875rem;
+      color: var(--color-cs-dark-text-light);
+      margin: 1rem 0 0 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="nav-host"></div>
+
+    <h1 class="v-title">How to take it to 11</h1>
+    <p class="v-subtitle">A short guide to the visualizer</p>
+
+    <p class="lede">
+      The visualizer reacts to whatever audio you give it. Pick a <strong>shape</strong>,
+      give it a <strong>source</strong>, and the rest is dialing. This page covers the
+      two things you need to start: <strong>what the shapes are</strong> and
+      <strong>how to feed them sound</strong>. Everything else lives in the menu
+      on the visualizer itself — open it with the ☰ button in the corner.
+    </p>
+
+    <div class="section">
+      <span class="section-eyebrow">Section 1</span>
+      <h2 class="section-head">The shapes</h2>
+      <div class="section-body">
+        <p>
+          The Shape picker — middle row of the Soundboard, top of the menu — chooses
+          what kind of object you're looking at. Each one reacts to the same audio
+          signal differently. Cycle them; one will feel right for the track you're playing.
+        </p>
+        <div class="item-grid">
+          <div class="item-name">Bulb</div>
+          <div class="item-desc">
+            <strong>The default Mandelbulb.</strong> Round, lumpy, slow. Reads as a living
+            organism that breathes on the bass. Good for ambient, dub, anything slow.
+          </div>
+
+          <div class="item-name">Sacred</div>
+          <div class="item-desc">
+            <strong>Geometric lattice.</strong> Hard angular surfaces — feels architectural
+            and ritual. Treble cuts ridges into the surface. Pair with anything with crisp
+            high-end.
+          </div>
+
+          <div class="item-name">Lava</div>
+          <div class="item-desc">
+            <strong>Round molten blob.</strong> Smooth, balloon-like, bass-driven swelling.
+            Reads warm and physical. Good for groove and bass-forward music.
+          </div>
+
+          <div class="item-name">Ferro</div>
+          <div class="item-desc">
+            <strong>Ferrofluid — spikes on transients.</strong> Black chrome blob with
+            sharp spikes that grow on bass hits. Continuous color rings drift across
+            the surface. Built for percussive music.
+          </div>
+
+          <div class="item-name">Gasm</div>
+          <div class="item-desc">
+            <strong>Colorgasm — psychedelic tunnel.</strong> No shape, just a descent
+            into rings of color around a persistent bright center. Bass speeds the
+            descent, mids twist the rings, treble shimmers the edges.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-eyebrow">Section 2</span>
+      <h2 class="section-head">Audio source</h2>
+      <div class="section-body">
+        <p>
+          The Source section is at the top of the menu. You have three options for
+          feeding the visualizer sound. They all work — the right pick depends on
+          where the audio is coming from.
+        </p>
+        <div class="item-grid">
+          <div class="item-name">Tab</div>
+          <div class="item-desc">
+            <strong>Best for streaming services.</strong> Click Tab, then choose the
+            browser tab playing Spotify / YouTube / SoundCloud. Tick
+            "Share audio" in the picker. The visualizer hears exactly what that tab
+            plays — no microphone noise, no need to crank the speakers.
+          </div>
+
+          <div class="item-name">Mic</div>
+          <div class="item-desc">
+            <strong>Best for live sound in the room.</strong> Click Mic, accept the
+            permission prompt. The visualizer reacts to whatever your microphone
+            picks up — a live band, a vinyl player, music on a speaker, you singing.
+            Background noise will show up too.
+          </div>
+
+          <div class="item-name">File</div>
+          <div class="item-desc">
+            <strong>Best for one specific track.</strong> Click File, drop an MP3 / WAV /
+            audio file. The visualizer plays it back and reacts. Useful for testing how
+            something looks against a specific song without sharing a tab.
+          </div>
+        </div>
+        <p>
+          If audio isn't reaching the visualizer, the first thing to check is the
+          source — Tab needs "Share audio" ticked at the moment you pick the tab,
+          and Mic needs the browser's microphone permission granted (the
+          padlock icon next to the URL shows you which permissions are in play).
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="cta-eyebrow">That's it</div>
+      <h3 class="cta-head">Pick a shape, share some sound</h3>
+      <p class="cta-note">
+        Everything else — sliders, presets, palette, quality — is in the menu on the
+        visualizer itself. Open it, change things, see what happens.
+      </p>
+    </div>
+  </main>
+  <script src="/nav.js" defer></script>
+</body>
+</html>
