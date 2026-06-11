@@ -22,22 +22,8 @@
       margin: 0 auto;
       padding: clamp(2.5rem, 6vw, 5rem) 1.25rem;
     }
-    .breadcrumb {
-      font-family: "Inter", system-ui, sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-cs-dark-text-light);
-      margin-bottom: clamp(2rem, 5vw, 3rem);
-    }
-    .breadcrumb a {
-      color: var(--color-cs-dark-text-secondary);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      transition: border-color 150ms ease, color 150ms ease;
-    }
-    .breadcrumb a:hover { color: var(--color-cs-dark-text-primary); border-color: rgba(255, 255, 255, 0.5); }
-    .breadcrumb-sep { margin: 0 0.5em; opacity: 0.4; }
+    /* Site nav lives at the top of the page; give it some breathing room. */
+    .page > .nav-host { margin-bottom: clamp(2rem, 5vw, 3rem); }
 
     /* Anton headline same family as the homepage; smaller scale. */
     .v-title {
@@ -180,11 +166,7 @@
 </head>
 <body>
   <main class="page">
-    <nav class="breadcrumb">
-      <a href="/">Home</a>
-      <span class="breadcrumb-sep">/</span>
-      <span>Visualizer V1.1</span>
-    </nav>
+    <div class="nav-host"></div>
 
     <h1 class="v-title">Visualizer V1.1</h1>
     <p class="v-subtitle">In preview — what's coming to the music visualizer</p>
@@ -325,5 +307,6 @@
       </p>
     </div>
   </main>
+  <script src="/nav.js" defer></script>
 </body>
 </html>
