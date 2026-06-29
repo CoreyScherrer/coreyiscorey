@@ -16,6 +16,7 @@
     { label: 'How to take it to 11', href: '/how-to/' },
     { label: 'Visualizer V1.1', href: '/v1-1/' },
     { label: 'Original Visualizer', href: '/digable-planets/' },
+    { label: 'Community Calendar', href: '/calendar/' },
   ];
   const HOMEPAGE_LABEL = 'Projects';
 
