@@ -1,36 +1,50 @@
-// Centered project dropdown — used on the homepage, /v1-1/, /how-to/, and
-// every future project page. Edit the PROJECTS array to add a new entry.
+// Centered nav dropdowns — used on the homepage, /v1-1/, /how-to/, /calendar/,
+// and every future project page. Two dropdowns render side by side: a
+// "Visualizer" group and a "Community Calendar" group. Edit the GROUPS array
+// below to add entries.
 //
-// The component auto-detects which page it's on by comparing
-// window.location.pathname to each entry's href, so it shows the right
-// "selected" label per page with zero per-page wiring. On the homepage
-// itself (no project href matches), the trigger reads "Projects".
+// Each dropdown auto-detects whether the current page belongs to its group by
+// comparing window.location.pathname to each entry's href, so the matching
+// dropdown shows the active label/highlight per page with zero per-page wiring.
 //
 // SECURITY: no innerHTML — DOM built via createElement + textContent only.
 
 (function () {
   'use strict';
 
-  // Single source of truth. Append entries here to add a project to the dropdown.
-  const PROJECTS = [
-    { label: 'How to take it to 11', href: '/how-to/' },
-    { label: 'Visualizer V1.1', href: '/v1-1/' },
-    { label: 'Original Visualizer', href: '/digable-planets/' },
-    { label: 'Community Calendar', href: '/calendar/' },
+  // Source of truth. Each group becomes one dropdown.
+  const GROUPS = [
+    {
+      label: 'Visualizer',
+      items: [
+        { label: 'How to take it to 11', href: '/how-to/' },
+        { label: 'Visualizer V1.1', href: '/v1-1/' },
+        { label: 'Original Visualizer', href: '/digable-planets/' },
+      ],
+    },
+    {
+      label: 'Community Calendar',
+      items: [
+        { label: 'List view', href: '/calendar/' },
+        { label: 'Month view', href: '/calendar/?view=month' },
+      ],
+    },
   ];
-  const HOMEPAGE_LABEL = 'Projects';
 
-  function currentProject() {
+  function pathMatches(href) {
     const path = window.location.pathname;
-    // Match by href prefix so /how-to/, /how-to, and /how-to/index.html all
-    // resolve to the same entry.
-    return PROJECTS.find((p) => {
-      const base = p.href.replace(/\/$/, '');
-      return path === p.href || path === base || path.startsWith(base + '/');
-    }) || null;
+    const base = href.replace(/\?.*$/, '').replace(/\/$/, '');
+    return path === href || path === base || path.startsWith(base + '/');
   }
 
-  function init(host) {
+  // The active item within a group (first whose href path matches), or null.
+  function currentItem(group) {
+    return group.items.find((it) => pathMatches(it.href)) || null;
+  }
+
+  function buildDropdown(group) {
+    const current = currentItem(group);
+
     const root = document.createElement('div');
     root.className = 'nav-dropdown';
 
@@ -42,8 +56,9 @@
 
     const label = document.createElement('span');
     label.className = 'nav-dropdown-label';
-    const current = currentProject();
-    label.textContent = current ? current.label : HOMEPAGE_LABEL;
+    // Trigger always reads the group name (e.g. "Visualizer"); the active item
+    // is highlighted inside the panel.
+    label.textContent = group.label;
     trigger.appendChild(label);
 
     const chevron = document.createElement('span');
@@ -58,17 +73,16 @@
     panel.hidden = true;
 
     const optionEls = [];
-    PROJECTS.forEach((p, idx) => {
+    group.items.forEach((it, idx) => {
       const li = document.createElement('li');
       li.className = 'nav-dropdown-option';
       li.setAttribute('role', 'option');
-      if (current && current.href === p.href) li.classList.add('current');
+      if (current && current.href === it.href) li.classList.add('current');
 
       const a = document.createElement('a');
       a.className = 'nav-dropdown-link';
-      a.href = p.href;
-      a.textContent = p.label;
-      // Arrow-nav focus management
+      a.href = it.href;
+      a.textContent = it.label;
       a.tabIndex = -1;
       a.dataset.idx = String(idx);
 
@@ -79,7 +93,7 @@
 
     root.appendChild(trigger);
     root.appendChild(panel);
-    host.appendChild(root);
+    if (current) root.classList.add('has-current');
 
     let open = false;
     let focusIdx = 0;
@@ -90,8 +104,7 @@
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       root.classList.toggle('open', open);
       if (open) {
-        // Focus the current entry if there is one, otherwise the first option.
-        const startIdx = Math.max(0, PROJECTS.findIndex((p) => current && p.href === current.href));
+        const startIdx = group.items.findIndex((it) => current && it.href === current.href);
         focusIdx = startIdx === -1 ? 0 : startIdx;
         try { optionEls[focusIdx].focus(); } catch (_) {}
       }
@@ -134,12 +147,14 @@
       if (root.contains(e.target)) return;
       setOpen(false);
     });
+
+    return root;
   }
 
   function boot() {
     const host = document.querySelector('.nav-host');
     if (!host) return;
-    init(host);
+    GROUPS.forEach((group) => host.appendChild(buildDropdown(group)));
   }
 
   if (document.readyState === 'loading') {
