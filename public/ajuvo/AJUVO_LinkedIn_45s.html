@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AJUVO — 45s LinkedIn Cut (POC)</title>
+<style>
+:root{
+  --navy:#081627;--navy2:#0d2138;--ink:#050b14;--teal:#16E0C4;--teal2:#0bb9a2;
+  --red:#FF5066;--amber:#FFC44D;--white:#EAF2FA;--grey:#7B93AD;
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:var(--font)}
+html,body{height:100%;background:#02040a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#stage{position:relative;height:96vh;aspect-ratio:9/16;background:radial-gradient(130% 90% at 50% 0%,var(--navy2),var(--navy) 55%,var(--ink));
+  border-radius:16px;overflow:hidden;color:var(--white);box-shadow:0 30px 90px rgba(0,0,0,.75)}
+#stage::before{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:linear-gradient(var(--teal) 1px,transparent 1px),linear-gradient(90deg,var(--teal) 1px,transparent 1px);
+  background-size:44px 44px;animation:drift 20s linear infinite}
+@keyframes drift{to{background-position:0 440px}}
+#vig{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 160px rgba(0,0,0,.5)}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 8%;text-align:center;opacity:0;pointer-events:none;transition:opacity .5s ease}
+.scene.on{opacity:1}
+.kicker{font-size:3.2vh;letter-spacing:.32em;text-transform:uppercase;color:var(--teal);font-weight:700;opacity:0;transform:translateY(10px);transition:.5s}
+.kicker.show{opacity:1;transform:none}
+.head{font-size:5.4vh;font-weight:800;line-height:1.04;letter-spacing:-.02em;opacity:0;transform:translateY(16px);transition:.6s}
+.head.show{opacity:1;transform:none}
+.big{font-size:12vh;font-weight:800;letter-spacing:-.03em;line-height:.9;color:var(--teal)}
+.num{font-variant-numeric:tabular-nums}
+.sub{font-size:2.6vh;color:var(--grey);margin-top:1.5vh;letter-spacing:.04em}
+
+.plist{display:flex;flex-direction:column;gap:2vh}
+.pl{font-size:3.6vh;font-weight:800;opacity:.15;transition:.4s;color:var(--white)}
+.pl.hot{opacity:1}
+.pl .x{color:var(--red);margin-right:1vw}
+
+.steps{display:flex;flex-direction:column;gap:2.6vh}
+.step{display:flex;align-items:center;gap:2vw;font-size:3.4vh;font-weight:800;opacity:.15;transition:.45s}
+.step.lit{opacity:1}
+.dot{width:2.2vh;height:2.2vh;border-radius:50%;background:var(--grey);transition:.45s}
+.step.lit .dot{background:var(--teal);box-shadow:0 0 18px var(--teal)}
+
+.statwrap{display:flex;flex-direction:column;gap:3.5vh;align-items:center}
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat .v{font-size:13vh;font-weight:800;color:var(--teal);line-height:.85;letter-spacing:-.03em}
+.stat .k{font-size:2.4vh;color:var(--white);margin-top:1vh;letter-spacing:.06em;text-transform:uppercase}
+.stamp{font-size:3vh;font-weight:800;color:var(--teal);border:2px solid var(--teal2);padding:1.4vh 3vw;border-radius:40px;
+  opacity:0;transform:scale(.7);transition:.5s cubic-bezier(.2,1.5,.4,1);margin-top:1vh}
+.stamp.show{opacity:1;transform:none}
+
+.logo{font-size:9vh;font-weight:800;letter-spacing:.05em}
+.logo .t{color:var(--teal)}
+.cta{margin-top:3vh;background:var(--teal);color:var(--navy);font-weight:800;font-size:2.8vh;padding:1.8vh 6vw;border-radius:44px;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.small{font-size:2vh;color:var(--grey);margin-top:2vh}
+
+#cap{position:absolute;left:6%;right:6%;bottom:8%;text-align:center;font-size:3vh;font-weight:700;line-height:1.32;
+  text-shadow:0 2px 14px rgba(0,0,0,.95);min-height:8vh}
+#cap b{background:var(--teal);color:var(--navy);padding:0 6px;border-radius:4px}
+#bar{position:absolute;left:0;bottom:0;height:5px;background:var(--teal);width:0%;z-index:5}
+#brand{position:absolute;top:16px;left:16px;font-size:2.2vh;font-weight:800;letter-spacing:.08em}
+#brand .t{color:var(--teal)}
+#poc{position:absolute;top:16px;right:16px;font-size:1.3vh;letter-spacing:.14em;color:#3f5c7c;text-transform:uppercase}
+#snd{position:absolute;bottom:14px;right:14px;font-size:1.7vh;color:var(--teal);background:rgba(0,0,0,.35);padding:.7vh 1.6vw;border-radius:20px;cursor:pointer;opacity:0;transition:.3s;z-index:8}
+#snd.show{opacity:1}
+#ctrl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(3,7,16,.72);cursor:pointer;z-index:10;transition:opacity .4s}
+#ctrl.hidden{opacity:0;pointer-events:none}
+#play{width:16vh;height:16vh;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 0 50px rgba(22,224,196,.6)}
+#play::after{content:"";border-left:5vh solid var(--navy);border-top:3.4vh solid transparent;border-bottom:3.4vh solid transparent;margin-left:1.4vh}
+#ctrl .lbl{margin-top:3vh;font-size:2.2vh;letter-spacing:.25em;text-transform:uppercase}
+#ctrl .s2{margin-top:1vh;font-size:1.8vh;color:var(--grey)}
+#replay{position:absolute;bottom:14px;left:14px;font-size:1.7vh;color:var(--teal);background:rgba(0,0,0,.35);padding:.7vh 1.6vw;border-radius:20px;cursor:pointer;opacity:0;transition:.3s;z-index:8}
+#replay.show{opacity:1}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="brand">AJU<span class="t">VO</span></div>
+  <div id="poc">POC · 9:16 · 45s</div>
+
+  <div class="scene" id="s-hook">
+    <div class="kicker" id="hk">ServiceNow · Enterprise CSM</div>
+    <div class="head" id="hh">Every enterprise<br>thinks its data is<br>under control.</div>
+    <div class="head" id="hh2" style="font-size:3.4vh;color:var(--grey);margin-top:3vh">…until it tries to move it.</div>
+  </div>
+
+  <div class="scene" id="s-prob">
+    <div class="kicker show" style="margin-bottom:4vh">One migration. Four landmines.</div>
+    <div class="plist">
+      <div class="pl" data-p="0"><span class="x">✕</span>Fragmented service sprawl</div>
+      <div class="pl" data-p="1"><span class="x">✕</span>Disconnected operations</div>
+      <div class="pl" data-p="2"><span class="x">✕</span>Undocumented legacy data</div>
+      <div class="pl" data-p="3"><span class="x">✕</span>Migration at massive scale</div>
+    </div>
+  </div>
+
+  <div class="scene" id="s-method">
+    <div class="kicker show" style="margin-bottom:4vh">So AJUVO went to work</div>
+    <div class="steps">
+      <div class="step" data-s="0"><span class="dot"></span>Reverse-engineer the data</div>
+      <div class="step" data-s="1"><span class="dot"></span>Map every relationship</div>
+      <div class="step" data-s="2"><span class="dot"></span>Sequence the load</div>
+    </div>
+  </div>
+
+  <div class="scene" id="s-num">
+    <div class="kicker show" style="margin-bottom:2vh">The result</div>
+    <div class="statwrap">
+      <div class="stat"><div class="v num" id="n1">0</div><div class="k">primary cases</div></div>
+      <div class="stat"><div class="v num" id="n2">0</div><div class="k">total records migrated</div></div>
+      <div class="stamp" id="nstamp">✓ platform stability maintained</div>
+    </div>
+  </div>
+
+  <div class="scene" id="s-cta">
+    <div class="logo">AJU<span class="t">VO</span></div>
+    <div class="small" style="margin-top:1vh">ServiceNow migration at enterprise scale</div>
+    <div class="cta">Let's talk — ajuvo.com</div>
+    <div class="small">(844) 420-2100 · info@ajuvo.com</div>
+  </div>
+
+  <div id="cap"></div>
+  <div id="bar"></div>
+  <div id="snd">♪ sound on</div>
+  <div id="replay">↻ replay</div>
+  <div id="ctrl"><div id="play"></div><div class="lbl">Play · 45s</div><div class="s2">sound on · best full-screen</div></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const END=45000;
+const SCENES=[
+  {id:'s-hook',a:0,b:8000},{id:'s-prob',a:8000,b:16000},{id:'s-method',a:16000,b:24000},
+  {id:'s-num',a:24000,b:38000},{id:'s-cta',a:38000,b:45000}
+];
+const CAPS=[
+  [0,4000,"Every enterprise thinks its data is under control."],
+  [4000,8000,"Then it tries to move it."],
+  [8000,16000,"One customer service transformation. Four problems nobody warned them about."],
+  [16000,24000,"AJUVO reverse-engineered the data, mapped every relationship, and sequenced the load."],
+  [24000,31000,"<b>16.6 million</b> primary cases."],
+  [31000,38000,"<b>140 million</b> total records — moved under an aggressive timeline."],
+  [38000,45000,"AJUVO — ServiceNow migration at enterprise scale. Let's talk, ajuvo.com."]
+];
+const CUES=[
+  [200,()=>{$('#hk').classList.add('show');}],
+  [700,()=>{$('#hh').classList.add('show');}],
+  [4200,()=>{$('#hh2').classList.add('show');ping(400);}],
+  [9000,()=>pl(0)],[10200,()=>pl(1)],[11400,()=>pl(2)],[12600,()=>pl(3)],
+  [17000,()=>st(0)],[19000,()=>st(1)],[21000,()=>st(2)],
+  [35500,()=>{$('#nstamp').classList.add('show');swell();}]
+];
+function pl(i){document.querySelector(`.pl[data-p="${i}"]`).classList.add('hot');ping(300+i*30);}
+function st(i){document.querySelector(`.step[data-s="${i}"]`).classList.add('lit');ping(520+i*60);}
+const ease=t=>1-Math.pow(1-t,3);
+function cnt(el,target,t0,t1,now,fmt){const p=Math.min(1,Math.max(0,(now-t0)/(t1-t0)));el.textContent=fmt(Math.round(ease(p)*target));}
+const fM=n=>(n/1e6).toFixed(1).replace(/\.0$/,'')+'M';
+let AC=null,SND=true;
+function audio(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){SND=false;}}}
+function tone(f,d,t,g,sl){if(!AC||!SND)return;const o=AC.createOscillator(),v=AC.createGain(),n=AC.currentTime;
+ o.type=t||'sine';o.frequency.setValueAtTime(f,n);if(sl)o.frequency.exponentialRampToValueAtTime(sl,n+d);
+ v.gain.setValueAtTime(0,n);v.gain.linearRampToValueAtTime(g||.15,n+.01);v.gain.exponentialRampToValueAtTime(.0001,n+d);
+ o.connect(v);v.connect(AC.destination);o.start(n);o.stop(n+d+.05);}
+const hit=(f,g)=>{tone(f||120,.5,'sine',g||.4);tone((f||120)*2,.18,'triangle',.1);};
+const ping=f=>tone(f||600,.12,'triangle',.07);
+const swell=()=>[262,330,392,523].forEach((f,i)=>setTimeout(()=>tone(f,.9,'sine',.09),i*70));
+let start=null,raf=null,fired=new Array(CUES.length).fill(false);
+function reset(){start=null;fired.fill(false);cancelAnimationFrame(raf);
+  $$('.scene').forEach(s=>s.classList.remove('on'));
+  $$('.pl').forEach(e=>e.classList.remove('hot'));$$('.step').forEach(e=>e.classList.remove('lit'));
+  $('#nstamp').classList.remove('show');$('#hh2').classList.remove('show');
+  ['hk','hh'].forEach(id=>$('#'+id).classList.remove('show'));
+  $('#n1').textContent='0';$('#n2').textContent='0';$('#bar').style.width='0%';$('#cap').innerHTML='';$('#replay').classList.remove('show');}
+function frame(ts){if(!start)start=ts;const now=ts-start;
+  $('#bar').style.width=Math.min(100,now/END*100)+'%';
+  SCENES.forEach(s=>document.getElementById(s.id).classList.toggle('on',now>=s.a&&now<s.b));
+  const c=CAPS.find(c=>now>=c[0]&&now<c[1]);$('#cap').innerHTML=c?c[2]:'';
+  CUES.forEach((q,i)=>{if(!fired[i]&&now>=q[0]){fired[i]=true;q[1]();}});
+  if(now>=24500&&now<31000)cnt($('#n1'),16600000,24800,30000,now,fM);
+  if(now>=30000)$('#n1').textContent='16.6M';
+  if(now>=30500&&now<38000)cnt($('#n2'),140000000,30800,36500,now,fM);
+  if(now>=36500)$('#n2').textContent='140M';
+  if(now<END)raf=requestAnimationFrame(frame);
+  else{$('#cap').innerHTML=CAPS[CAPS.length-1][2];$('#replay').classList.add('show');}}
+function play(){audio();if(AC&&AC.state==='suspended')AC.resume();reset();$('#ctrl').classList.add('hidden');$('#snd').classList.add('show');raf=requestAnimationFrame(frame);}
+$('#ctrl').addEventListener('click',play);$('#replay').addEventListener('click',play);
+$('#snd').addEventListener('click',e=>{e.stopPropagation();SND=!SND;$('#snd').textContent=SND?'♪ sound on':'♪ sound off';});
+</script>
+</body>
+</html>

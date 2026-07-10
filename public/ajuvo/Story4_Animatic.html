@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AJUVO — Story 4 Animatic (POC)</title>
+<style>
+  :root{
+    /* PLACEHOLDER BRAND COLORS — swap for AJUVO's real palette */
+    --navy:#0A1A2F; --navy2:#0E2440; --teal:#16E0C4; --teal-dim:#0d8f7f;
+    --red:#FF4D5E; --white:#F4F8FC; --grey:#7C90A8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,-apple-system,sans-serif}
+  html,body{height:100%;background:#05070d;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #stage{
+    position:relative;height:96vh;aspect-ratio:9/16;background:radial-gradient(120% 90% at 50% 0%,var(--navy2),var(--navy) 60%,#05101f);
+    border-radius:18px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.7);color:var(--white)}
+  /* subtle animated grid backdrop */
+  #stage::before{content:"";position:absolute;inset:0;opacity:.06;
+    background-image:linear-gradient(var(--teal) 1px,transparent 1px),linear-gradient(90deg,var(--teal) 1px,transparent 1px);
+    background-size:44px 44px;animation:drift 18s linear infinite}
+  @keyframes drift{to{background-position:0 440px}}
+
+  .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:8% 9%;text-align:center;opacity:0;transform:translateY(14px);pointer-events:none;
+    transition:opacity .5s ease,transform .5s ease}
+  .scene.on{opacity:1;transform:none}
+
+  .kicker{font-size:clamp(11px,2.4vh,15px);letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:2.5vh;font-weight:600}
+  .big{font-size:clamp(40px,10vh,96px);font-weight:800;line-height:1;letter-spacing:-.02em}
+  .num{font-variant-numeric:tabular-nums}
+  .label{font-size:clamp(16px,3.4vh,26px);color:var(--grey);margin-top:2vh;font-weight:500}
+
+  /* Scene B stacked lines */
+  .stackline{font-size:clamp(20px,4.6vh,38px);font-weight:700;margin:1.1vh 0;opacity:.25;transition:opacity .4s,color .4s}
+  .stackline.hot{opacity:1;color:var(--white)}
+  .stackline .t{color:var(--teal)}
+
+  /* Scene C split */
+  .stamp{font-size:clamp(20px,4.4vh,34px);font-weight:800;letter-spacing:.02em;color:var(--red);
+    border:3px solid var(--red);padding:2.2vh 4vw;border-radius:10px;transform:rotate(-4deg) scale(.6);opacity:0;
+    transition:transform .35s cubic-bezier(.2,1.4,.4,1),opacity .35s;text-transform:uppercase}
+  .stamp.in{transform:rotate(-4deg) scale(1);opacity:1}
+  .vs{width:0;height:4px;background:var(--teal);margin:3.5vh 0;transition:width .5s .3s}
+  .vs.in{width:60%}
+
+  /* Scene D process nodes */
+  .steps{display:flex;flex-direction:column;gap:2.4vh;width:100%}
+  .step{display:flex;align-items:center;gap:14px;font-size:clamp(15px,3vh,24px);font-weight:700;opacity:.2;transition:opacity .45s}
+  .step.lit{opacity:1}
+  .dot{width:16px;height:16px;border-radius:50%;background:var(--grey);flex:0 0 auto;transition:background .45s,box-shadow .45s}
+  .step.lit .dot{background:var(--teal);box-shadow:0 0 18px var(--teal)}
+  .step small{display:block;color:var(--grey);font-weight:500;font-size:clamp(11px,2vh,15px);margin-top:.4vh}
+
+  /* Scene E payoff */
+  .payoff{display:flex;flex-direction:column;gap:3vh;width:100%}
+  .stat{display:flex;flex-direction:column;align-items:center}
+  .stat .v{font-size:clamp(46px,11vh,110px);font-weight:800;line-height:.95;color:var(--teal);letter-spacing:-.03em}
+  .stat .k{font-size:clamp(14px,2.8vh,20px);color:var(--white);margin-top:.6vh;letter-spacing:.04em}
+  .check{color:var(--teal);font-size:clamp(16px,3vh,22px);margin-top:2vh;opacity:0;transition:opacity .5s}
+  .check.in{opacity:1}
+
+  /* Scene F contrast */
+  .weigh{font-size:clamp(26px,6vh,52px);font-weight:800;line-height:1.15}
+  .weigh .dimline{color:var(--grey);font-weight:600;opacity:.5}
+  .weigh .hot{color:var(--teal)}
+
+  /* Scene G CTA */
+  .logo{font-size:clamp(38px,8vh,72px);font-weight:800;letter-spacing:.04em}
+  .logo .t{color:var(--teal)}
+  .tag{font-size:clamp(14px,2.8vh,20px);color:var(--grey);margin-top:1.5vh}
+  .cta{margin-top:4vh;background:var(--teal);color:var(--navy);font-weight:800;font-size:clamp(15px,3vh,22px);
+    padding:2vh 6vw;border-radius:40px;animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .qr{margin-top:3vh;width:11vh;height:11vh;background:
+    repeating-conic-gradient(var(--white) 0 25%,var(--navy) 0 50%) 50%/22% 22%;border:8px solid var(--white);border-radius:8px;opacity:.85}
+
+  /* captions */
+  #cap{position:absolute;left:6%;right:6%;bottom:10%;text-align:center;font-size:clamp(16px,3.2vh,26px);
+    font-weight:700;line-height:1.35;text-shadow:0 2px 14px rgba(0,0,0,.9);min-height:9vh}
+  #cap b{background:var(--teal);color:var(--navy);padding:0 6px;border-radius:4px}
+
+  /* progress + controls */
+  #bar{position:absolute;left:0;bottom:0;height:5px;background:var(--teal);width:0%}
+  #ctrl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,10,20,.55);
+    cursor:pointer;transition:opacity .3s}
+  #ctrl.hidden{opacity:0;pointer-events:none}
+  #play{width:96px;height:96px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(22,224,196,.6)}
+  #play::after{content:"";border-left:30px solid var(--navy);border-top:20px solid transparent;border-bottom:20px solid transparent;margin-left:8px}
+  #ctrl .lbl{position:absolute;bottom:16%;color:var(--white);font-size:14px;letter-spacing:.2em;text-transform:uppercase}
+  #tag{position:absolute;top:14px;left:14px;font-size:10px;letter-spacing:.18em;color:var(--grey);text-transform:uppercase}
+  #replay{position:absolute;top:14px;right:14px;font-size:12px;color:var(--teal);cursor:pointer;background:rgba(0,0,0,.3);padding:6px 12px;border-radius:20px;opacity:0;transition:opacity .3s}
+  #replay.show{opacity:1}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="tag">POC ANIMATIC · NO VO/MUSIC YET</div>
+  <div id="replay">↻ Replay</div>
+
+  <!-- A -->
+  <div class="scene" data-s="A">
+    <div class="kicker">Migration at scale</div>
+    <div class="big num" id="a-num">0</div>
+    <div class="label" id="a-lab" style="opacity:0">records</div>
+  </div>
+  <!-- B -->
+  <div class="scene" data-s="B">
+    <div class="stackline" data-b="0"><span class="t">Millions</span> of support cases</div>
+    <div class="stackline" data-b="1">Years of emails, chats &amp; history</div>
+    <div class="stackline" data-b="2">All of it <span class="t">live</span></div>
+  </div>
+  <!-- C -->
+  <div class="scene" data-s="C">
+    <div class="kicker">At this scale, most migrations…</div>
+    <div class="stamp" data-c="0">Miss the deadline</div>
+    <div class="vs" data-c="line"></div>
+    <div class="stamp" data-c="1">Crash the platform</div>
+  </div>
+  <!-- D -->
+  <div class="scene" data-s="D">
+    <div class="kicker">AJUVO did neither</div>
+    <div class="steps">
+      <div class="step" data-d="0"><span class="dot"></span><div>Reverse-engineer<small>the undocumented data model</small></div></div>
+      <div class="step" data-d="1"><span class="dot"></span><div>Map every relationship<small>preserve business context</small></div></div>
+      <div class="step" data-d="2"><span class="dot"></span><div>Sequence the load<small>throttle when it must, push when it can</small></div></div>
+    </div>
+  </div>
+  <!-- E -->
+  <div class="scene" data-s="E">
+    <div class="kicker">The result</div>
+    <div class="payoff">
+      <div class="stat"><div class="v num" id="e1">0</div><div class="k">primary customer-care cases</div></div>
+      <div class="stat"><div class="v num" id="e2">0</div><div class="k">total records migrated</div></div>
+    </div>
+    <div class="check" id="e-check">✓ history preserved &nbsp;·&nbsp; ✓ platform stable</div>
+  </div>
+  <!-- F -->
+  <div class="scene" data-s="F">
+    <div class="weigh"><span class="dimline">moving data</span><br>is not<br><span class="hot">preserving a business</span></div>
+  </div>
+  <!-- G -->
+  <div class="scene" data-s="G">
+    <div class="logo">AJU<span class="t">VO</span></div>
+    <div class="tag">ServiceNow migration at enterprise scale</div>
+    <div class="cta">Let's talk — ajuvo.com</div>
+    <div class="qr"></div>
+  </div>
+
+  <div id="cap"></div>
+  <div id="bar"></div>
+  <div id="ctrl"><div id="play"></div><div class="lbl">Play the 58-second cut</div></div>
+</div>
+
+<script>
+const DUR = 58000;
+const scenes = [
+  {s:'A',a:0,b:4},{s:'B',a:4,b:11},{s:'C',a:11,b:19},{s:'D',a:19,b:30},
+  {s:'E',a:30,b:44},{s:'F',a:44,b:52},{s:'G',a:52,b:58}
+];
+const caps = [
+  {a:0,b:4,t:"Moving one customer to a new platform is hard. This customer had <b>140 million records</b>."},
+  {a:4,b:11,t:"Millions of support cases. Years of emails, chats, and history. All of it live."},
+  {a:11,b:19,t:"Most migrations at this scale miss the deadline — or take the platform down trying to hit it."},
+  {a:19,b:30,t:"AJUVO did neither. We reverse-engineered the data, mapped every relationship, and sequenced the load."},
+  {a:30,b:38,t:"<b>16.6 million</b> primary cases."},
+  {a:38,b:44,t:"<b>140 million</b> total records — under an aggressive timeline."},
+  {a:44,b:52,t:"That's the difference between moving data and <b>preserving a business</b>."},
+  {a:52,b:58,t:"AJUVO. ServiceNow migration at enterprise scale. Let's talk — ajuvo.com"}
+];
+const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
+let start=null,raf=null,fired={};
+
+function ease(t){return 1-Math.pow(1-t,3);}
+function countTo(el,target,t0,t1,now,fmt){
+  const p=Math.min(1,Math.max(0,(now-t0)/(t1-t0)));
+  el.textContent=fmt(Math.round(ease(p)*target));
+}
+const fmtFull=n=>n.toLocaleString('en-US');
+const fmtM=n=>(n/1_000_000).toFixed(1).replace(/\.0$/,'')+'M';
+
+function reset(){
+  fired={};
+  $$('.scene').forEach(s=>s.classList.remove('on'));
+  $$('.stackline').forEach(e=>e.classList.remove('hot'));
+  $$('.stamp').forEach(e=>e.classList.remove('in'));
+  $('[data-c="line"]').classList.remove('in');
+  $$('.step').forEach(e=>e.classList.remove('lit'));
+  $('#e-check').classList.remove('in');
+  $('#a-lab').style.opacity=0;$('#a-num').textContent='0';
+  $('#e1').textContent='0';$('#e2').textContent='0';
+  $('#bar').style.width='0%';$('#cap').innerHTML='';
+  $('#replay').classList.remove('show');
+}
+
+function tick(ts){
+  if(!start)start=ts;
+  const now=ts-start;
+  $('#bar').style.width=Math.min(100,now/DUR*100)+'%';
+
+  scenes.forEach(sc=>{
+    const el=document.querySelector(`.scene[data-s="${sc.s}"]`);
+    el.classList.toggle('on', now>=sc.a*1000 && now<sc.b*1000);
+  });
+  const c=caps.find(c=>now>=c.a*1000&&now<c.b*1000);
+  $('#cap').innerHTML=c?c.t:'';
+
+  if(now>=0&&now<4000) countTo($('#a-num'),140000000,300,3200,now,fmtFull);
+  if(now>=3200&&!fired.aLab){$('#a-lab').style.opacity=1;$('#a-num').textContent='140,000,000';fired.aLab=1;}
+
+  [ [4600,0],[6600,1],[8600,2] ].forEach(([t,i])=>{
+    if(now>=t) document.querySelector(`.stackline[data-b="${i}"]`).classList.add('hot');
+  });
+
+  if(now>=11600) document.querySelector('.stamp[data-c="0"]').classList.add('in');
+  if(now>=13400) document.querySelector('.stamp[data-c="1"]').classList.add('in');
+  if(now>=15200) $('[data-c="line"]').classList.add('in');
+
+  [ [20000,0],[23000,1],[26000,2] ].forEach(([t,i])=>{
+    if(now>=t) document.querySelector(`.step[data-d="${i}"]`).classList.add('lit');
+  });
+
+  if(now>=30000&&now<38000) countTo($('#e1'),16600000,30300,36000,now,fmtM);
+  if(now>=36000){$('#e1').textContent='16.6M';}
+  if(now>=37500&&now<44000) countTo($('#e2'),140000000,37800,43000,now,fmtM);
+  if(now>=43000){$('#e2').textContent='140M';}
+  if(now>=42000) $('#e-check').classList.add('in');
+
+  if(now<DUR){raf=requestAnimationFrame(tick);}
+  else{ $('#cap').innerHTML=caps[caps.length-1].t; $('#replay').classList.add('show'); }
+}
+
+function playAll(){
+  reset(); start=null; cancelAnimationFrame(raf);
+  $('#ctrl').classList.add('hidden');
+  raf=requestAnimationFrame(tick);
+}
+$('#ctrl').addEventListener('click',playAll);
+$('#replay').addEventListener('click',playAll);
+</script>
+</body>
+</html>

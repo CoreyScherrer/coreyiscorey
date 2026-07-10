@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AJUVO — CSM Success Stories (Motion Reel POC)</title>
+<style>
+:root{
+  /* PLACEHOLDER BRAND — swap for AJUVO's real palette + logo */
+  --navy:#081627; --navy2:#0d2138; --ink:#050b14;
+  --teal:#16E0C4; --teal2:#0bb9a2; --red:#FF5066; --amber:#FFC44D;
+  --white:#EAF2FA; --grey:#7B93AD;
+  --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:var(--font)}
+html,body{height:100%;background:#02040a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#stage{position:relative;height:96vh;aspect-ratio:16/9;max-width:98vw;background:radial-gradient(130% 100% at 50% -10%,var(--navy2),var(--navy) 55%,var(--ink));
+  border-radius:14px;overflow:hidden;color:var(--white);box-shadow:0 30px 100px rgba(0,0,0,.75)}
+#stage::before{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:linear-gradient(var(--teal) 1px,transparent 1px),linear-gradient(90deg,var(--teal) 1px,transparent 1px);
+  background-size:52px 52px;animation:drift 22s linear infinite}
+@keyframes drift{to{background-position:520px 520px}}
+#vig{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 200px rgba(0,0,0,.55)}
+
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 8%;text-align:center;opacity:0;pointer-events:none;transition:opacity .6s ease}
+.scene.on{opacity:1}
+
+.alabel{font-size:1.0vw;letter-spacing:.5em;text-transform:uppercase;color:var(--teal);font-weight:700;
+  opacity:0;transform:translateY(12px);transition:.6s}
+.atitle{font-size:4.6vw;font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-top:1.4vh;
+  opacity:0;transform:translateY(18px);transition:.7s .1s}
+.rise.show{opacity:1;transform:none}
+
+.beat{font-size:1.9vw;font-weight:600;line-height:1.35;max-width:70%;color:var(--white);opacity:0;transform:translateY(14px);
+  transition:.55s;margin:0 auto}
+.beat.show{opacity:1;transform:none}
+.beat .t{color:var(--teal)} .beat .r{color:var(--red)} .beat.dim{color:var(--grey);opacity:.55}
+
+.chip{display:inline-flex;align-items:center;gap:.6vw;font-size:1.4vw;font-weight:700;color:var(--navy);
+  background:var(--teal);padding:1.3vh 2vw;border-radius:40px;opacity:0;transform:scale(.7);transition:.5s cubic-bezier(.2,1.5,.4,1)}
+.chip.show{opacity:1;transform:none}
+.chip.ghost{background:transparent;color:var(--teal);border:2px solid var(--teal2)}
+
+.num{font-variant-numeric:tabular-nums}
+.mega{font-size:9vw;font-weight:800;letter-spacing:-.03em;line-height:.9;color:var(--teal)}
+
+/* ---- COLD OPEN ---- */
+#co .fourlist{display:flex;gap:1.4vw;margin-top:3vh;flex-wrap:wrap;justify-content:center}
+#co .fl{font-size:1.1vw;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);border:1px solid #24405f;
+  padding:1vh 1.4vw;border-radius:6px;opacity:0;transform:translateY(10px);transition:.5s}
+#co .fl.show{opacity:1;transform:none;color:var(--white);border-color:var(--teal2)}
+
+/* ---- ACT 1 motif: platform swap ---- */
+.pill{font-size:1.7vw;font-weight:800;padding:2vh 2.4vw;border-radius:14px;letter-spacing:.02em}
+.pill.sf{background:#12263c;color:#8fb2d6;border:2px solid #2b4a6b}
+.pill.sn{background:linear-gradient(135deg,var(--teal2),var(--teal));color:var(--navy)}
+.swaprow{display:flex;align-items:center;gap:2.2vw;margin-bottom:3vh}
+.arrow{width:0;height:3px;background:var(--teal);position:relative;transition:width .7s}
+.arrow.grow{width:6vw}
+.arrow::after{content:"";position:absolute;right:-2px;top:-6px;border-left:14px solid var(--teal);border-top:8px solid transparent;border-bottom:8px solid transparent;opacity:0;transition:opacity .3s .5s}
+.arrow.grow::after{opacity:1}
+.pill.sf.fade{opacity:.28;filter:grayscale(.6);transform:scale(.94);transition:.7s}
+.pill.sn.pop{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.costtag{font-size:1.5vw;font-weight:700;color:var(--amber);opacity:0;transition:.5s}
+.costtag.show{opacity:1}
+.costtag s{color:var(--red);opacity:.7}
+
+/* ---- ACT 2 motif: scatter -> unify ---- */
+.field{position:relative;width:34vw;height:34vh;margin-bottom:2.5vh}
+.node{position:absolute;width:1.7vw;height:1.7vw;border-radius:50%;background:var(--grey);
+  transition:all .9s cubic-bezier(.6,0,.2,1);box-shadow:0 0 0 rgba(22,224,196,0)}
+.field.unified .node{background:var(--teal);box-shadow:0 0 16px rgba(22,224,196,.7)}
+.ring{position:absolute;inset:0;margin:auto;width:12vw;height:12vw;border:3px solid var(--teal);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:2.6vw;font-weight:800;color:var(--teal);opacity:0;transform:scale(.6);transition:.7s .3s}
+.field.unified .ring{opacity:1;transform:none}
+
+/* ---- ACT 3 motif: tangle -> map ---- */
+.datawrap{position:relative;width:40vw;height:32vh;margin-bottom:2.5vh}
+.qmark{position:absolute;font-size:2.4vw;font-weight:800;color:var(--red);opacity:0;transition:.5s}
+.qmark.show{opacity:.85}
+.datawrap.mapped .qmark{opacity:0}
+.grid3{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;opacity:0;transition:.7s}
+.datawrap.mapped .grid3{opacity:1}
+.cell{background:#0f2740;border:1px solid var(--teal2);border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:.95vw;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.tangle{position:absolute;inset:0;stroke:var(--red);stroke-width:2;fill:none;opacity:.6;transition:.6s}
+.datawrap.mapped .tangle{opacity:0}
+
+/* ---- ACT 4 motif: counters + throttle ---- */
+.statgrid{display:flex;gap:5vw;margin-bottom:2.5vh}
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat .v{font-size:6.5vw;font-weight:800;color:var(--teal);line-height:.9;letter-spacing:-.03em}
+.stat .k{font-size:1.1vw;color:var(--white);margin-top:1vh;letter-spacing:.06em;text-transform:uppercase}
+.gauge{width:34vw;height:1.6vh;background:#0f2740;border-radius:10px;overflow:hidden;position:relative;margin-top:1vh}
+.gauge>div{position:absolute;left:0;top:0;bottom:0;width:30%;background:linear-gradient(90deg,var(--teal2),var(--teal));border-radius:10px}
+.gauge.run>div{animation:throttle 2.4s ease-in-out infinite}
+@keyframes throttle{0%,100%{width:24%}40%{width:82%}70%{width:52%}}
+.glabel{font-size:.95vw;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-top:1.2vh}
+
+/* ---- CLOSE ---- */
+.logo{font-size:6vw;font-weight:800;letter-spacing:.05em}
+.logo .t{color:var(--teal)}
+.cta{margin-top:3vh;background:var(--teal);color:var(--navy);font-weight:800;font-size:1.6vw;padding:1.6vh 3vw;border-radius:44px;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.small{font-size:1.1vw;color:var(--grey);margin-top:1.6vh;letter-spacing:.04em}
+
+/* captions + chrome */
+#cap{position:absolute;left:8%;right:8%;bottom:6.5%;text-align:center;font-size:1.5vw;font-weight:700;
+  line-height:1.35;text-shadow:0 2px 16px rgba(0,0,0,.95);min-height:7vh}
+#cap b{background:var(--teal);color:var(--navy);padding:0 .5vw;border-radius:4px}
+#bar{position:absolute;left:0;bottom:0;height:5px;background:var(--teal);width:0%;z-index:5}
+#chapters{position:absolute;left:0;bottom:5px;width:100%;height:22px;z-index:6;pointer-events:none}
+#chapters i{position:absolute;bottom:0;width:1px;height:10px;background:#3a5674}
+#chLabel{position:absolute;top:16px;left:16px;font-size:.85vw;letter-spacing:.25em;text-transform:uppercase;color:var(--grey)}
+#brand{position:absolute;top:16px;right:16px;font-size:.95vw;font-weight:800;letter-spacing:.08em;color:var(--white)}
+#brand .t{color:var(--teal)}
+#poc{position:absolute;bottom:14px;right:16px;font-size:.7vw;letter-spacing:.15em;color:#3f5c7c;text-transform:uppercase;z-index:7}
+
+#ctrl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(3,7,16,.72);cursor:pointer;z-index:10;transition:opacity .4s}
+#ctrl.hidden{opacity:0;pointer-events:none}
+#play{width:6vw;height:6vw;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 0 50px rgba(22,224,196,.6)}
+#play::after{content:"";border-left:2vw solid var(--navy);border-top:1.3vw solid transparent;border-bottom:1.3vw solid transparent;margin-left:.5vw}
+#ctrl .lbl{margin-top:3vh;font-size:1vw;letter-spacing:.25em;text-transform:uppercase;color:var(--white)}
+#ctrl .sub{margin-top:1vh;font-size:.85vw;color:var(--grey)}
+#snd{position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:8;font-size:.8vw;color:var(--teal);
+  background:rgba(0,0,0,.35);padding:.6vh 1.2vw;border-radius:20px;cursor:pointer;opacity:0;transition:.3s}
+#snd.show{opacity:1}
+#replay{position:absolute;top:14px;left:16px;font-size:.85vw;color:var(--teal);background:rgba(0,0,0,.35);
+  padding:.6vh 1.2vw;border-radius:20px;cursor:pointer;opacity:0;transition:.3s;z-index:8}
+#replay.show{opacity:1}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="brand">AJU<span class="t">VO</span></div>
+  <div id="chLabel"></div>
+  <div id="snd">♪ sound on</div>
+  <div id="replay">↻ replay</div>
+  <div id="poc">POC · code-generated motion graphics</div>
+
+  <!-- COLD OPEN -->
+  <div class="scene" id="co" data-act="0">
+    <div class="alabel rise">AJUVO · CSM Transformation</div>
+    <div class="atitle rise">One transformation.<br>Four things nobody<br>warned them about.</div>
+    <div class="fourlist">
+      <div class="fl" data-fl="0">Strategic shift</div>
+      <div class="fl" data-fl="1">Fragmented ops</div>
+      <div class="fl" data-fl="2">Undocumented data</div>
+      <div class="fl" data-fl="3">Migration at scale</div>
+    </div>
+  </div>
+
+  <!-- ACT 1 -->
+  <div class="scene" id="a1" data-act="1">
+    <div class="swaprow">
+      <div class="pill sf" id="a1sf">Salesforce</div>
+      <div class="arrow" id="a1arrow"></div>
+      <div class="pill sn" id="a1sn" style="opacity:0">ServiceNow</div>
+    </div>
+    <div class="costtag" id="a1cost"><s>$$$$</s> &nbsp;→&nbsp; $$ &nbsp;a price that finally made sense</div>
+    <div class="beat" id="a1b" style="margin-top:3vh"></div>
+  </div>
+
+  <!-- ACT 2 -->
+  <div class="scene" id="a2" data-act="2">
+    <div class="field" id="a2field">
+      <div class="ring" id="a2ring">1</div>
+    </div>
+    <div class="beat" id="a2b"></div>
+  </div>
+
+  <!-- ACT 3 -->
+  <div class="scene" id="a3" data-act="3">
+    <div class="datawrap" id="a3wrap">
+      <svg class="tangle" viewBox="0 0 100 80" preserveAspectRatio="none">
+        <path d="M8,10 C40,70 70,5 92,60 M12,70 C50,10 60,75 90,15 M20,40 C55,60 45,20 80,45"/>
+      </svg>
+      <div class="qmark" style="left:10%;top:12%" data-q>?</div>
+      <div class="qmark" style="left:78%;top:20%" data-q>?</div>
+      <div class="qmark" style="left:34%;top:60%" data-q>?</div>
+      <div class="qmark" style="left:64%;top:66%" data-q>?</div>
+      <div class="grid3">
+        <div class="cell">Records</div><div class="cell">Relations</div><div class="cell">History</div>
+        <div class="cell">Cases</div><div class="cell">Contacts</div><div class="cell">Journals</div>
+      </div>
+    </div>
+    <div class="beat" id="a3b"></div>
+  </div>
+
+  <!-- ACT 4 -->
+  <div class="scene" id="a4" data-act="4">
+    <div class="statgrid">
+      <div class="stat"><div class="v num" id="a4s1">0</div><div class="k">primary cases</div></div>
+      <div class="stat"><div class="v num" id="a4s2">0</div><div class="k">total records</div></div>
+    </div>
+    <div class="gauge" id="a4gauge"><div></div></div>
+    <div class="glabel" id="a4gl">throttle · push · protect the platform</div>
+    <div class="beat" id="a4b" style="margin-top:2.5vh"></div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="scene" id="cl" data-act="5">
+    <div class="alabel rise">Four problems · one pattern</div>
+    <div class="logo rise" style="margin-top:1vh">AJU<span class="t">VO</span></div>
+    <div class="beat show" style="margin-top:1.5vh;max-width:64%">Complexity builds up until someone has to untangle it.<br>That's the part we're built for.</div>
+    <div class="cta">Let's talk — ajuvo.com</div>
+    <div class="small">(844) 420-2100 · info@ajuvo.com</div>
+  </div>
+
+  <div id="cap"></div>
+  <div id="chapters"></div>
+  <div id="bar"></div>
+
+  <div id="ctrl">
+    <div id="play"></div>
+    <div class="lbl">Play the reel</div>
+    <div class="sub">~2 min · sound on · best full-screen</div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+// ---- master timeline (ms) ----
+const ACTS=[
+  {id:'co',a:0,     b:8000,  label:'Cold Open'},
+  {id:'a1',a:8000,  b:30000, label:'Story 1 · Strategic Shift'},
+  {id:'a2',a:30000, b:52000, label:'Story 2 · Unified Operations'},
+  {id:'a3',a:52000, b:76000, label:'Story 3 · Legacy Data'},
+  {id:'a4',a:76000, b:105000,label:'Story 4 · Migration at Scale'},
+  {id:'cl',a:105000,b:116000,label:'AJUVO'}
+];
+const END=116000;
+
+const CAPS=[
+  [0,4000,"Every enterprise thinks its systems are under control."],
+  [4000,8000,"Then it tries to move them. Here's what four of those moments actually looked like."],
+  // act1
+  [8500,15000,"This customer ran service on Salesforce — expensive, sprawling, and not where the enterprise was headed."],
+  [15000,22000,"Under one 'simple' experience sat dozens of case types, entry points and integrations."],
+  [22000,30000,"AJUVO didn't just swap tools. We rebuilt service on ServiceNow to fit where the business was actually going."],
+  // act2
+  [30500,37000,"To customers it felt like one service."],
+  [37000,44000,"Behind the scenes: separate paths and integrations for every case type, stitched together by hand."],
+  [44000,52000,"AJUVO pulled the fragments into <b>one connected experience</b> — flexible for every case, simple to run."],
+  // act3
+  [52500,60000,"The hardest part of a migration is the data nobody documented — and nobody fully understands."],
+  [60000,68000,"Records, relationships, history — tangled, undocumented, business-critical."],
+  [68000,76000,"So AJUVO reverse-engineered the entire legacy model. Mapped it. Tested it. Turned guesswork into a blueprint."],
+  // act4
+  [76500,82000,"Then came the migration itself. And the numbers were staggering."],
+  [82000,90000,"<b>16.6 million</b> primary cases."],
+  [90000,97000,"<b>140 million</b> total records — 4 to 5 deep in every case: emails, chats, years of history."],
+  [97000,105000,"Moved under an aggressive timeline. Throttled when the platform needed air, pushed when it could take more."],
+  // close
+  [105500,111000,"Four problems. One pattern: complexity that builds until someone untangles it."],
+  [111000,116000,"AJUVO — ServiceNow migration at enterprise scale. Let's talk, ajuvo.com."]
+];
+
+// ---- one-shot cues: [time, fn] ----
+const A=8000,B=30000,C=52000,D=76000,CL=105000;
+const CUES=[
+  // cold open
+  [200,()=>{$('.alabel').classList.add('show');}],
+  [700,()=>{$('.atitle').classList.add('show');}],
+  [3200,()=>fl(0)],[4200,()=>fl(1)],[5200,()=>fl(2)],[6200,()=>fl(3)],
+  // act1
+  [A+300,()=>{$('#a1sf').style.opacity=1;}],
+  [A+2200,()=>{$('#a1arrow').classList.add('grow');}],
+  [A+3200,()=>{$('#a1sn').style.opacity=1;$('#a1sn').classList.add('pop');hit(120,.5);}],
+  [A+3600,()=>{$('#a1sf').classList.add('fade');}],
+  [A+5200,()=>{$('#a1cost').classList.add('show');ping(660);}],
+  [A+13500,()=>beat('#a1b','A <span class="t">unified, supportable</span> foundation — at a price that finally made sense.')],
+  // act2
+  [B+400,()=>scatter()],
+  [B+6500,()=>{$('#a2field').classList.add('unified');hit(140,.5);}],
+  [B+13500,()=>beat('#a2b','One consistent experience — for customers <span class="t">and</span> the teams behind them.')],
+  // act3
+  [C+500,()=>{$$('#a3wrap [data-q]').forEach((q,i)=>setTimeout(()=>{q.classList.add('show');ping(420+i*60);},i*300));}],
+  [C+8000,()=>{$('#a3wrap').classList.add('mapped');hit(120,.55);}],
+  [C+15500,()=>beat('#a3b','An undocumented mess became a <span class="t">structured foundation</span> — ready to move.')],
+  // act4
+  [D+300,()=>{$('#a4gauge').classList.add('run');}],
+  [D+14500,()=>beat('#a4b','140 million records migrated. History intact. <span class="t">Platform stability maintained.</span>')],
+  [D+14700,()=>swell()],
+  // close
+  [CL+200,()=>{$$('#cl .rise').forEach(e=>e.classList.add('show'));swell();}]
+];
+
+function fl(i){document.querySelector(`.fl[data-fl="${i}"]`).classList.add('show');ping(500+i*40);}
+function beat(sel,html){const e=$(sel);e.innerHTML=html;e.classList.add('show');}
+function scatter(){
+  const f=$('#a2field');const N=7;
+  for(let i=0;i<N;i++){
+    const n=document.createElement('div');n.className='node';
+    const ang=Math.random()*6.28, r=30+Math.random()*15;
+    n.style.left=(50+Math.cos(ang)*r)+'%';n.style.top=(50+Math.sin(ang)*r)+'%';
+    f.appendChild(n);
+  }
+  requestAnimationFrame(()=>{setTimeout(()=>{
+    $$('#a2field .node').forEach(n=>{n.dataset.cx=n.style.left;});
+  },50);});
+}
+const obs=new MutationObserver(()=>{
+  if($('#a2field').classList.contains('unified')){
+    $$('#a2field .node').forEach(n=>{
+      const a=Math.random()*6.28,r=7+Math.random()*3;
+      n.style.left=(50+Math.cos(a)*r)+'%';n.style.top=(50+Math.sin(a)*r)+'%';
+    });
+  }
+});
+obs.observe($('#a2field'),{attributes:true,attributeFilter:['class']});
+
+const ease=t=>1-Math.pow(1-t,3);
+function cnt(el,target,t0,t1,now,fmt){const p=Math.min(1,Math.max(0,(now-t0)/(t1-t0)));el.textContent=fmt(Math.round(ease(p)*target));}
+const fM=n=>(n/1e6).toFixed(1).replace(/\.0$/,'')+'M';
+
+let AC=null, SND=true;
+function audio(){ if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){SND=false;}} }
+function tone(freq,dur,type,g,slideTo){
+  if(!AC||!SND)return;
+  const o=AC.createOscillator(),v=AC.createGain(),t=AC.currentTime;
+  o.type=type||'sine';o.frequency.setValueAtTime(freq,t);
+  if(slideTo)o.frequency.exponentialRampToValueAtTime(slideTo,t+dur);
+  v.gain.setValueAtTime(0,t);v.gain.linearRampToValueAtTime(g||.15,t+.01);
+  v.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(v);v.connect(AC.destination);o.start(t);o.stop(t+dur+.05);
+}
+const hit =(f,g)=>{tone(f||120,.5,'sine',g||.4);tone((f||120)*2,.18,'triangle',.12);};
+const ping=(f)=>tone(f||600,.12,'triangle',.08);
+const swell=()=>{[262,330,392,523].forEach((f,i)=>setTimeout(()=>tone(f,.9,'sine',.09),i*70));};
+let lastRiser=-1;
+function riserFor(now){
+  const near=ACTS.some(a=>Math.abs(now-a.a)<40 && a.a>0);
+  if(near && now-lastRiser>1000){lastRiser=now;tone(180,.6,'sawtooth',.05,420);}
+}
+
+ACTS.forEach(a=>{const i=document.createElement('i');i.style.left=(a.a/END*100)+'%';$('#chapters').appendChild(i);});
+
+let start=null,raf=null,fired=new Array(CUES.length).fill(false);
+function reset(){
+  start=null;fired.fill(false);cancelAnimationFrame(raf);
+  $$('.scene').forEach(s=>s.classList.remove('on'));
+  $$('.show').forEach(e=>{if(!e.closest('#cl'))e.classList.remove('show');});
+  $('#a2field').querySelectorAll('.node').forEach(n=>n.remove());
+  $('#a2field').classList.remove('unified');$('#a3wrap').classList.remove('mapped');
+  $('#a1arrow').classList.remove('grow');$('#a1sf').classList.remove('fade');
+  $('#a1sn').classList.remove('pop');$('#a1sn').style.opacity=0;$('#a1sf').style.opacity=0;
+  $('#a4gauge').classList.remove('run');$('#a4s1').textContent='0';$('#a4s2').textContent='0';
+  $('#a1b').classList.remove('show');$('#a2b').classList.remove('show');$('#a3b').classList.remove('show');$('#a4b').classList.remove('show');
+  $('#bar').style.width='0%';$('#cap').innerHTML='';$('#replay').classList.remove('show');
+}
+function frame(ts){
+  if(!start)start=ts;
+  const now=ts-start;
+  $('#bar').style.width=Math.min(100,now/END*100)+'%';
+  ACTS.forEach(a=>{const el=document.getElementById(a.id);const on=now>=a.a&&now<a.b;el.classList.toggle('on',on);if(on)$('#chLabel').textContent=a.label;});
+  const c=CAPS.find(c=>now>=c[0]&&now<c[1]);$('#cap').innerHTML=c?c[2]:'';
+  CUES.forEach((q,i)=>{if(!fired[i]&&now>=q[0]){fired[i]=true;q[1]();}});
+  if(now>=D+2000&&now<D+9000)cnt($('#a4s1'),16600000,D+2200,D+8000,now,fM);
+  if(now>=D+8000)$('#a4s1').textContent='16.6M';
+  if(now>=D+8500&&now<D+15000)cnt($('#a4s2'),140000000,D+8800,D+14000,now,fM);
+  if(now>=D+14000)$('#a4s2').textContent='140M';
+  riserFor(now);
+  if(now<END)raf=requestAnimationFrame(frame);
+  else{$('#cap').innerHTML=CAPS[CAPS.length-1][2];$('#replay').classList.add('show');}
+}
+function play(){audio();if(AC&&AC.state==='suspended')AC.resume();reset();$('#ctrl').classList.add('hidden');$('#snd').classList.add('show');raf=requestAnimationFrame(frame);}
+$('#ctrl').addEventListener('click',play);
+$('#replay').addEventListener('click',play);
+$('#snd').addEventListener('click',e=>{e.stopPropagation();SND=!SND;$('#snd').textContent=SND?'♪ sound on':'♪ sound off';});
+</script>
+</body>
+</html>
