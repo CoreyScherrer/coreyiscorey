@@ -16,46 +16,51 @@ h2{font-size:19px;font-weight:800;margin:44px 0 6px;letter-spacing:.02em}
 h2 .t{color:var(--teal)}
 .tag{color:var(--grey);margin-top:8px;font-size:15px;line-height:1.55}
 .pill{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal2);padding:5px 12px;border-radius:30px}
+.badge{display:inline-block;margin:0 0 0 8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--teal);padding:5px 12px;border-radius:30px;font-weight:800}
 video{width:100%;margin-top:16px;border-radius:14px;border:1px solid #1c344f;box-shadow:0 20px 60px rgba(0,0,0,.55);background:#000}
 .note{margin-top:22px;padding:18px 22px;border-left:3px solid var(--teal2);background:rgba(13,33,56,.5);border-radius:0 12px 12px 0;color:#c3d3e4;font-size:14.5px;line-height:1.65}
 .note b{color:var(--white)}
-ul{margin:8px 0 0 18px}
-li{margin:4px 0}
-.hr{height:1px;background:#1c344f;margin:40px 0 0}
+ul{margin:8px 0 0 18px}li{margin:4px 0}
+.hr{height:1px;background:#1c344f;margin:44px 0 0}
 .small{color:#5f7793;font-size:13px}
+.hint{margin-top:8px;font-size:13.5px;color:var(--teal2)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>AJU<span class="t">VO</span> · Hybrid Video <span class="t">(review)</span></h1>
-  <div class="tag">Phase 2: a full cinematic cut built from the CSM Success Stories concept — real AI-generated footage with the exact AJUVO data, branding, and captions composited on top.</div>
+  <div class="tag">Phase 2+: a full cinematic cut from the CSM Success Stories concept — AI-generated footage, the exact AJUVO data composited on top, and now a voice-over pitch.</div>
   <span class="pill">Internal review · not linked from /ajuvo/</span>
 
-  <h2>Full piece <span class="t">— 6 acts, ~46s, with music</span></h2>
-  <div class="tag">Cold open → Strategic Shift → Unified Operations → Legacy Data → Migration at Scale → Close. One continuous music bed (no 8-bit / arcade sounds).</div>
-  <video src="ajuvo_full.mp4" controls autoplay muted loop playsinline preload="metadata"></video>
-  <div class="small" style="margin-top:8px">▶ Unmute in the player to hear the music bed. Hard-refresh if a cached older version loads.</div>
+  <h2>Voice-over cut <span class="t">— ~1:40, narrated</span><span class="badge">newest</span></h2>
+  <div class="tag">Six acts, timed to the narration. Female corporate voice-over adapted from Nicole Hoyle's speaker notes in the deck — the "here's what AJUVO does and why you hire them" pitch. Music ducks under the voice.</div>
+  <div class="hint">▶ Unmute in the player to hear the voice-over + music. Hard-refresh if an older version is cached.</div>
+  <video src="ajuvo_full_vo.mp4" controls playsinline preload="metadata"></video>
 
   <div class="note">
-    <b>How it's made:</b> six atmosphere-only b-roll clips are <b>AI-generated</b> (fal.ai Seedance 2.0 Fast, 720p) —
-    a night data-grid, converging light streams, a connecting node network, a resolving blueprint grid, the server hall,
-    and a luminous closing corridor. Over each, the AJUVO wordmark, the real numbers (<b>16.6M</b> cases · <b>140M</b> records),
-    the ServiceNow story beats, and the "Platform stability maintained" line are the <b>exact authored data layer</b>
-    (AI video can't render precise text legibly, so the data stays authored). Acts are crossfaded and scored with one
-    continuous cinematic music track.
+    <b>What changed from the silent cut:</b> each act is now stretched (gentle cinematic slow-motion on the b-roll)
+    to fit its narration, so nothing feels rushed. The script walks through the strategic ServiceNow shift, unified
+    operations, the legacy-data untangle, and the <b>16.6M / 140M</b> migration at scale — closing on why AJUVO is
+    the team to hire. The voice is AI-generated (ElevenLabs, female corporate); the music is a separate bed that
+    automatically <b>ducks</b> whenever the voice speaks.
     <br><br>
     <b>Open questions:</b>
     <ul>
-      <li>Music bed vibe — right feel, or regenerate? (cheap to redo)</li>
-      <li>Any copy/number tweaks per act?</li>
-      <li>Final home: replace the reel on /ajuvo/, add a new card, or keep as a downloadable deliverable?</li>
-      <li>Want a broadcast-final pass in a real editor, or is this automated cut enough?</li>
+      <li>Voice: right tone/gender/pace? (easy + cheap to regenerate in a different voice)</li>
+      <li>Script wording — anything to adjust? (it's distilled from Nicole's notes; a real human read is also an option)</li>
+      <li>Add the <b>700K+ additional cases</b> stat on screen in Story 4? (it's in the deck, not currently shown)</li>
+      <li>Final home + whether this needs a polish pass in a real editor.</li>
     </ul>
-    This is a strong <b>automated</b> cut — a broadcast-final version would get a finishing pass in an NLE.
+    Strong <b>automated</b> cut. A broadcast-final version (and ideally a real human VO) would get a finishing pass in an NLE.
   </div>
 
   <div class="hr"></div>
-  <h2>Original hero clip <span class="t">(pipeline proof · Story 4 only)</span></h2>
+  <h2>Silent cut <span class="t">(no VO · ~46s)</span></h2>
+  <div class="tag">The prior version — same six acts, music only, faster pacing.</div>
+  <video src="ajuvo_full.mp4" controls muted loop playsinline preload="none"></video>
+
+  <div class="hr"></div>
+  <h2>Original hero clip <span class="t">(pipeline proof · Story 4)</span></h2>
   <div class="tag">The first 8-second proof-of-concept — the server-hall act on its own.</div>
   <video src="hero.mp4" controls muted loop playsinline preload="none"></video>
 </div>
