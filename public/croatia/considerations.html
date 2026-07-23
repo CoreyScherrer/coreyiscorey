@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Additional Considerations — Croatian Citizenship</title>
+<style>
+  :root{
+    --ink:#14181d; --ink-2:#454e59; --ink-3:#77818e;
+    --line:#e4e7ec; --line-2:#eef0f3;
+    --bg:#ffffff; --bg-2:#fafbfc;
+    --accent:#1f6feb; --accent-soft:#eef4ff;
+    --warn:#9a6b00; --warn-soft:#fff8e6; --warn-line:#f0dfae;
+    --stop:#a5342b; --stop-soft:#fdf1ef; --stop-line:#f2cfc9;
+    --ok:#1a6b4a; --ok-soft:#eefaf4;
+    --radius:11px;
+    --max:informal;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e7eaee; --ink-2:#aab3bf; --ink-3:#7d8794;
+      --line:#252b33; --line-2:#1e232a;
+      --bg:#0e1116; --bg-2:#141920;
+      --accent:#5b9bff; --accent-soft:#13233d;
+      --warn:#e8bf62; --warn-soft:#2a2312; --warn-line:#4a3d1c;
+      --stop:#f08b7f; --stop-soft:#2d1714; --stop-line:#50241f;
+      --ok:#5fd3a2; --ok-soft:#10261d;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing:-.003em;
+  }
+  .wrap{max-width:840px;margin:0 auto;padding:0 20px 96px}
+
+  /* ---------- header ---------- */
+  header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:600;margin:0 0 10px
+  }
+  h1{font-size:clamp(28px,5.2vw,40px);line-height:1.14;margin:0 0 12px;font-weight:650;letter-spacing:-.022em}
+  .lede{font-size:17px;color:var(--ink-2);margin:0;max-width:62ch}
+  .meta{margin-top:20px;font-size:13px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 18px}
+
+  /* ---------- table of contents ---------- */
+  nav.toc{
+    margin:32px 0 0;padding:18px 20px;border:1px solid var(--line);
+    border-radius:var(--radius);background:var(--bg-2)
+  }
+  nav.toc h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;font-weight:600}
+  nav.toc ol{margin:0;padding-left:18px;columns:2;column-gap:32px}
+  nav.toc li{margin:0 0 7px;break-inside:avoid}
+  nav.toc a{color:var(--ink-2);text-decoration:none;font-size:14.5px}
+  nav.toc a:hover{color:var(--accent);text-decoration:underline}
+  @media (max-width:620px){nav.toc ol{columns:1}}
+
+  /* ---------- stages ---------- */
+  .stage{margin-top:56px;scroll-margin-top:20px}
+  .stage-head{display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:8px}
+  .stage-num{
+    font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+    border-radius:5px;padding:3px 8px;letter-spacing:.04em;flex:none
+  }
+  .stage h2{font-size:clamp(20px,3.4vw,25px);margin:0;font-weight:640;letter-spacing:-.018em}
+  .stage-sub{color:var(--ink-3);font-size:14px;margin:6px 0 0}
+
+  /* ---------- item ---------- */
+  .item{padding:22px 0;border-bottom:1px solid var(--line-2)}
+  .item:last-child{border-bottom:0}
+  .item h3{font-size:16.5px;margin:0 0 8px;font-weight:620;letter-spacing:-.01em}
+  .item p{margin:0 0 10px;color:var(--ink-2);font-size:15px}
+  .item p:last-child{margin-bottom:0}
+  .item ul{margin:8px 0 10px;padding-left:20px;color:var(--ink-2);font-size:15px}
+  .item li{margin:0 0 5px}
+
+  /* ---------- facts ---------- */
+  .facts{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0}
+  .fact{
+    font-size:12.5px;border:1px solid var(--line);border-radius:999px;
+    padding:4px 11px;color:var(--ink-2);background:var(--bg-2);white-space:nowrap
+  }
+  .fact b{font-weight:620;color:var(--ink)}
+
+  /* ---------- callouts ---------- */
+  .call{border-radius:var(--radius);padding:14px 16px;margin:14px 0 0;font-size:14.5px;border:1px solid}
+  .call p{margin:0;color:inherit}
+  .call p + p{margin-top:8px}
+  .call .tag{display:block;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .call.warn{background:var(--warn-soft);border-color:var(--warn-line);color:var(--warn)}
+  .call.stop{background:var(--stop-soft);border-color:var(--stop-line);color:var(--stop)}
+  .call.note{background:var(--bg-2);border-color:var(--line);color:var(--ink-2)}
+
+  /* ---------- tables ---------- */
+  .tw{overflow-x:auto;margin:14px 0 0;border:1px solid var(--line);border-radius:var(--radius)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-2)}
+  th{font-weight:620;color:var(--ink-3);font-size:12px;letter-spacing:.05em;text-transform:uppercase;background:var(--bg-2)}
+  tr:last-child td{border-bottom:0}
+  td b{font-weight:620}
+
+  /* ---------- open questions ---------- */
+  .q{border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:8px;padding:15px 17px;margin:0 0 12px;background:var(--bg-2)}
+  .q h4{margin:0 0 7px;font-size:15px;font-weight:620}
+  .q p{margin:0 0 8px;font-size:14.5px;color:var(--ink-2)}
+  .q p:last-child{margin-bottom:0}
+  .q .owner{font-size:12.5px;color:var(--ink-3)}
+  .q .owner b{color:var(--ink-2);font-weight:620}
+  .conflict{font-size:14px;margin:8px 0;padding-left:14px;border-left:2px solid var(--line)}
+  .conflict b{font-weight:620}
+
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+  footer a{color:var(--accent)}
+  a{color:var(--accent)}
+  .src{font-size:12.5px;color:var(--ink-3);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Sullivan · Radich · Vranizan Family</p>
+  <h1>Additional Considerations</h1>
+  <p class="lede">The details that decide whether an application moves or stalls — timing traps, where you can actually file,
+  what counts as a real document, and what each stage costs. Grouped by stage, in the order you meet them.</p>
+  <div class="meta">
+    <span>Article 11 · Croatian Citizenship Act</span>
+    <span>Compiled 23 July 2026</span>
+    <span>~26 applicants · 4 generations</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#stage-1">Research &amp; Collection</a></li>
+    <li><a href="#stage-2">Pre-Application</a></li>
+    <li><a href="#stage-3">Active Application</a></li>
+    <li><a href="#stage-4">Post-Application</a></li>
+    <li><a href="#costs">Cost Summary</a></li>
+    <li><a href="#open">Unresolved Questions</a></li>
+  </ol>
+</nav>
+
+<!-- ============ STAGE 1 ============ -->
+<section class="stage" id="stage-1">
+  <div class="stage-head">
+    <span class="stage-num">STAGE 1</span>
+    <h2>Research &amp; Collection</h2>
+  </div>
+  <p class="stage-sub">Finding the ancestors and the records that prove them. Nothing downstream can start until this closes.
+  Expect <b>3–12 months</b>, driven almost entirely by archive response times.</p>
+
+  <div class="item">
+    <h3>Find the emigrants' birth villages — the gate on everything</h3>
+    <p>You cannot order a Croatian birth record without knowing which <i>matični ured</i>, state archive, or parish holds it.
+    This is the single largest blocker in the project.</p>
+    <ul>
+      <li>Sources: Paula's 02-xxx archive, ship manifests, naturalization papers, Astoria records
+      (St. Mary Star of the Sea parish, Clatsop County, Croatian Fraternal Union lodge rolls)</li>
+      <li>The FamilySearch pedigree gives names and dates but <b>no birthplaces</b> — the individual profile pages may carry them</li>
+    </ul>
+    <div class="facts"><span class="fact">Blocks: <b>all Croatian record orders</b></span><span class="fact">Owner: <b>Corey + Paula</b></span></div>
+  </div>
+
+  <div class="item">
+    <h3>Start the long poles immediately</h3>
+    <p>Two requests take months and gate everything after them. File them before the rest of the paperwork is ready.</p>
+    <ul>
+      <li><b>USCIS Genealogy Program</b> — naturalization files for Marco Radich, Anna Hlapcich, Carlo Turina</li>
+      <li><b>Croatian archive searches</b> — once villages are known</li>
+    </ul>
+    <div class="facts"><span class="fact">Lead time: <b>months</b></span><span class="fact">Start: <b>now</b></span></div>
+  </div>
+
+  <div class="item">
+    <h3>Digital scans are reference material — not evidence</h3>
+    <p>Everything being uploaded to the family Drive folder is for <i>finding and ordering</i> the real thing. MUP requires
+    originals or officially certified copies; plain scans and photocopies are rejected outright.</p>
+    <div class="call stop">
+      <span class="tag">Common misunderstanding</span>
+      <p>A scanned birth certificate cannot be apostilled. Apostilles are only applied to originals or
+      government-issued certified copies — so every vital record must be re-ordered as a physical certified copy
+      from the issuing office, no matter how good the scan is.</p>
+    </div>
+    <p class="src">Source: <i>Croatian Citizenship Document Authentication and Submission Standards</i></p>
+  </div>
+
+  <div class="item">
+    <h3>When originals no longer exist</h3>
+    <p>For the 1800s generations, if Croatian civil registers were lost or destroyed, MUP may accept alternatives —
+    but they must still be physical certified copies ordered from the holding archive.</p>
+    <ul>
+      <li>Church and baptismal records</li>
+      <li>Old Croatian identity documents (domovnica), military records</li>
+      <li>Ship passenger manifests · foreign naturalization papers</li>
+    </ul>
+    <div class="call note">
+      <p><b>Strategy note.</b> Multiple independent supporting documents are stronger than one perfect record.
+      Matthew C. Vranizan is the best-documented emigrant in this family — an 1889 passport to the US,
+      a 1914 travel permit, and US citizenship papers are already in hand.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Record every name variant as you go</h3>
+    <p>Names shifted at every border and every clerk's desk. Capture each spelling and <i>which document it appears on</i> —
+    that mapping becomes a required legal affidavit later.</p>
+    <div class="facts">
+      <span class="fact">Vranizan · Vragnizan · <b>Vranjican</b></span>
+      <span class="fact">Radich · <b>Radić</b></span>
+      <span class="fact">Milasic · <b>Milašić</b></span>
+      <span class="fact">Hlapcich · <b>Hlapčić</b></span>
+      <span class="fact">Carlo · Charles</span>
+      <span class="fact">Matteo · Matthew</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 2 ============ -->
+<section class="stage" id="stage-2">
+  <div class="stage-head">
+    <span class="stage-num">STAGE 2</span>
+    <h2>Pre-Application</h2>
+  </div>
+  <p class="stage-sub">Turning records into a legally valid dossier: authenticate, translate, write. This is where the
+  expensive mistakes happen — mostly by doing things in the wrong order. Expect <b>3–6 months</b>.</p>
+
+  <div class="item">
+    <h3>The order of operations is not negotiable</h3>
+    <p>Each step must finish before the next begins. Doing them out of sequence means paying twice.</p>
+    <div class="tw"><table>
+      <tr><th>#</th><th>Step</th><th>Why the order matters</th></tr>
+      <tr><td>1</td><td>Order certified copy</td><td>Only originals/certified copies can be apostilled</td></tr>
+      <tr><td>2</td><td>Apostille</td><td>State-level for vital records; federal for FBI check</td></tr>
+      <tr><td>3</td><td>Translate</td><td><b>The apostille stamp itself must also be translated</b></td></tr>
+    </table></div>
+    <div class="call warn">
+      <span class="tag">Costly mistake</span>
+      <p>Translating before apostilling means paying a second time to translate the apostille. Always
+      apostille first, then hand the complete stamped document to the translator.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>FBI background check — the tightest timing trap in the process</h3>
+    <p>Valid <b>6 months</b> from issue. The federal apostille that must follow it can take
+    <b>weeks to months</b>. And you cannot file without an appointment, which may be a year out.</p>
+    <ul>
+      <li>Must be the <b>federal FBI Identity History Summary</b> — state, county and local police checks are routinely rejected</li>
+      <li>Federal apostille comes only from the US Dept. of State Authentications Office, Washington DC</li>
+      <li>Every adult applicant needs their own, including spouses</li>
+      <li>Fingerprints can be submitted at a participating US post office</li>
+    </ul>
+    <div class="call stop">
+      <span class="tag">Sequence this backwards from your appointment</span>
+      <p>Book the consulate appointment first. Then count backwards: allow the apostille turnaround,
+      and order the FBI check so the finished, apostilled, translated document is <i>under 6 months old</i>
+      on the day you file. Order it too early and it expires in your folder.</p>
+    </div>
+    <div class="facts">
+      <span class="fact">FBI check <b>~$50</b></span><span class="fact">Apostille <b>~$20</b></span>
+      <span class="fact">Translation <b>~$45</b></span><span class="fact">Total <b>~$115</b></span>
+    </div>
+    <p class="src">Source: <i>FBI Background Check Guidelines for Croatian Citizenship</i></p>
+  </div>
+
+  <div class="item">
+    <h3>"One and the Same Person" affidavit — this family will need one</h3>
+    <p>MUP requires absolute legal harmony of names across every document. Where an ancestor appears as
+    <i>Vragnizan</i> on one record and <i>Vranizan</i> on another, a sworn affidavit formally declares them the same person.</p>
+    <p>The affidavit is itself a legal document and follows the full chain: <b>notarized → state apostille → certified translation</b>.</p>
+    <div class="call warn">
+      <span class="tag">If variations are extreme</span>
+      <p>A simple affidavit may not suffice, and a US court declaratory judgment ("One and the Same" order)
+      may be required to amend the historical record. This can be procedurally difficult depending on state law —
+      worth a lawyer's opinion early rather than discovering it late.</p>
+    </div>
+    <p class="src">Source: <i>Resolving Name Discrepancies for Croatian Citizenship Applications</i></p>
+  </div>
+
+  <div class="item">
+    <h3>CV (životopis) and motivational letter</h3>
+    <p>Both must be in Croatian, or professionally translated with the English enclosed. Every adult applicant
+    writes their own — <b>including spouses</b>.</p>
+    <p><b>The CV must explicitly state</b> full name, date and place of birth, current address, education and career,
+    parents' names and birth details, and the emigration path: who the Croatian ancestor is, exactly how you
+    are related, and when and why they left.</p>
+    <p><b>The motivational letter</b> covers your reason for applying, how the family maintained its Croatian
+    connection, and your intent to contribute as a dual citizen.</p>
+    <div class="call note">
+      <p><b>Advantage worth using.</b> Because this lineage reaches back generations, evidence of active cultural
+      connection materially strengthens the claim to belonging to the Croatian nation. This family has exactly that:
+      the <b>Croatian Fraternal Union</b> lodge and <b>St. Mary Star of the Sea</b> parish in Astoria. Name them.</p>
+    </div>
+    <p class="src">Source: <i>Guidelines for Croatian Citizenship CVs and Motivational Letters</i></p>
+  </div>
+
+  <div class="item">
+    <h3>Forms and photos</h3>
+    <ul>
+      <li><b>Obrazac 1</b> — single adult applicant</li>
+      <li><b>Obrazac 2</b> — adult applying together with minor children</li>
+      <li>Minors also need the other parent's notarized consent</li>
+      <li>Biometric photos, <b>35 × 45 mm</b></li>
+    </ul>
+    <div class="call stop">
+      <span class="tag">Do not sign at home</span>
+      <p>Application forms must be signed in person, in front of the consular official, at your appointment.
+      A form signed in advance will be rejected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE 3 ============ -->
+<section class="stage" id="stage-3">
+  <div class="stage-head">
+    <span class="stage-num">STAGE 3</span>
+    <h2>Active Application</h2>
+  </div>
+  <p class="stage-sub">Filing in person and waiting on Zagreb. Where you file changes the timeline by more than a year.</p>
+
+  <div class="item">
+    <h3>Two routes — and the difference is enormous</h3>
+    <p>Applications cannot be mailed. They must be submitted in person, and you have a genuine strategic choice.</p>
+    <div class="tw"><table>
+      <tr><th></th><th>At a US consulate</th><th>In Croatia (local MUP)</th></tr>
+      <tr><td><b>Wait for appointment</b></td><td>LA 3–6 mo · NY 6–9 mo · Chicago 9–16 mo</td><td>None — register and file</td></tr>
+      <tr><td><b>MUP processing</b></td><td>18–36+ months</td><td>12–18 months</td></tr>
+      <tr><td><b>Total</b></td><td><b>2.5–3 years</b></td><td><b>~1–1.5 years</b></td></tr>
+      <tr><td><b>Requirement</b></td><td>Jurisdiction by state of residence</td><td>Register <i>boravište</i> within 2 days of arrival</td></tr>
+    </table></div>
+    <div class="call note">
+      <p><b>Worth a family decision.</b> Filing in Croatia can remove <b>12–18 months</b>. For a bloc of ~26 applicants,
+      a coordinated trip may be faster and cheaper per person than years of consular queuing — and passports are issued
+      in days there versus 2–6 months through a consulate.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Consular jurisdiction is by state of residence</h3>
+    <ul>
+      <li><b>Los Angeles</b> — WA / OR / West Coast filers · losangeles@mvep.hr</li>
+      <li><b>Washington DC Embassy</b> — VA filers · crocons.washington@mvep.hr</li>
+    </ul>
+    <div class="call warn">
+      <span class="tag">Book before you are ready</span>
+      <p>Appointment queues are longer than document preparation. Book as early as allowed —
+      rescheduling is far easier than joining the back of the queue later.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Filing as a family bloc</h3>
+    <ul>
+      <li>Spouses may file the same day as the qualifying descendant</li>
+      <li>Shared chain documents mean extra certified copies, not extra research —
+      order <b>6+</b> of any certificate that anchors multiple applicants</li>
+      <li>Ask providers for family-bloc pricing at 10+ applicants</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Bring to the appointment</h3>
+    <ul>
+      <li>Originals <b>and</b> copies of the full dossier</li>
+      <li>Unsigned application forms</li>
+      <li>Valid US passport — the consular official certifies the copy on the spot</li>
+      <li>Fee payment: <b>$235–$550</b> (€200–400) per applicant</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ STAGE 4 ============ -->
+<section class="stage" id="stage-4">
+  <div class="stage-head">
+    <span class="stage-num">STAGE 4</span>
+    <h2>Post-Application &amp; Finalization</h2>
+  </div>
+  <p class="stage-sub">From approval to a passport in hand. Citizenship is not the last step — three registrations follow.</p>
+
+  <div class="item">
+    <h3>The sequence after approval</h3>
+    <div class="tw"><table>
+      <tr><th>Step</th><th>What you receive</th><th>Note</th></tr>
+      <tr><td>1. Decision</td><td><b>Rješenje</b> — formal admission to citizenship</td><td>Issued by MUP, Zagreb</td></tr>
+      <tr><td>2. Registration</td><td>Entry in the <b>Knjiga državljana</b></td><td>Book of Citizens</td></tr>
+      <tr><td>3. Certificate</td><td><b>Domovnica</b> + <b>OIB</b></td><td>OIB = personal ID number</td></tr>
+      <tr><td>4. Documents</td><td><b>Putovnica</b> + <b>Osobna iskaznica</b></td><td>Passport + national ID</td></tr>
+    </table></div>
+    <div class="facts">
+      <span class="fact">Passport in Croatia: <b>days</b></span>
+      <span class="fact">Passport via consulate: <b>2–6 months</b></span>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>During the wait</h3>
+    <p>MUP may raise queries mid-process. A Croatian lawyer holding power of attorney can monitor the file and
+    respond on your behalf — worth considering across a 26-person bloc where one stalled file can be missed for months.</p>
+  </div>
+
+  <div class="item">
+    <h3>Obligations that attach after citizenship</h3>
+    <p>Dual citizenship is retained — the US does not require renunciation, and Croatia permits it under Article 11.
+    Registration duties that may follow are recorded as an open question below rather than stated as fact.</p>
+  </div>
+</section>
+
+<!-- ============ COSTS ============ -->
+<section class="stage" id="costs">
+  <div class="stage-head">
+    <span class="stage-num">COSTS</span>
+    <h2>What to Budget</h2>
+  </div>
+  <p class="stage-sub">Per applicant unless noted. Shared chain documents lower the real per-person cost for a bloc.</p>
+  <div class="tw"><table>
+    <tr><th>Item</th><th>Cost</th><th>Notes</th></tr>
+    <tr><td>FBI check + apostille + translation</td><td><b>~$115</b></td><td>Every adult, including spouses</td></tr>
+    <tr><td>Apostilles</td><td>$20–100 <span style="color:var(--ink-3)">/doc</span></td><td>Varies by state</td></tr>
+    <tr><td>Certified translation</td><td>€40–80 <span style="color:var(--ink-3)">/page</span></td><td>≈ $45–90; apostilles count as pages</td></tr>
+    <tr><td>Consular application fee</td><td>$235–550</td><td>€200–400</td></tr>
+    <tr><td>Vital records</td><td>$20–40 <span style="color:var(--ink-3)">/copy</span></td><td>Order extras up front</td></tr>
+    <tr><td><b>DIY total</b></td><td><b>$2,000–5,000</b></td><td>Per applicant</td></tr>
+    <tr><td><b>Full-service firm</b></td><td><b>$8,000–20,000</b></td><td>Procurement, translation, MUP liaison</td></tr>
+  </table></div>
+  <div class="call note">
+    <p><b>Where the money is actually saved.</b> Shared documents across the bloc, family-bloc provider pricing,
+    one court-certified translator (<i>sudski tumač</i>) for the whole family, and ordering extra certified copies
+    on the first request rather than re-ordering later.</p>
+  </div>
+</section>
+
+<!-- ============ OPEN QUESTIONS ============ -->
+<section class="stage" id="open">
+  <div class="stage-head">
+    <span class="stage-num">OPEN</span>
+    <h2>Unresolved Questions</h2>
+  </div>
+  <p class="stage-sub">Genuinely unknown or disputed. Each is owned by a named person and must not be answered
+  by guesswork — a wrong answer here propagates into every document downstream.</p>
+
+  <div class="q">
+    <h4>1. Military service obligation for male citizens abroad</h4>
+    <p>Two sources directly contradict each other, and it affects a family minor.</p>
+    <div class="conflict"><b>Version A</b> — Croatian dual citizens are not exempt; exemption requires actual prior
+    service elsewhere, and US Selective Service registration does not count. Any male 18–30 who naturalises acquires
+    a consular registration duty.</div>
+    <div class="conflict"><b>Version B</b> — Conscription only applies to residents of Croatia aged ~18–30;
+    those residing abroad are not called up.</div>
+    <p>Croatia suspended peacetime conscription in 2008, so both may be partly right: the <i>conscription</i> ended,
+    but a separate <i>registration</i> duty may persist. Resolve before Dominic (Matt &amp; Rose's son) is included as a minor.</p>
+    <p class="owner">Owner: <b>Paula Radich</b> · confirm with consulate or Croatian lawyer</p>
+  </div>
+
+  <div class="q">
+    <h4>2. Emigrants' birth villages and parishes</h4>
+    <p>Unknown for Marco Radich, Anna Hlapcich, and Carlo Turina. Blocks every Croatian record order —
+    the highest-value unknown in the project.</p>
+    <p class="owner">Owner: <b>Corey Scherrer</b> (research) + <b>Paula Radich</b> (archive)</p>
+  </div>
+
+  <div class="q">
+    <h4>3. "Matteo" vs "Matthew C." Vranizan</h4>
+    <p>Family records held <i>Matteo Vragnizan</i>; the FamilySearch pedigree gives <i>Matthew C. Vranizan</i> (1863–1920).
+    Likely the Italian/Croatian form versus the Americanized form — both may be correct at different points in his life.
+    Confirm which appears on the 1889 passport and 1914 travel permit already held.</p>
+    <p class="owner">Owner: <b>Paula Radich</b> — documents in the family Drive folder</p>
+  </div>
+
+  <div class="q">
+    <h4>4. "Carlo" vs "Charles Andrew" Turina</h4>
+    <p>Same pattern as above (1890–1962). Determines which form is primary on the affidavit.</p>
+    <p class="owner">Owner: <b>Paula Radich</b></p>
+  </div>
+
+  <div class="q">
+    <h4>5. Margherita Vrancovich — full middle name</h4>
+    <p>The pedigree PDF truncates it as "Margherita Ben.." (b. 1827). Needs reading off the full FamilySearch profile.</p>
+    <p class="owner">Owner: <b>Corey Scherrer</b> · FamilySearch L83K-H76</p>
+  </div>
+
+  <div class="q">
+    <h4>6. Full legal middle names — 23 of 34 family members missing</h4>
+    <p>Required for certified copies and for name consistency across the dossier. The living-applicant subset is the
+    urgent part; deceased ancestors will come off the Croatian records themselves.</p>
+    <p>Missing: Meg Sullivan, Mark Grant, Rita Grant, Jeff Grant, Matthew Radich, Natalie Radich, Paula Radich,
+    Michele Dahl, Kathy Radich, John Radich, Nora Sullivan, Luca Sullivan, Rosalia Gobeo, Kathy Hochstettler.</p>
+    <p class="owner">Owner: <b>Paula Radich</b> — resolve before ordering certified copies at $20–40 each</p>
+  </div>
+
+  <div class="q">
+    <h4>7. Should the Vranizan / Milašić line become the primary claim?</h4>
+    <p>The strategy note flagged Vranjican (Hvar) and Milašić (Istria) as potentially stronger than Turina/Fiume,
+    which forces an ethnicity argument in a majority-Italian city. The Vranizan line is now the best-documented
+    branch in the family — an 1889 passport, a 1914 travel permit, and a pedigree eight generations deep.</p>
+    <p class="owner">Owner: <b>Mark Sullivan &amp; Mark Grant</b> · worth a lawyer's opinion</p>
+  </div>
+
+  <div class="q">
+    <h4>8. Kathy Hochstettler's eligibility</h4>
+    <p>Believed ineligible as the widow of a non-citizen descendant. One question to a lawyer settles it;
+    no document preparation until then.</p>
+    <p class="owner">Owner: <b>Mark Sullivan</b></p>
+  </div>
+
+  <div class="q">
+    <h4>9. Verify the imported FamilySearch pedigree</h4>
+    <p>24 ancestors were imported from the shared FamilySearch tree and are marked <i>needs verification</i>.
+    FamilySearch is user-edited: it is a lead for which record to order, never evidence itself. Every fact used
+    in an application must trace to a certified record.</p>
+    <p class="owner">Owner: <b>the family</b> — correct any name spelling you know to be wrong</p>
+  </div>
+
+  <div class="q">
+    <h4>10. Service provider vs. DIY</h4>
+    <p>Quotes needed from Expat in Croatia, Croatian By Descent, and CDC, with family-bloc pricing for 10+ applicants.
+    The gap is material: $2–5k DIY versus $8–20k full service, per applicant.</p>
+    <p class="owner">Owner: <b>Mark Sullivan &amp; Mark Grant</b></p>
+  </div>
+</section>
+
+<footer>
+  <p>Compiled from the family research corpus: Pre-Application Checklist · FBI Background Check Guidelines ·
+  Comprehensive Guide to Croatian Citizenship Procedures · Document Authentication and Submission Standards ·
+  Resolving Name Discrepancies · Guidelines for CVs and Motivational Letters.
+  Lineage from the family graph, updated 23 July 2026.</p>
+  <p style="margin-top:10px">Every fact on this page carries a source. Where sources disagree, the disagreement is
+  recorded above rather than resolved by assumption. <b>Nothing here is legal advice.</b></p>
+</footer>
+
+</div>
+</body>
+</html>
