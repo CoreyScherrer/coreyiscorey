@@ -313,24 +313,41 @@
     });
   }
 
+  // roster.json ships hashes, never plaintext addresses — it is fetched by
+  // the browser and would otherwise publish the keepers' real emails.
+  function emailHash(email) {
+    var bytes = new TextEncoder().encode(email.trim().toLowerCase());
+    return crypto.subtle.digest('SHA-256', bytes).then(function (buf) {
+      return [].map.call(new Uint8Array(buf), function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('').slice(0, 16);
+    });
+  }
+
   Promise.all([
     fetch('roster.json').then(function (r) { return r.json(); }),
     whoami()
   ]).then(function (res) {
     data = res[0];
     var ident = res[1];
+    var step = Promise.resolve();
+
     if (ident && ident.email) {
-      // Keeper emails come from roster.json so they live in one place. This
-      // only decides which affordances are SHOWN — it is not a security
-      // boundary. Real enforcement is the Access policy plus the fact that
-      // corrections are proposals a keeper must apply, not direct writes.
-      var keepers = (data.keeper_emails || []).map(function (e) { return e.toLowerCase(); });
-      me = { email: ident.email, keeper: keepers.indexOf(ident.email.toLowerCase()) !== -1 };
+      // Keeper status only decides which affordances are SHOWN — it is not a
+      // security boundary. Entry is gated by the Access policy, and
+      // corrections are proposals a keeper applies, not direct writes.
+      step = emailHash(ident.email).then(function (h) {
+        var known = data.keeper_email_hashes || [];
+        me = { email: ident.email, keeper: known.indexOf(h) !== -1 };
+      });
     }
-    renderWho();
-    renderSummary();
-    renderList();
-    wireFilters();
+
+    return step.then(function () {
+      renderWho();
+      renderSummary();
+      renderList();
+      wireFilters();
+    });
   }).catch(function (err) {
     var list = document.getElementById('list');
     clear(list);

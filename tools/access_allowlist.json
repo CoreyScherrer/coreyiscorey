@@ -1,0 +1,24 @@
+{
+  "_comment": "Cloudflare Access allowlist for coreyiscorey.com/croatia/*. Source: 'Emails for login to Croatia Data' (family Drive folder), read 2026-07-23. Keepers additionally hold Drive access and may apply corrections to any record; members may propose corrections to their own record only.",
+  "application": {
+    "name": "Croatia Family Hub",
+    "domain": "coreyiscorey.com",
+    "path": "/croatia",
+    "type": "self_hosted",
+    "session_duration": "168h"
+  },
+  "keepers": [
+    { "name": "Paula Radich",  "email": "radichp2@frontier.com",       "role": "Record Keeper" },
+    { "name": "Mark Grant",    "email": "grantmp14@gmail.com",         "role": "Orchestrator" },
+    { "name": "Mark Sullivan", "email": "markmsul@gmail.com",          "role": "Orchestrator" }
+  ],
+  "members": [
+    { "name": "Natalie Radich", "email": "noodlenat9@comcast.net" },
+    { "name": "Ian Sullivan",   "email": "iansullivan2010@gmail.com" },
+    { "name": "Matt Radich",    "email": "matt.radich@gmail.com" },
+    { "name": "Meg Sullivan",   "email": "megsul99@hotmail.com" },
+    { "name": "Stephen Grant",  "email": "StephenGrantMBA@outlook.com" },
+    { "name": "Laura Sullivan", "email": "laurasullivan4@gmail.com" },
+    { "name": "Jeffery Grant",  "email": "jgrant1@outlook.com" }
+  ]
+}

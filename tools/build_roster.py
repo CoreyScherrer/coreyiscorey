@@ -12,7 +12,7 @@ Usage:
     python tools/build_roster.py            # write public/croatia/roster.json
     python tools/build_roster.py --stdout   # print instead (inspection)
 """
-import sys, json, argparse, collections
+import sys, json, argparse, collections, hashlib
 
 sys.path.insert(0, '/Users/admin/Services/discotheque')
 
@@ -74,8 +74,13 @@ KEEPERS = ['Paula Radich (Aunt Paula)', 'Mark Grant', 'Mark Maurice Sullivan']
 # Keeper email addresses, mirrored into roster.json so the page can show the
 # right affordances. This is NOT a security boundary — the Cloudflare Access
 # policy is what actually gates entry, and corrections are proposals a keeper
-# applies by hand. Fill these in once the family supplies addresses.
-KEEPER_EMAILS = []
+# applies by hand.
+# Source: "Emails for login to Croatia Data" (Drive), 2026-07-23.
+KEEPER_EMAILS = [
+    'radichp2@frontier.com',      # Paula Radich — Record Keeper
+    'grantmp14@gmail.com',        # Mark Grant — Orchestrator
+    'markmsul@gmail.com',         # Mark Sullivan — Orchestrator
+]
 
 EMIGRANTS = {
     'Marco Radich (Radić)', 'Anna Radich (née Hlapcich / Hlapčić)',
@@ -157,7 +162,14 @@ def main():
         'source': 'discotheque graph (encrypted) + family Pre-Application Checklist',
         'note': 'Names and lineage only. No dates, no document contents.',
         'keepers': [slug(k) for k in KEEPERS],
-        'keeper_emails': KEEPER_EMAILS,
+        # Hashed, not plaintext: roster.json is fetched by the browser, so
+        # publishing real addresses here would expose them to anyone who
+        # reaches the page. The page hashes the signed-in Access email and
+        # compares. This only toggles UI affordances — Access is the gate.
+        'keeper_email_hashes': [
+            hashlib.sha256(e.strip().lower().encode()).hexdigest()[:16]
+            for e in KEEPER_EMAILS
+        ],
         'checklist_template': [{'key': k, 'label': l} for k, l in CHECKLIST],
         'people': people,
     }

@@ -7,7 +7,11 @@
     "mark-grant",
     "mark-maurice-sullivan"
   ],
-  "keeper_emails": [],
+  "keeper_email_hashes": [
+    "e2db150ffd14f9b1",
+    "0ad170201027b4e3",
+    "beb88f1b823db0db"
+  ],
   "checklist_template": [
     {
       "key": "participation",
