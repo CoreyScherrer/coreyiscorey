@@ -80,12 +80,37 @@ KEEPER_EMAILS = [
     'radichp2@frontier.com',      # Paula Radich — Record Keeper
     'grantmp14@gmail.com',        # Mark Grant — Orchestrator
     'markmsul@gmail.com',         # Mark Sullivan — Orchestrator
+    'thecoreyis@gmail.com',       # Corey Scherrer — System Guide & Researcher
+    'corey@coreyscherrer.com',    # Corey Scherrer — alternate
 ]
 
 EMIGRANTS = {
     'Marco Radich (Radić)', 'Anna Radich (née Hlapcich / Hlapčić)',
     'Charles Andrew Turina', 'Matthew C. Vranizan', 'Lucretia Milašić',
 }
+
+
+# Person -> login email, from "Emails for login to Croatia Data" (Drive).
+# Stored as a hash in the published file so addresses are never served.
+PERSON_EMAIL = {
+    'Mark Maurice Sullivan':  'markmsul@gmail.com',
+    'Mark Grant':             'grantmp14@gmail.com',
+    'Natalie Radich':         'noodlenat9@comcast.net',
+    'Ian Anthony Sullivan':   'iansullivan2010@gmail.com',
+    'Matthew (Matt) Radich':  'matt.radich@gmail.com',
+    'Meg Sullivan':           'megsul99@hotmail.com',
+    'Paula Radich (Aunt Paula)': 'radichp2@frontier.com',
+    'Stephen Joseph Grant':   'StephenGrantMBA@outlook.com',
+    'Laura Rose Sullivan':    'laurasullivan4@gmail.com',
+    'Jeffery Charles Grant':  'jgrant1@outlook.com',
+    'Corey Scherrer':         'thecoreyis@gmail.com',
+}
+
+
+def ehash(email):
+    """Short SHA-256 prefix — lets the page match a signed-in user to their
+    row without publishing anyone's address."""
+    return hashlib.sha256(email.strip().lower().encode()).hexdigest()[:16]
 
 
 def slug(name):
@@ -144,6 +169,7 @@ def main():
         nid = by_name.get(name)
         p = props.get(nid, {}) if nid else {}
         core = name.split('(')[0].strip()
+        email = PERSON_EMAIL.get(name)
         people.append({
             'slug': slug(name),
             'name': name,
@@ -154,6 +180,9 @@ def main():
             'keeper': name in KEEPERS,
             'chain': chain_to_emigrant(nid) if nid else [],
             'needs_verification': bool(p.get('needs_verification')),
+            # Hash, never the address itself — this file is served to browsers.
+            'email_hash': ehash(email) if email else None,
+            'has_login': bool(email),
             'checklist': [{'key': k, 'label': l, 'status': 'unknown'} for k, l in CHECKLIST],
         })
 
@@ -162,6 +191,7 @@ def main():
         'source': 'discotheque graph (encrypted) + family Pre-Application Checklist',
         'note': 'Names and lineage only. No dates, no document contents.',
         'keepers': [slug(k) for k in KEEPERS],
+        'checklist_start_stage': 2,
         # Hashed, not plaintext: roster.json is fetched by the browser, so
         # publishing real addresses here would expose them to anyone who
         # reaches the page. The page hashes the signed-in Access email and

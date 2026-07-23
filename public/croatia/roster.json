@@ -7,10 +7,13 @@
     "mark-grant",
     "mark-maurice-sullivan"
   ],
+  "checklist_start_stage": 2,
   "keeper_email_hashes": [
     "e2db150ffd14f9b1",
     "0ad170201027b4e3",
-    "beb88f1b823db0db"
+    "beb88f1b823db0db",
+    "9491269152562460",
+    "735a41e994b91a48"
   ],
   "checklist_template": [
     {
@@ -68,6 +71,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -131,6 +136,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -198,6 +205,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "cdc25c60f85c6151",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -261,6 +270,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": "9491269152562460",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -328,6 +339,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -391,6 +404,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -458,6 +473,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "beb88f1b823db0db",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -525,6 +542,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "dfcc71609775702c",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -592,6 +611,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "806d063290850058",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -658,6 +679,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -721,6 +744,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -788,6 +813,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "0ad170201027b4e3",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -855,6 +882,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "b31030396656d862",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -922,6 +951,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "61aa72fea9c4ca98",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -989,6 +1020,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "a31b2d9727c21ae4",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -1056,6 +1089,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "dd126b663b56df63",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -1119,6 +1154,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1187,6 +1224,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1253,6 +1292,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1319,6 +1360,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1385,6 +1428,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": "e2db150ffd14f9b1",
+      "has_login": true,
       "checklist": [
         {
           "key": "participation",
@@ -1451,6 +1496,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1518,6 +1565,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1581,6 +1630,8 @@
       "keeper": false,
       "chain": [],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1649,6 +1700,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
@@ -1717,6 +1770,8 @@
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
       "checklist": [
         {
           "key": "participation",
