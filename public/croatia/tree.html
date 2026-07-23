@@ -95,6 +95,27 @@
   .docs-list li{font-size:14.3px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--line-2)}
   .docs-list li:last-child{border-bottom:0}
   .empty{font-size:14px;color:var(--ink-3);font-style:italic}
+
+  /* ---------- keeper inline editing ---------- */
+  .edit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px}
+  .fld label{display:block;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:700;margin:0 0 4px}
+  .fld input{width:100%;font:inherit;font-size:14.3px;padding:8px 10px;border-radius:7px;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+  .fld input:focus{outline:none;border-color:var(--accent)}
+  .fld .note{font-size:11.8px;color:var(--ink-3);margin:4px 0 0}
+  .edit-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;align-items:center}
+  .edit-status{font-size:13px;color:var(--ink-3)}
+  .edit-status.saved{color:var(--ok);font-weight:600}
+  .pending{margin-top:12px;border:1px solid var(--ok-line);background:var(--ok-soft);
+    border-radius:8px;padding:11px 13px}
+  .pending h4{margin:0 0 7px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ok);font-weight:700}
+  .pending pre{margin:0;font:12.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;
+    white-space:pre-wrap;word-break:break-word;color:var(--ink-2)}
+  .chg{font-size:13.4px;color:var(--ink-2);padding:5px 0;border-bottom:1px solid var(--line-2)}
+  .chg:last-child{border-bottom:0}
+  .chg b{color:var(--ink);font-weight:620}
 </style>
 </head>
 <body>
@@ -135,6 +156,7 @@
     <div class="kv" id="p-kv"></div>
     <div class="sect" id="p-rel"></div>
     <div class="sect" id="p-docs"></div>
+    <div class="sect" id="p-edit" hidden></div>
   </div>
 </div>
 
@@ -170,7 +192,7 @@
   // layout constants
   var NW = 176, NH = 46, HGAP = 22, VGAP = 62;
 
-  var tree = null, roster = null;
+  var tree = null, roster = null, me = null;
   var byId = {}, parents = {}, kids = {}, spouses = {};
   var collapsed = {};       // id -> true when descendants are folded
   var focusId = null;       // highlighted lineage
@@ -570,7 +592,155 @@
     }
     dl.appendChild(C.el('p', 'src',
       'Documents live in the family Drive folder — record keepers upload there.'));
+
+    renderEditor(p);
     document.getElementById('panel').hidden = false;
+  }
+
+  /* ---------- keeper inline editing ----------
+     This is a static site with no write endpoint. Edits are held in the
+     keeper's browser and exported as a change record for a keeper to apply
+     to the family graph. Nothing here can overwrite a verified fact, which
+     is deliberate: a mistyped date must never silently become the record. */
+  var EDITS_KEY = 'croatia.edits.v1';
+
+  function loadEdits() {
+    try { return JSON.parse(localStorage.getItem(EDITS_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveEdits(all) {
+    try { localStorage.setItem(EDITS_KEY, JSON.stringify(all)); }
+    catch (e) { /* private mode: edits last for the session only */ }
+  }
+
+  var FIELDS = [
+    { key: 'name',  label: 'Full legal name', ph: 'As on the birth certificate' },
+    { key: 'bd',    label: 'Date of birth',   ph: 'YYYY-MM-DD' },
+    { key: 'dd',    label: 'Date of death',   ph: 'YYYY-MM-DD, or blank if living' },
+    { key: 'notes', label: 'Note for the record', ph: 'Anything else to correct' }
+  ];
+
+  function currentValue(p, key) {
+    if (key === 'name') return p.name || '';
+    if (key === 'bd') return p.bd || (p.b || '');
+    if (key === 'dd') return p.d || '';
+    return '';
+  }
+
+  function renderEditor(p) {
+    var host = document.getElementById('p-edit');
+    C.clear(host);
+    if (!me || !me.keeper) { host.hidden = true; return; }
+    host.hidden = false;
+
+    host.appendChild(C.el('h3', null, 'Edit this record — record keepers only'));
+
+    var all = loadEdits();
+    var mine = all[p.id] || {};
+    var grid = C.el('div', 'edit-grid');
+    var inputs = {};
+
+    FIELDS.forEach(function (f) {
+      var fld = C.el('div', 'fld');
+      fld.appendChild(C.el('label', null, f.label));
+      var input = C.el('input');
+      input.type = 'text';
+      input.placeholder = f.ph;
+      input.value = mine[f.key] != null ? mine[f.key] : currentValue(p, f.key);
+      inputs[f.key] = input;
+      fld.appendChild(input);
+      var cur = currentValue(p, f.key);
+      if (cur) fld.appendChild(C.el('p', 'note', 'On record: ' + cur));
+      grid.appendChild(fld);
+    });
+    host.appendChild(grid);
+
+    var actions = C.el('div', 'edit-actions');
+    var save = C.el('button', 'btn primary', 'Save change');
+    var revert = C.el('button', 'btn', 'Discard');
+    var status = C.el('span', 'edit-status');
+    actions.appendChild(save);
+    actions.appendChild(revert);
+    actions.appendChild(status);
+    host.appendChild(actions);
+
+    var pendingBox = C.el('div');
+    host.appendChild(pendingBox);
+
+    function refreshPending() {
+      C.clear(pendingBox);
+      var store = loadEdits();
+      var ids = Object.keys(store);
+      if (!ids.length) return;
+      var box = C.el('div', 'pending');
+      box.appendChild(C.el('h4', null, ids.length + ' unsent change'
+        + (ids.length === 1 ? '' : 's')));
+      ids.forEach(function (id) {
+        var person = byId[id];
+        var rec = store[id];
+        var line = C.el('div', 'chg');
+        line.appendChild(C.el('b', null, (person ? person.name : id) + ': '));
+        line.appendChild(document.createTextNode(
+          Object.keys(rec).filter(function (k) { return k !== '_at'; })
+            .map(function (k) { return k + ' → ' + rec[k]; }).join(' · ')));
+        box.appendChild(line);
+      });
+      var copy = C.el('button', 'btn', 'Copy all changes');
+      copy.style.marginTop = '10px';
+      copy.addEventListener('click', function () {
+        var txt = JSON.stringify(store, null, 2);
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(txt).then(function () {
+            copy.textContent = 'Copied — paste to a keeper';
+          });
+        } else {
+          var pre = C.el('pre', null, txt);
+          box.appendChild(pre);
+        }
+      });
+      var clearAll = C.el('button', 'btn', 'Clear all');
+      clearAll.style.marginTop = '10px';
+      clearAll.style.marginLeft = '8px';
+      clearAll.addEventListener('click', function () {
+        saveEdits({});
+        refreshPending();
+      });
+      box.appendChild(copy);
+      box.appendChild(clearAll);
+      pendingBox.appendChild(box);
+    }
+
+    save.addEventListener('click', function () {
+      var store = loadEdits();
+      var rec = {};
+      FIELDS.forEach(function (f) {
+        var v = inputs[f.key].value.trim();
+        if (v && v !== currentValue(p, f.key)) rec[f.key] = v;
+      });
+      if (!Object.keys(rec).length) {
+        status.textContent = 'Nothing changed.';
+        status.className = 'edit-status';
+        return;
+      }
+      rec._at = new Date().toISOString().slice(0, 10);
+      store[p.id] = rec;
+      saveEdits(store);
+      status.textContent = 'Saved locally — send to a keeper to apply.';
+      status.className = 'edit-status saved';
+      refreshPending();
+    });
+
+    revert.addEventListener('click', function () {
+      var store = loadEdits();
+      delete store[p.id];
+      saveEdits(store);
+      FIELDS.forEach(function (f) { inputs[f.key].value = currentValue(p, f.key); });
+      status.textContent = 'Discarded.';
+      status.className = 'edit-status';
+      refreshPending();
+    });
+
+    refreshPending();
   }
 
   document.getElementById('panel-close').addEventListener('click', function () {
@@ -608,6 +778,7 @@
   });
 
   C.boot(function (identity, r) {
+    me = identity;
     roster = r;
     // cache: 'no-cache' revalidates — without it a browser holding an older
     // tree.json silently renders stale generations after a data update.
