@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Applicants — Croatian Citizenship</title>
+<style>
+  :root{
+    --ink:#14181d; --ink-2:#454e59; --ink-3:#77818e;
+    --line:#e4e7ec; --line-2:#eef0f3;
+    --bg:#ffffff; --bg-2:#fafbfc;
+    --accent:#1f6feb; --accent-soft:#eef4ff;
+    --warn:#9a6b00; --warn-soft:#fff8e6; --warn-line:#f0dfae;
+    --ok:#1a6b4a; --ok-soft:#eefaf4; --ok-line:#bfe6d3;
+    --radius:11px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e7eaee; --ink-2:#aab3bf; --ink-3:#7d8794;
+      --line:#252b33; --line-2:#1e232a;
+      --bg:#0e1116; --bg-2:#141920;
+      --accent:#5b9bff; --accent-soft:#13233d;
+      --warn:#e8bf62; --warn-soft:#2a2312; --warn-line:#4a3d1c;
+      --ok:#5fd3a2; --ok-soft:#10261d; --ok-line:#20402f;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing:-.003em}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 88px}
+  a{color:var(--accent)}
+
+  header{padding:56px 0 26px;border-bottom:1px solid var(--line)}
+  .back{font-size:13.5px;color:var(--ink-3);text-decoration:none;display:inline-block;margin-bottom:16px}
+  .back:hover{color:var(--accent)}
+  h1{font-size:clamp(28px,5vw,38px);line-height:1.14;margin:0 0 12px;font-weight:650;letter-spacing:-.022em}
+  .lede{font-size:16.5px;color:var(--ink-2);margin:0;max-width:62ch}
+
+  .who{margin:22px 0 0;padding:13px 16px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--bg-2);font-size:14px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+  .who .dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none}
+  .who.keeper .dot{background:var(--ok)}
+  .who b{color:var(--ink);font-weight:620}
+  .role{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;
+    padding:3px 9px;border-radius:999px;border:1px solid var(--line)}
+  .role.keeper{color:var(--ok);background:var(--ok-soft);border-color:var(--ok-line)}
+  .role.member{color:var(--ink-3);background:var(--bg)}
+
+  .summary{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}
+  .stat{border:1px solid var(--line);border-radius:var(--radius);padding:13px 17px;background:var(--bg-2);min-width:112px}
+  .stat .n{font-size:23px;font-weight:650;letter-spacing:-.02em;line-height:1.15}
+  .stat .l{font-size:12px;color:var(--ink-3);margin-top:3px}
+  .stat.warn .n{color:var(--warn)}
+
+  .filters{display:flex;flex-wrap:wrap;gap:7px;margin:26px 0 0}
+  .filters button{font:inherit;font-size:13.5px;padding:6px 13px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:var(--bg-2);color:var(--ink-2)}
+  .filters button:hover{border-color:var(--accent);color:var(--accent)}
+  .filters button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+
+  .list{margin-top:20px}
+  .person{border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;background:var(--bg-2)}
+  .person.hidden{display:none}
+  .p-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
+  .p-name{font-size:17px;font-weight:630;letter-spacing:-.012em;margin:0}
+  .tag{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:680;
+    padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-3);background:var(--bg)}
+  .tag.spouse{color:var(--accent);background:var(--accent-soft);border-color:var(--accent)}
+  .tag.miss{color:var(--warn);background:var(--warn-soft);border-color:var(--warn-line)}
+  .tag.keep{color:var(--ok);background:var(--ok-soft);border-color:var(--ok-line)}
+  .chain{font-size:13.5px;color:var(--ink-3);margin:9px 0 0;line-height:1.5}
+  .chain b{color:var(--ink-2);font-weight:600}
+  .p-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+  .btn{font:inherit;font-size:13.5px;padding:6px 13px;border-radius:8px;cursor:pointer;text-decoration:none;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink-2);display:inline-block}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+
+  .sugg{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2)}
+  .sugg[hidden]{display:none}
+  .sugg label{display:block;font-size:12.5px;color:var(--ink-3);margin:0 0 5px;font-weight:600;
+    letter-spacing:.04em;text-transform:uppercase}
+  .sugg input,.sugg textarea{width:100%;font:inherit;font-size:14.5px;padding:9px 11px;border-radius:8px;
+    border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-bottom:11px}
+  .sugg textarea{min-height:62px;resize:vertical}
+  .sugg .row{display:flex;gap:9px;flex-wrap:wrap}
+  .hint{font-size:12.5px;color:var(--ink-3);margin:0 0 11px}
+  .sent{font-size:14px;color:var(--ok);background:var(--ok-soft);border:1px solid var(--ok-line);
+    border-radius:8px;padding:10px 13px;margin-top:11px}
+  .sent[hidden]{display:none}
+
+  .note{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;
+    padding:15px 17px;margin:26px 0 0;background:var(--bg-2);font-size:14.5px;color:var(--ink-2)}
+  .note b{color:var(--ink);font-weight:620}
+  footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-3);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="/croatia/">← Family hub</a>
+  <h1>Applicants</h1>
+  <p class="lede">Everyone in the family bloc, the ancestral chain each person's claim runs through,
+  and what each still needs. Corrections are proposed here and reviewed by the record keepers.</p>
+
+  <div class="who" id="who"></div>
+</header>
+
+<div class="summary" id="summary"></div>
+
+<div class="filters" id="filters">
+  <button data-f="all" aria-pressed="true">Everyone</button>
+  <button data-f="chain" aria-pressed="false">By descent</button>
+  <button data-f="spouse" aria-pressed="false">By marriage</button>
+  <button data-f="missing" aria-pressed="false">Missing legal name</button>
+</div>
+
+<div class="list" id="list"></div>
+
+<div class="note">
+  <p><b>How corrections work.</b> Anyone can propose a change to their own record — a spelling, a middle
+  name, a date. Proposals go to Paula Radich, Mark Grant, and Mark Sullivan, who apply them to the family
+  record. Nothing changes automatically, so a mistaken entry can never overwrite a verified fact.</p>
+</div>
+
+<footer>
+  <p>Names and lineage only — no dates or document contents are published on this page.
+  Identity documents live in the family Drive folder and are never stored on this site.</p>
+</footer>
+
+</div>
+
+<script>
+// SECURITY: no innerHTML anywhere in this file — every node is built with
+// createElement + textContent, matching the convention in /nav.js. Family
+// names come from roster.json and must never be interpolated as markup.
+(function () {
+  'use strict';
+
+  var me = null;    // { email, keeper }
+  var data = null;
+
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt != null) e.textContent = txt;
+    return e;
+  }
+
+  function clear(node) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  // Cloudflare Access publishes the verified identity here. Until Access is
+  // switched on this 404s, and the page degrades to read-only "not signed in".
+  function whoami() {
+    return fetch('/cdn-cgi/access/get-identity', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; });
+  }
+
+  function renderWho() {
+    var box = document.getElementById('who');
+    clear(box);
+    box.appendChild(el('span', 'dot'));
+
+    if (!me || !me.email) {
+      box.appendChild(el('span', null,
+        'Not signed in — you can read this page, but corrections need a verified email.'));
+      return;
+    }
+    var t = el('span');
+    t.appendChild(document.createTextNode('Signed in as '));
+    t.appendChild(el('b', null, me.email));
+    box.appendChild(t);
+    box.appendChild(el('span', 'role ' + (me.keeper ? 'keeper' : 'member'),
+      me.keeper ? 'Record keeper' : 'Family member'));
+    if (me.keeper) box.classList.add('keeper');
+  }
+
+  function renderSummary() {
+    var s = document.getElementById('summary');
+    clear(s);
+    var miss = data.people.filter(function (p) { return !p.has_legal_name; }).length;
+    var chain = data.people.filter(function (p) { return p.route === 'chain'; }).length;
+    var spouse = data.people.filter(function (p) { return p.route === 'spouse'; }).length;
+    [[data.people.length, 'applicants', ''],
+     [chain, 'by descent', ''],
+     [spouse, 'by marriage', ''],
+     [miss, 'missing legal name', 'warn']].forEach(function (row) {
+      var d = el('div', 'stat' + (row[2] ? ' ' + row[2] : ''));
+      d.appendChild(el('div', 'n', String(row[0])));
+      d.appendChild(el('div', 'l', row[1]));
+      s.appendChild(d);
+    });
+  }
+
+  function personCard(p) {
+    var card = el('div', 'person');
+    card.setAttribute('data-route', p.route);
+    card.setAttribute('data-missing', p.has_legal_name ? '0' : '1');
+
+    var top = el('div', 'p-top');
+    top.appendChild(el('h2', 'p-name', p.display));
+    if (p.route === 'spouse') top.appendChild(el('span', 'tag spouse', 'by marriage'));
+    if (p.keeper) top.appendChild(el('span', 'tag keep', 'record keeper'));
+    if (!p.has_legal_name) top.appendChild(el('span', 'tag miss', 'needs full legal name'));
+    card.appendChild(top);
+
+    var chain = el('p', 'chain');
+    if (p.route === 'spouse') {
+      chain.textContent = 'Applies through marriage — the marriage certificate is the key document, '
+        + 'no descent chain needed.';
+    } else if (p.chain && p.chain.length) {
+      chain.appendChild(document.createTextNode('Chain: '));
+      p.chain.forEach(function (n, i) {
+        if (i) chain.appendChild(document.createTextNode(' → '));
+        chain.appendChild(el('b', null, n));
+      });
+    } else {
+      chain.textContent = 'No descent chain found in the family record — eligibility unconfirmed.';
+    }
+    card.appendChild(chain);
+
+    var acts = el('div', 'p-actions');
+    var propose = el('button', 'btn', 'Suggest a correction');
+    acts.appendChild(propose);
+    card.appendChild(acts);
+
+    var form = el('div', 'sugg');
+    form.hidden = true;
+    form.appendChild(el('p', 'hint',
+      'Goes to the record keepers for review — nothing changes automatically.'));
+
+    form.appendChild(el('label', null, 'Full legal name, as on the birth certificate'));
+    var nameIn = el('input');
+    nameIn.type = 'text';
+    nameIn.placeholder = p.display;
+    form.appendChild(nameIn);
+
+    form.appendChild(el('label', null, 'Anything else to correct'));
+    var noteIn = el('textarea');
+    noteIn.placeholder = 'Spelling, dates, relationships…';
+    form.appendChild(noteIn);
+
+    var row = el('div', 'row');
+    var send = el('button', 'btn primary', 'Send to keepers');
+    var cancel = el('button', 'btn', 'Cancel');
+    row.appendChild(send);
+    row.appendChild(cancel);
+    form.appendChild(row);
+
+    var sent = el('div', 'sent');
+    sent.hidden = true;
+    form.appendChild(sent);
+    card.appendChild(form);
+
+    propose.addEventListener('click', function () {
+      form.hidden = !form.hidden;
+      if (!form.hidden) nameIn.focus();
+    });
+    cancel.addEventListener('click', function () { form.hidden = true; });
+
+    send.addEventListener('click', function () {
+      var body = [
+        'Correction for: ' + p.name,
+        'Proposed legal name: ' + (nameIn.value || '(unchanged)'),
+        'Notes: ' + (noteIn.value || '(none)'),
+        'From: ' + ((me && me.email) || '(not signed in)')
+      ].join('\n');
+      window.location.href = 'mailto:?subject='
+        + encodeURIComponent('Croatia record correction — ' + p.display)
+        + '&body=' + encodeURIComponent(body);
+      sent.hidden = false;
+      sent.textContent = 'Opening your email app — send it and a keeper will apply the change.';
+    });
+
+    return card;
+  }
+
+  function renderList() {
+    var list = document.getElementById('list');
+    clear(list);
+    data.people.forEach(function (p) { list.appendChild(personCard(p)); });
+  }
+
+  function wireFilters() {
+    var bar = document.getElementById('filters');
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) return;
+      [].forEach.call(bar.querySelectorAll('button'), function (x) {
+        x.setAttribute('aria-pressed', String(x === b));
+      });
+      var f = b.getAttribute('data-f');
+      [].forEach.call(document.querySelectorAll('.person'), function (card) {
+        var show = f === 'all'
+          || (f === 'missing' && card.getAttribute('data-missing') === '1')
+          || card.getAttribute('data-route') === f;
+        card.classList.toggle('hidden', !show);
+      });
+    });
+  }
+
+  Promise.all([
+    fetch('roster.json').then(function (r) { return r.json(); }),
+    whoami()
+  ]).then(function (res) {
+    data = res[0];
+    var ident = res[1];
+    if (ident && ident.email) {
+      // Keeper status is asserted by the server-side allowlist, not by this
+      // page — the flag here only decides which affordances are shown.
+      me = { email: ident.email, keeper: !!ident.keeper };
+    }
+    renderWho();
+    renderSummary();
+    renderList();
+    wireFilters();
+  }).catch(function (err) {
+    var list = document.getElementById('list');
+    clear(list);
+    list.appendChild(el('p', null, 'Could not load the family roster: ' + err));
+  });
+})();
+</script>
+</body>
+</html>

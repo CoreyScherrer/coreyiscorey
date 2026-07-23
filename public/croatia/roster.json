@@ -1,0 +1,1769 @@
+{
+  "generated": "2026-07-23",
+  "source": "discotheque graph (encrypted) + family Pre-Application Checklist",
+  "note": "Names and lineage only. No dates, no document contents.",
+  "keepers": [
+    "paula-radich",
+    "mark-grant",
+    "mark-maurice-sullivan"
+  ],
+  "checklist_template": [
+    {
+      "key": "participation",
+      "label": "Confirm participation + consulate jurisdiction"
+    },
+    {
+      "key": "birth_cert",
+      "label": "Certified birth certificate (order 2)"
+    },
+    {
+      "key": "marriage_cert",
+      "label": "Marriage certificate"
+    },
+    {
+      "key": "passport_copy",
+      "label": "Notarized copy of US passport photo page"
+    },
+    {
+      "key": "state_apostille",
+      "label": "State apostilles on birth/marriage certificates"
+    },
+    {
+      "key": "fbi_check",
+      "label": "FBI Identity History Summary + federal apostille"
+    },
+    {
+      "key": "biography",
+      "label": "Biography in Croatian (životopis)"
+    },
+    {
+      "key": "form",
+      "label": "Application form (Obrazac 1 or 2)"
+    },
+    {
+      "key": "appointment",
+      "label": "Consulate appointment booked"
+    },
+    {
+      "key": "uploaded",
+      "label": "Everything uploaded to the family Drive folder"
+    }
+  ],
+  "people": [
+    {
+      "slug": "joan-marita-sullivan",
+      "name": "Joan Marita Sullivan",
+      "display": "Joan Marita Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 2,
+      "keeper": false,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "john-joseph-sullivan",
+      "name": "John Joseph Sullivan",
+      "display": "John Joseph Sullivan",
+      "has_legal_name": true,
+      "route": "spouse",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "meg-sullivan",
+      "name": "Meg Sullivan",
+      "display": "Meg Sullivan",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "corey-scherrer",
+      "name": "Corey Scherrer",
+      "display": "Corey Scherrer",
+      "has_legal_name": false,
+      "route": "spouse",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "anna-natalia-sullivan",
+      "name": "Anna Natalia Sullivan",
+      "display": "Anna Natalia Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "carl-buher",
+      "name": "Carl Buher",
+      "display": "Carl Buher",
+      "has_legal_name": false,
+      "route": "spouse",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "mark-maurice-sullivan",
+      "name": "Mark Maurice Sullivan",
+      "display": "Mark Maurice Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": true,
+      "chain": [
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "ian-anthony-sullivan",
+      "name": "Ian Anthony Sullivan",
+      "display": "Ian Anthony Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "laura-rose-sullivan",
+      "name": "Laura Rose Sullivan",
+      "display": "Laura Rose Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "rita-grant",
+      "name": "Rita Grant",
+      "display": "Rita Grant",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 2,
+      "keeper": false,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "jeff-grant",
+      "name": "Jeff Grant",
+      "display": "Jeff Grant",
+      "has_legal_name": false,
+      "route": "spouse",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "mark-grant",
+      "name": "Mark Grant",
+      "display": "Mark Grant",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 3,
+      "keeper": true,
+      "chain": [
+        "Rita Grant",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "stephen-joseph-grant",
+      "name": "Stephen Joseph Grant",
+      "display": "Stephen Joseph Grant",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Rita Grant",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "jeffery-charles-grant",
+      "name": "Jeffery Charles Grant",
+      "display": "Jeffery Charles Grant",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Rita Grant",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "natalie-radich",
+      "name": "Natalie Radich",
+      "display": "Natalie Radich",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "John Radich",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "matthew",
+      "name": "Matthew (Matt) Radich",
+      "display": "Matthew",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "John Radich",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "rosalia-gobeo",
+      "name": "Rosalia Gobeo (Rose)",
+      "display": "Rosalia Gobeo",
+      "has_legal_name": false,
+      "route": "spouse",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "dominic",
+      "name": "Dominic (Dom)",
+      "display": "Dominic",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 4,
+      "keeper": false,
+      "chain": [
+        "Matthew (Matt) Radich",
+        "John Radich",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "trina-maureen-radich",
+      "name": "Trina Maureen Radich",
+      "display": "Trina Maureen Radich",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 2,
+      "keeper": false,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "michele-dahl",
+      "name": "Michele Dahl",
+      "display": "Michele Dahl",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 2,
+      "keeper": false,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "paula-radich",
+      "name": "Paula Radich (Aunt Paula)",
+      "display": "Paula Radich",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 2,
+      "keeper": true,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "kathleen-mary-radich",
+      "name": "Kathleen Mary Radich (Sister/Aunt Kathleen)",
+      "display": "Kathleen Mary Radich",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 2,
+      "keeper": false,
+      "chain": [
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "elizabeth-dahl",
+      "name": "Elizabeth Dahl",
+      "display": "Elizabeth Dahl",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 3,
+      "keeper": false,
+      "chain": [
+        "Michele Dahl",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "kathy-hochstettler",
+      "name": "Kathy Hochstettler",
+      "display": "Kathy Hochstettler",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 0,
+      "keeper": false,
+      "chain": [],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "luca-sullivan",
+      "name": "Luca Sullivan",
+      "display": "Luca Sullivan",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 4,
+      "keeper": false,
+      "chain": [
+        "Anna Natalia Sullivan",
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "nora-sullivan",
+      "name": "Nora Sullivan",
+      "display": "Nora Sullivan",
+      "has_legal_name": false,
+      "route": "chain",
+      "generation": 4,
+      "keeper": false,
+      "chain": [
+        "Anna Natalia Sullivan",
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    }
+  ]
+}
