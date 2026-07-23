@@ -177,7 +177,10 @@
   /* ---------- boot ---------- */
   function boot(onReady) {
     header();
-    var rosterP = fetch('/croatia/roster.json').then(function (r) { return r.json(); });
+    // no-cache revalidates: a stale roster silently shows old names and the
+    // wrong keeper set after an update.
+    var rosterP = fetch('/croatia/roster.json', { cache: 'no-cache' })
+      .then(function (r) { return r.json(); });
     Promise.all([rosterP, whoami()]).then(function (res) {
       var roster = res[0], ident = res[1];
       var me = null;

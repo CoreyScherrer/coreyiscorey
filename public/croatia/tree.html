@@ -42,11 +42,22 @@
   .nd .toggle-t{font-size:12px;fill:var(--ink-2);font-weight:700}
   .hint{font-size:12.8px;color:var(--ink-3);margin:9px 0 0}
 
-  /* ---------- generation list ---------- */
-  .gen{margin-top:24px}
+  /* ---------- tier list ---------- */
+  .gen{margin-top:26px}
   .gen-label{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
-    font-weight:700;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
-  .row{display:flex;flex-wrap:wrap;gap:9px}
+    font-weight:700;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:9px}
+  .gen-count{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--bg-2);
+    border:1px solid var(--line);border-radius:999px;padding:1px 8px;letter-spacing:.02em}
+  .row{display:flex;flex-wrap:wrap;gap:9px;align-items:stretch}
+
+  /* a blood relative and their spouse, joined by a marriage line */
+  .unit{display:flex;align-items:center;gap:0;
+    border:1px dashed var(--line);border-radius:calc(var(--radius) + 3px);padding:6px}
+  .marriage-line{width:16px;height:1px;background:var(--ink-3);flex:none;opacity:.55}
+  .spouse-card{background:var(--bg-2)}
+  .rolelab{display:block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:700;margin-top:4px}
   .card{border:1px solid var(--line);border-radius:var(--radius);padding:11px 13px;background:var(--bg);
     min-width:186px;flex:0 1 228px;cursor:pointer;text-align:left;font:inherit;color:var(--ink)}
   .card:hover{border-color:var(--accent)}
@@ -412,42 +423,92 @@
         : '')));
   }
 
-  /* ---------- generation list ---------- */
-  function depth(id, seen) {
-    seen = seen || {};
-    if (seen[id]) return 0;
-    seen[id] = 1;
-    var best = 0;
-    (parents[id] || []).forEach(function (p) { best = Math.max(best, 1 + depth(p, seen)); });
-    return best;
+  /* ---------- tier list (Ancestors, Parents, Children, ...) ---------- */
+  var TIER_ORDER = ['Ancestors', 'Parents', 'Children', 'Grandchildren',
+                    'Great-Grandchildren', 'Great-Great-Grandchildren'];
+
+  function lifespan(p) {
+    if (!p.b) return '';
+    if (p.living) return p.b + ' \u2013 Present';
+    return p.b + ' \u2013 ' + (p.d || '');
+  }
+
+  function personCard(p, role) {
+    var c = C.el('button', 'card' + (isEmig(p.name) ? ' emig' : isApp(p.name) ? ' app' : '') +
+                           (role === 'spouse' ? ' spouse-card' : ''));
+    c.type = 'button';
+    c.appendChild(C.el('span', 'nm', p.name));
+    var ls = lifespan(p);
+    if (ls) c.appendChild(C.el('span', 'yr', ls));
+    if (role === 'spouse') c.appendChild(C.el('span', 'rolelab', 'Spouse'));
+    var tags = C.el('div', 'tags');
+    if (isEmig(p.name)) tags.appendChild(C.el('span', 'mini emig', 'Emigrant'));
+    if (isApp(p.name)) tags.appendChild(C.el('span', 'mini app', 'Applicant'));
+    if (DOCS[p.name]) tags.appendChild(C.el('span', 'mini docs', 'Docs'));
+    if (tags.childNodes.length) c.appendChild(tags);
+    c.addEventListener('click', function () { openPanel(p); });
+    return c;
+  }
+
+  // Birth year ascending; unknown dates sort to the end of the group.
+  function byBirth(a, b) {
+    var A = a.b || '', B = b.b || '';
+    if (A && B && A !== B) return A.localeCompare(B);
+    if (A && !B) return -1;
+    if (!A && B) return 1;
+    return a.name.localeCompare(b.name);
   }
 
   function renderGenerations() {
     var host = document.getElementById('generations');
     C.clear(host);
     var groups = {};
-    tree.people.forEach(function (p) { (groups[depth(p.id)] = groups[depth(p.id)] || []).push(p); });
-    Object.keys(groups).map(Number).sort(function (a, b) { return a - b; })
-      .forEach(function (d, i) {
-        var sec = C.el('div', 'gen');
-        sec.appendChild(C.el('p', 'gen-label', 'Generation ' + (i + 1)));
-        var row = C.el('div', 'row');
-        groups[d].sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (p) {
-          var c = C.el('button', 'card' + (isEmig(p.name) ? ' emig' : isApp(p.name) ? ' app' : ''));
-          c.type = 'button';
-          c.appendChild(C.el('span', 'nm', p.name));
-          if (p.b) c.appendChild(C.el('span', 'yr', p.b + ' – ' + (p.d || '')));
-          var tags = C.el('div', 'tags');
-          if (isEmig(p.name)) tags.appendChild(C.el('span', 'mini emig', 'Emigrant'));
-          if (isApp(p.name)) tags.appendChild(C.el('span', 'mini app', 'Applicant'));
-          if (DOCS[p.name]) tags.appendChild(C.el('span', 'mini docs', 'Docs'));
-          if (tags.childNodes.length) c.appendChild(tags);
-          c.addEventListener('click', function () { openPanel(p); });
-          row.appendChild(c);
+    tree.people.forEach(function (p) {
+      (groups[p.tier_name] = groups[p.tier_name] || []).push(p);
+    });
+
+    TIER_ORDER.forEach(function (tierName) {
+      var list = groups[tierName];
+      if (!list || !list.length) return;
+      var sec = C.el('div', 'gen');
+      var label = C.el('p', 'gen-label');
+      label.appendChild(document.createTextNode(tierName));
+      label.appendChild(C.el('span', 'gen-count', String(list.length)));
+      sec.appendChild(label);
+
+      var row = C.el('div', 'row');
+      var placed = {};
+
+      // Blood relatives in birth order, each paired with their spouse.
+      list.filter(function (p) { return !p.married_in; }).sort(byBirth)
+        .forEach(function (p) {
+          if (placed[p.id]) return;
+          placed[p.id] = 1;
+          var partners = (p.spouse_ids || []).map(function (id) {
+            return list.filter(function (x) { return x.id === id && !placed[x.id]; })[0];
+          }).filter(Boolean);
+
+          if (partners.length) {
+            var unit = C.el('div', 'unit');
+            unit.appendChild(personCard(p, 'blood'));
+            partners.forEach(function (sp) {
+              placed[sp.id] = 1;
+              unit.appendChild(C.el('span', 'marriage-line'));
+              unit.appendChild(personCard(sp, 'spouse'));
+            });
+            row.appendChild(unit);
+          } else {
+            row.appendChild(personCard(p, 'blood'));
+          }
         });
-        sec.appendChild(row);
-        host.appendChild(sec);
-      });
+
+      // Married-in people whose partner sits in a different tier.
+      list.filter(function (p) { return p.married_in && !placed[p.id]; }).sort(byBirth)
+        .forEach(function (p) { row.appendChild(personCard(p, 'spouse')); });
+
+      sec.appendChild(row);
+      host.appendChild(sec);
+    });
   }
 
   /* ---------- panel ---------- */
@@ -474,7 +535,9 @@
   function openPanel(p) {
     document.getElementById('p-name').textContent = p.name;
     var sub = [];
-    if (p.b) sub.push(p.b + ' – ' + (p.d || 'deceased'));
+    if (p.bd) sub.push(p.bd + (p.living ? ' · living' : ''));
+    else if (p.b) sub.push(lifespan(p));
+    if (p.tier_name) sub.push(p.tier_name);
     if (p.fs) sub.push('FamilySearch ' + p.fs);
     document.getElementById('p-sub').textContent = sub.join('  ·  ');
 
@@ -546,9 +609,22 @@
 
   C.boot(function (identity, r) {
     roster = r;
-    fetch('/croatia/tree.json').then(function (x) { return x.json(); })
+    // cache: 'no-cache' revalidates — without it a browser holding an older
+    // tree.json silently renders stale generations after a data update.
+    fetch('/croatia/tree.json', { cache: 'no-cache' }).then(function (x) { return x.json(); })
       .then(function (t) {
-        tree = t; index(); render(); renderGenerations();
+        tree = t;
+        index();
+        render();
+        // Rendered separately so a fault here cannot blank the diagram, and
+        // surfaces instead of being swallowed by the fetch catch below.
+        try {
+          renderGenerations();
+        } catch (err) {
+          document.getElementById('generations')
+            .appendChild(C.el('p', 'empty', 'Could not build the tier list: ' + err.message));
+          if (window.console) console.error('renderGenerations failed', err);
+        }
       })
       .catch(function (e) {
         document.getElementById('diagram')

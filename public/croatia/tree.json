@@ -7,7 +7,15 @@
    "name": "Alma Violet Davis",
    "fs": "L8FP-G7L",
    "b": "1904",
+   "bd": null,
    "d": "1979",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "38cbd75c"
+   ],
    "variants": null
   },
   {
@@ -15,7 +23,15 @@
    "name": "Angiola Sabich",
    "fs": "L83K-HWX",
    "b": "1805",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "46f4500e"
+   ],
    "variants": [
     "Sabich",
     "Sabić"
@@ -26,7 +42,15 @@
    "name": "Anna Natalia Sullivan",
    "fs": null,
    "b": null,
+   "bd": "1989-06-29",
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [
+    "dd2d3d33"
+   ],
    "variants": null
   },
   {
@@ -34,7 +58,15 @@
    "name": "Anna Radich (née Hlapcich / Hlapčić)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "af0d4403"
+   ],
    "variants": null
   },
   {
@@ -42,7 +74,15 @@
    "name": "Anthony John Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 1,
+   "tier_name": "Parents",
+   "married_in": false,
+   "spouse_ids": [
+    "7e6118b4"
+   ],
    "variants": null
   },
   {
@@ -50,7 +90,15 @@
    "name": "Antonio Vragnizan",
    "fs": "L83K-H7T",
    "b": "1775",
+   "bd": null,
    "d": "1851",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "c9eba639"
+   ],
    "variants": [
     "Vragnizan",
     "Vranizan"
@@ -61,7 +109,15 @@
    "name": "Bona Duboccovich",
    "fs": "L13B-V4X",
    "b": "1750",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "acaf35f3"
+   ],
    "variants": [
     "Duboccovich",
     "Dubokovič"
@@ -71,8 +127,16 @@
    "id": "dd2d3d33",
    "name": "Carl Buher",
    "fs": null,
-   "b": null,
+   "b": "1988",
+   "bd": "1988-11-19",
    "d": null,
+   "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": true,
+   "spouse_ids": [
+    "d9d5f153"
+   ],
    "variants": null
   },
   {
@@ -80,7 +144,15 @@
    "name": "Casper Henry Wilhelm",
    "fs": "K232-TPM",
    "b": "1904",
+   "bd": null,
    "d": "1994",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "c294a9c9"
+   ],
    "variants": null
   },
   {
@@ -88,7 +160,15 @@
    "name": "Catherine Marie Monpier",
    "fs": "LRS3-FBZ",
    "b": "1903",
+   "bd": null,
    "d": "1996",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "3fd8e7b0"
+   ],
    "variants": null
   },
   {
@@ -96,7 +176,15 @@
    "name": "Catterina Botteri",
    "fs": "L83K-HWS",
    "b": "1795",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "684da63b"
+   ],
    "variants": [
     "Botteri"
    ]
@@ -106,7 +194,15 @@
    "name": "Charles Andrew Turina",
    "fs": "L6HC-CVM",
    "b": "1890",
+   "bd": null,
    "d": "1962",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "a3101074"
+   ],
    "variants": [
     "Turina",
     "Carlo Turina"
@@ -116,8 +212,16 @@
    "id": "3eb39694",
    "name": "Corey Scherrer",
    "fs": null,
-   "b": null,
+   "b": "1977",
+   "bd": "1977-12-11",
    "d": null,
+   "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": true,
+   "spouse_ids": [
+    "8ce27e8f"
+   ],
    "variants": null
   },
   {
@@ -125,7 +229,13 @@
    "name": "Dominic (Dom)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 4,
+   "tier_name": "Great-Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -133,7 +243,15 @@
    "name": "Dominic Joseph Vranizan",
    "fs": "L6SD-TMW",
    "b": "1895",
+   "bd": null,
    "d": "1931",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "84c31591"
+   ],
    "variants": [
     "Vranizan",
     "Vragnizan",
@@ -145,7 +263,15 @@
    "name": "Edna Maria Wolf",
    "fs": "L6HC-48M",
    "b": "1901",
+   "bd": null,
    "d": "1984",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "48adeff4"
+   ],
    "variants": null
   },
   {
@@ -153,7 +279,13 @@
    "name": "Elizabeth Dahl",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -161,7 +293,15 @@
    "name": "Frederick William Vranizan",
    "fs": "L6SD-YMM",
    "b": "1901",
+   "bd": null,
    "d": "1981",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "44dc8117"
+   ],
    "variants": null
   },
   {
@@ -169,7 +309,15 @@
    "name": "George Arthur Vranizan",
    "fs": "L6SD-TT3",
    "b": "1897",
+   "bd": null,
    "d": "1979",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "db8da33b"
+   ],
    "variants": null
   },
   {
@@ -177,7 +325,15 @@
    "name": "Giacomo Vragnizan",
    "fs": "L83K-H73",
    "b": "1819",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "706a05f6"
+   ],
    "variants": [
     "Vragnizan",
     "Vranizan"
@@ -188,7 +344,15 @@
    "name": "Giorgio Vragnizan",
    "fs": "L13B-DW8",
    "b": "1745",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "9fb0fd7b"
+   ],
    "variants": [
     "Vragnizan",
     "Vranizan"
@@ -199,7 +363,15 @@
    "name": "Giorgio Vrancovich",
    "fs": "L131-5K9",
    "b": "1745",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "252c6fdc"
+   ],
    "variants": [
     "Vrancovich",
     "Vranković"
@@ -210,7 +382,13 @@
    "name": "Ian Anthony Sullivan",
    "fs": null,
    "b": null,
+   "bd": "1988-05-12",
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -218,7 +396,15 @@
    "name": "Jakov Sabić",
    "fs": "L131-XH5",
    "b": "1760",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "52ad61be"
+   ],
    "variants": [
     "Sabić",
     "Sabich"
@@ -229,7 +415,15 @@
    "name": "James \"Jimmy\" Vranizan",
    "fs": "LKR1-2NZ",
    "b": "1894",
+   "bd": null,
    "d": "1949",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "d84a10c8"
+   ],
    "variants": null
   },
   {
@@ -237,7 +431,15 @@
    "name": "Jeff Grant",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": true,
+   "spouse_ids": [
+    "e2a2cb29"
+   ],
    "variants": null
   },
   {
@@ -245,7 +447,13 @@
    "name": "Jeffery Charles Grant",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -253,15 +461,31 @@
    "name": "Joan Marita Sullivan",
    "fs": null,
    "b": null,
+   "bd": "1957-03-04",
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [
+    "75192878"
+   ],
    "variants": null
   },
   {
    "id": "75192878",
    "name": "John Joseph Sullivan",
    "fs": null,
-   "b": null,
+   "b": "1956",
+   "bd": "1956-11-29",
    "d": null,
+   "living": true,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": true,
+   "spouse_ids": [
+    "0508a25b"
+   ],
    "variants": null
   },
   {
@@ -269,7 +493,16 @@
    "name": "John Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [
+    "2902bbd4",
+    "affdbe24"
+   ],
    "variants": null
   },
   {
@@ -277,7 +510,13 @@
    "name": "Kathleen Mary Radich (Sister/Aunt Kathleen)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -285,7 +524,15 @@
    "name": "Kathy Hochstettler",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": true,
+   "spouse_ids": [
+    "8b6cf08a"
+   ],
    "variants": null
   },
   {
@@ -293,7 +540,15 @@
    "name": "Kathy Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": true,
+   "spouse_ids": [
+    "8b6cf08a"
+   ],
    "variants": null
   },
   {
@@ -301,7 +556,13 @@
    "name": "Laura Rose Sullivan",
    "fs": null,
    "b": null,
+   "bd": "1992-10-08",
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -309,7 +570,15 @@
    "name": "Lillian Malloy",
    "fs": "L6HD-TZK",
    "b": "1900",
+   "bd": null,
    "d": "1943",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "a4164656"
+   ],
    "variants": null
   },
   {
@@ -317,7 +586,15 @@
    "name": "Louisa M Allehoff",
    "fs": "L644-Q22",
    "b": "1898",
+   "bd": null,
    "d": "1994",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "d7a7af96"
+   ],
    "variants": null
   },
   {
@@ -325,7 +602,13 @@
    "name": "Luca Sullivan",
    "fs": null,
    "b": null,
+   "bd": "2021-01-01",
    "d": null,
+   "living": false,
+   "tier": 4,
+   "tier_name": "Great-Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -333,7 +616,15 @@
    "name": "Lucretia Milašić",
    "fs": "L6SD-LYN",
    "b": "1875",
+   "bd": null,
    "d": "1909",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "b67cf8a9"
+   ],
    "variants": [
     "Milašić",
     "Milasic",
@@ -345,15 +636,31 @@
    "name": "Marco Radich (Radić)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "dc216a7a"
+   ],
    "variants": null
   },
   {
    "id": "7e6118b4",
-   "name": "Margaret Radich (née Turina)",
+   "name": "Margaret Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 1,
+   "tier_name": "Parents",
+   "married_in": false,
+   "spouse_ids": [
+    "8c23e251"
+   ],
    "variants": null
   },
   {
@@ -361,7 +668,15 @@
    "name": "Margarita Buratović",
    "fs": "L1QM-7KS",
    "b": "1750",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "05340bfd"
+   ],
    "variants": [
     "Buratović",
     "Buratovich"
@@ -372,7 +687,15 @@
    "name": "Margarita Deletis",
    "fs": "L1QM-36T",
    "b": "1762",
+   "bd": null,
    "d": "1841",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "01566c63"
+   ],
    "variants": [
     "Deletis",
     "Deletiš"
@@ -383,7 +706,15 @@
    "name": "Margeret Mary Vranizan",
    "fs": "L6SD-T29",
    "b": "1896",
+   "bd": null,
    "d": "1989",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "e41026ea"
+   ],
    "variants": [
     "Vranizan",
     "Vragnizan",
@@ -395,7 +726,15 @@
    "name": "Margherita Ben. Vrancovich",
    "fs": "L83K-H76",
    "b": "1827",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "a9692f1b"
+   ],
    "variants": [
     "Vrancovich",
     "Vranković"
@@ -406,15 +745,27 @@
    "name": "Mark Grant",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
    "id": "6f18eb0e",
    "name": "Mark Maurice Sullivan",
    "fs": null,
-   "b": null,
+   "b": "1983",
+   "bd": "1983-09-23",
    "d": null,
+   "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -422,7 +773,15 @@
    "name": "Mathew Charles Vranizan",
    "fs": "L6SD-Y38",
    "b": "1903",
+   "bd": null,
    "d": "1978",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "0826fe4f"
+   ],
    "variants": null
   },
   {
@@ -430,7 +789,15 @@
    "name": "Matthew (Matt) Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [
+    "6b149d65"
+   ],
    "variants": null
   },
   {
@@ -438,7 +805,15 @@
    "name": "Matthew C. Vranizan",
    "fs": "L83T-K5B",
    "b": "1863",
+   "bd": null,
    "d": "1920",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "9dbc2e73"
+   ],
    "variants": [
     "Vranizan",
     "Vragnizan",
@@ -449,8 +824,16 @@
    "id": "8ce27e8f",
    "name": "Meg Sullivan",
    "fs": null,
-   "b": null,
+   "b": "1981",
+   "bd": "1981-04-10",
    "d": null,
+   "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [
+    "3eb39694"
+   ],
    "variants": null
   },
   {
@@ -458,7 +841,13 @@
    "name": "Michele Dahl",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -466,7 +855,13 @@
    "name": "Natalie Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -474,7 +869,13 @@
    "name": "Nora Sullivan",
    "fs": null,
    "b": null,
+   "bd": "2023-01-01",
    "d": null,
+   "living": false,
+   "tier": 4,
+   "tier_name": "Great-Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -482,7 +883,13 @@
    "name": "Paula Radich (Aunt Paula)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -490,7 +897,13 @@
    "name": "Peter M Vranizan",
    "fs": "L6SD-TYB",
    "b": "1899",
+   "bd": null,
    "d": "1904",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -498,7 +911,15 @@
    "name": "Pietro Vrancovich",
    "fs": "L83K-HWQ",
    "b": "1800",
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "6ba55ac4"
+   ],
    "variants": [
     "Vrancovich",
     "Vranković"
@@ -509,7 +930,15 @@
    "name": "Rita Grant",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [
+    "a04e433c"
+   ],
    "variants": null
   },
   {
@@ -517,7 +946,15 @@
    "name": "Rosalia Gobeo (Rose)",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": true,
+   "spouse_ids": [
+    "929f8dd8"
+   ],
    "variants": null
   },
   {
@@ -525,7 +962,13 @@
    "name": "Stephen Joseph Grant",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -533,7 +976,13 @@
    "name": "Trina Maureen Radich",
    "fs": null,
    "b": null,
+   "bd": null,
    "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [],
    "variants": null
   },
   {
@@ -541,7 +990,15 @@
    "name": "Virginia Beatrice Vranizan",
    "fs": "K232-TP7",
    "b": "1908",
+   "bd": null,
    "d": "1985",
+   "living": false,
+   "tier": null,
+   "tier_name": "Ancestors",
+   "married_in": false,
+   "spouse_ids": [
+    "7b788b54"
+   ],
    "variants": null
   }
  ],

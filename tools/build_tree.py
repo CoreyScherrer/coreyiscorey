@@ -94,15 +94,78 @@ def main():
                 out.append([a[:8], b[:8]])
         return out
 
+    # ---- generation tiers -------------------------------------------------
+    # Counting ancestor links puts anyone with no recorded parents at the top,
+    # which dumped every married-in spouse (John Joseph, Corey, Carl, Kathy)
+    # into generation 1. Instead we anchor on the Radich grandparents and walk
+    # down; spouses then inherit their partner's tier.
+    ANCHORS = {'Anthony John Radich', 'Margaret Radich'}
+    TIER_NAMES = {1: 'Parents', 2: 'Children', 3: 'Grandchildren',
+                  4: 'Great-Grandchildren', 5: 'Great-Great-Grandchildren'}
+
+    kids_of = collections.defaultdict(set)
+    for c, p in edges['child_of']:
+        if c in keep and p in keep:
+            kids_of[p].add(c)
+    spouse_of = collections.defaultdict(set)
+    for a, b in edges['spouse_of']:
+        if a in keep and b in keep:
+            spouse_of[a].add(b)
+            spouse_of[b].add(a)
+
+    anchor_ids = [i for i in keep if label[i] in ANCHORS]
+    tier = {}
+    frontier = set(anchor_ids)
+    level = 1
+    while frontier and level < 12:
+        for i in frontier:
+            tier.setdefault(i, level)
+        nxt = set()
+        for i in frontier:
+            for k in kids_of.get(i, ()):
+                if k not in tier:
+                    nxt.add(k)
+        level += 1
+        frontier = nxt
+
+    # Spouses sit beside their partner, not above them.
+    for _ in range(3):
+        for i in list(keep):
+            if i in tier:
+                continue
+            partner_tiers = [tier[s] for s in spouse_of.get(i, ()) if s in tier]
+            if partner_tiers:
+                tier[i] = min(partner_tiers)
+
+    # Blood descendants are those reached by walking down from the anchors;
+    # anyone else placed in a tier got there by marriage.
+    blood = set(anchor_ids)
+    wave = set(anchor_ids)
+    while wave:
+        nxt = set()
+        for i in wave:
+            for k in kids_of.get(i, ()):
+                if k not in blood:
+                    blood.add(k)
+                    nxt.add(k)
+        wave = nxt
+
     people = []
     for i in sorted(keep, key=lambda x: label[x]):
         p = props.get(i, {})
+        t = tier.get(i)          # None => ancestor, above the grandparents
         people.append({
             'id': i[:8],
             'name': label[i],
             'fs': p.get('fs_id'),
             'b': p.get('birth_year'),
+            'bd': p.get('birth_date'),
             'd': p.get('death_year'),
+            'living': bool(p.get('living')),
+            'tier': t,
+            'tier_name': TIER_NAMES.get(t) if t else 'Ancestors',
+            'married_in': t is not None and i not in blood,
+            'spouse_ids': sorted(x[:8] for x in spouse_of.get(i, ())),
             'variants': p.get('name_variants'),
         })
 
