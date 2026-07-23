@@ -160,7 +160,7 @@
   // Requires credentials:'include' so the CF_Authorization cookie is sent
   // cross-origin. Set TEAM below once the Zero Trust team name is known.
   // Until Access is enabled this fails and the page stays read-only.
-  var TEAM = '';   // e.g. 'coreyscherrer' -> coreyscherrer.cloudflareaccess.com
+  var TEAM = 'teamkiki';   // teamkiki.cloudflareaccess.com
 
   function whoami() {
     if (!TEAM) return Promise.resolve(null);
