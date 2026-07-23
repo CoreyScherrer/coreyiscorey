@@ -71,6 +71,12 @@ CHECKLIST = [
 # Only these three hold Drive access and may edit anyone's record.
 KEEPERS = ['Paula Radich (Aunt Paula)', 'Mark Grant', 'Mark Maurice Sullivan']
 
+# Keeper email addresses, mirrored into roster.json so the page can show the
+# right affordances. This is NOT a security boundary — the Cloudflare Access
+# policy is what actually gates entry, and corrections are proposals a keeper
+# applies by hand. Fill these in once the family supplies addresses.
+KEEPER_EMAILS = []
+
 EMIGRANTS = {
     'Marco Radich (Radić)', 'Anna Radich (née Hlapcich / Hlapčić)',
     'Charles Andrew Turina', 'Matthew C. Vranizan', 'Lucretia Milašić',
@@ -151,6 +157,7 @@ def main():
         'source': 'discotheque graph (encrypted) + family Pre-Application Checklist',
         'note': 'Names and lineage only. No dates, no document contents.',
         'keepers': [slug(k) for k in KEEPERS],
+        'keeper_emails': KEEPER_EMAILS,
         'checklist_template': [{'key': k, 'label': l} for k, l in CHECKLIST],
         'people': people,
     }

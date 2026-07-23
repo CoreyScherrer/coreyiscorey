@@ -155,10 +155,17 @@
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
-  // Cloudflare Access publishes the verified identity here. Until Access is
-  // switched on this 404s, and the page degrades to read-only "not signed in".
+  // Cloudflare Access publishes the signed-in user's full identity on the
+  // TEAM domain, not on this origin — the same-origin path does not exist.
+  // Requires credentials:'include' so the CF_Authorization cookie is sent
+  // cross-origin. Set TEAM below once the Zero Trust team name is known.
+  // Until Access is enabled this fails and the page stays read-only.
+  var TEAM = '';   // e.g. 'coreyscherrer' -> coreyscherrer.cloudflareaccess.com
+
   function whoami() {
-    return fetch('/cdn-cgi/access/get-identity', { credentials: 'same-origin' })
+    if (!TEAM) return Promise.resolve(null);
+    return fetch('https://' + TEAM + '.cloudflareaccess.com/cdn-cgi/access/get-identity',
+                 { credentials: 'include' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .catch(function () { return null; });
   }
@@ -313,9 +320,12 @@
     data = res[0];
     var ident = res[1];
     if (ident && ident.email) {
-      // Keeper status is asserted by the server-side allowlist, not by this
-      // page — the flag here only decides which affordances are shown.
-      me = { email: ident.email, keeper: !!ident.keeper };
+      // Keeper emails come from roster.json so they live in one place. This
+      // only decides which affordances are SHOWN — it is not a security
+      // boundary. Real enforcement is the Access policy plus the fact that
+      // corrections are proposals a keeper must apply, not direct writes.
+      var keepers = (data.keeper_emails || []).map(function (e) { return e.toLowerCase(); });
+      me = { email: ident.email, keeper: keepers.indexOf(ident.email.toLowerCase()) !== -1 };
     }
     renderWho();
     renderSummary();
