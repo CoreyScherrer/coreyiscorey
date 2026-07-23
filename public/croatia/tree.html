@@ -14,50 +14,35 @@
   .viewbar button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);
     color:var(--accent);font-weight:600}
 
-  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+  .toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0;align-items:center}
+  .toolbar .sp{flex:1}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
   .lg{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;
       color:var(--ink-2);background:var(--bg-2);display:flex;align-items:center;gap:7px}
   .swatch{width:9px;height:9px;border-radius:2px;flex:none}
   .sw-emig{background:var(--accent)}
   .sw-app{background:var(--ok)}
 
-  /* ---------- pedigree view ---------- */
-  #pedigree{overflow-x:auto;padding:6px 2px 20px;margin-top:20px}
-  .ped-inner{min-width:min-content}
-  .couple{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top}
-  .pair{display:flex;align-items:stretch;gap:0}
-  .pair .node + .node{margin-left:26px;position:relative}
-  /* horizontal marriage bar */
-  .pair .node + .node::before{
-    content:"";position:absolute;left:-26px;top:22px;width:26px;height:1px;background:var(--line);
-  }
-  .node{
-    border:1px solid var(--line);border-radius:9px;background:var(--bg);
-    padding:8px 11px;min-width:150px;max-width:190px;cursor:pointer;text-align:left;
-    font:inherit;color:var(--ink);position:relative;
-  }
-  .node:hover{border-color:var(--accent)}
-  .node.emig{border-left:3px solid var(--accent)}
-  .node.app{border-left:3px solid var(--ok)}
-  .node .nm{font-size:13.4px;font-weight:620;letter-spacing:-.008em;display:block;line-height:1.3}
-  .node .yr{font-size:11.5px;color:var(--ink-3);margin-top:2px;display:block}
+  /* ---------- interactive diagram ---------- */
+  #diagram{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--bg);overflow:auto;max-height:78vh;position:relative}
+  #diagram svg{display:block}
+  .lnk{stroke:var(--line);stroke-width:1.4;fill:none}
+  .lnk.hi{stroke:var(--accent);stroke-width:2}
+  .nd{cursor:pointer}
+  .nd rect{fill:var(--bg);stroke:var(--line);stroke-width:1.2;rx:8}
+  .nd:hover rect{stroke:var(--accent)}
+  .nd.emig rect{stroke:var(--accent);stroke-width:1.8}
+  .nd.app rect{stroke:var(--ok);stroke-width:1.8}
+  .nd.sel rect{stroke:var(--accent);stroke-width:2.4}
+  .nd.dim{opacity:.28}
+  .nd text{font-size:12.5px;fill:var(--ink);font-weight:600;pointer-events:none}
+  .nd text.yr{font-size:11px;fill:var(--ink-3);font-weight:400}
+  .nd .toggle{fill:var(--bg-2);stroke:var(--line)}
+  .nd .toggle-t{font-size:12px;fill:var(--ink-2);font-weight:700}
+  .hint{font-size:12.8px;color:var(--ink-3);margin:9px 0 0}
 
-  .kids{display:flex;gap:20px;margin-top:0;padding-top:20px;position:relative}
-  /* vertical drop from the couple */
-  .couple > .kids::before{
-    content:"";position:absolute;top:0;left:50%;width:1px;height:20px;background:var(--line);
-  }
-  .kid{position:relative;padding-top:16px;display:flex;flex-direction:column;align-items:center}
-  /* vertical stub up from each child */
-  .kid::before{content:"";position:absolute;top:0;left:50%;width:1px;height:16px;background:var(--line)}
-  /* horizontal sibling bar */
-  .kids::after{
-    content:"";position:absolute;top:20px;height:1px;background:var(--line);
-    left:var(--bar-left,0);right:var(--bar-right,0);
-  }
-  .kids.single::after{display:none}
-
-  /* ---------- generation list view ---------- */
+  /* ---------- generation list ---------- */
   .gen{margin-top:24px}
   .gen-label{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
     font-weight:700;margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
@@ -67,7 +52,7 @@
   .card:hover{border-color:var(--accent)}
   .card.emig{border-left:3px solid var(--accent)}
   .card.app{border-left:3px solid var(--ok)}
-  .card .nm{font-size:14.5px;font-weight:620;letter-spacing:-.01em;display:block}
+  .card .nm{font-size:14.5px;font-weight:620;display:block}
   .card .yr{font-size:12.4px;color:var(--ink-3);margin-top:2px;display:block}
   .card .tags{margin-top:6px;display:flex;flex-wrap:wrap;gap:4px}
   .mini{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;
@@ -80,7 +65,7 @@
 
   /* ---------- detail panel ---------- */
   .panel{position:fixed;inset:auto 0 0 0;background:var(--bg);border-top:1px solid var(--line);
-    box-shadow:0 -8px 28px rgba(0,0,0,.08);max-height:76vh;overflow:auto;z-index:40}
+    box-shadow:0 -8px 28px rgba(0,0,0,.09);max-height:74vh;overflow:auto;z-index:40}
   .panel .inner{max-width:960px;margin:0 auto;padding:20px;position:relative}
   .panel h2{margin:0 0 3px;font-size:20px;font-weight:650;letter-spacing:-.018em}
   .panel .sub{color:var(--ink-3);font-size:13.5px;margin:0 0 14px}
@@ -93,6 +78,8 @@
     margin:0 0 8px;font-weight:700}
   .rel{font-size:14.3px;color:var(--ink-2);margin:0 0 5px}
   .rel b{color:var(--ink);font-weight:600}
+  .relbtn{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;
+    text-decoration:underline;text-underline-offset:2px}
   .docs-list{margin:0;padding:0;list-style:none}
   .docs-list li{font-size:14.3px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--line-2)}
   .docs-list li:last-child{border-bottom:0}
@@ -105,11 +92,17 @@
 <div class="page-head">
   <h1>Family Tree</h1>
   <p class="lede">The Radich, Sullivan and Vranizan lineage back to the Croatian-born emigrants.
-  Select anyone to see their relatives and the documents held for them.</p>
+  Click a person to focus their line; click the circle on a card to fold or unfold their descendants.</p>
 
   <div class="viewbar" id="viewbar">
-    <button data-v="ped" aria-pressed="true">Family tree</button>
+    <button data-v="dia" aria-pressed="true">Interactive tree</button>
     <button data-v="gen" aria-pressed="false">By generation</button>
+  </div>
+
+  <div class="toolbar" id="toolbar">
+    <button class="btn" id="expand-all" type="button">Expand all</button>
+    <button class="btn" id="collapse-all" type="button">Collapse to emigrants</button>
+    <button class="btn" id="clear-focus" type="button">Clear focus</button>
   </div>
 
   <div class="legend">
@@ -119,7 +112,8 @@
   <div class="meta"><span id="tree-meta"></span></div>
 </div>
 
-<div id="pedigree"></div>
+<div id="diagram"></div>
+<p class="hint" id="dia-hint">Tip: a number on a card means folded descendants — click it to open that branch.</p>
 <div id="generations" hidden></div>
 
 <div class="panel" id="panel" hidden>
@@ -148,12 +142,12 @@
 (function () {
   'use strict';
   var C = window.Croatia;
+  var SVGNS = 'http://www.w3.org/2000/svg';
 
   var EMIGRANTS = [
     'Marco Radich (Radić)', 'Anna Radich (née Hlapcich / Hlapčić)',
     'Charles Andrew Turina', 'Matthew C. Vranizan', 'Lucretia Milašić'
   ];
-
   var DOCS = {
     'Matthew C. Vranizan': ['1889 passport to the US', '1914 travel permit (02-118)',
                             'US citizenship papers (02-116)'],
@@ -162,8 +156,19 @@
     'Lucretia Milašić': ['Family archive 02-123']
   };
 
+  // layout constants
+  var NW = 176, NH = 46, HGAP = 22, VGAP = 62;
+
   var tree = null, roster = null;
   var byId = {}, parents = {}, kids = {}, spouses = {};
+  var collapsed = {};       // id -> true when descendants are folded
+  var focusId = null;       // highlighted lineage
+
+  function svgEl(tag, attrs) {
+    var e = document.createElementNS(SVGNS, tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) { e.setAttribute(k, attrs[k]); });
+    return e;
+  }
 
   function index() {
     tree.people.forEach(function (p) {
@@ -180,86 +185,231 @@
     });
   }
 
-  function isApp(name) {
-    return !!(roster && (roster.people || []).some(function (p) { return p.name === name; }));
+  function isApp(n) {
+    return !!(roster && (roster.people || []).some(function (p) { return p.name === n; }));
   }
-  function isEmig(name) { return EMIGRANTS.indexOf(name) !== -1; }
+  function isEmig(n) { return EMIGRANTS.indexOf(n) !== -1; }
 
-  function classFor(p) {
-    return isEmig(p.name) ? ' emig' : isApp(p.name) ? ' app' : '';
-  }
-
-  function nodeBtn(p, cls) {
-    var b = C.el('button', cls + classFor(p));
-    b.type = 'button';
-    b.appendChild(C.el('span', 'nm', p.name));
-    if (p.b) b.appendChild(C.el('span', 'yr', p.b + ' – ' + (p.d || '')));
-    b.addEventListener('click', function () { openPanel(p); });
-    return b;
-  }
-
-  /* ---------- pedigree ---------- */
+  /* ---------- build a forest of couple-units ---------- */
   function roots() {
-    // People with no recorded parents — the top of each line.
     return tree.people.filter(function (p) { return !(parents[p.id] || []).length; });
   }
 
-  function coupleNode(p, drawn) {
-    var wrap = C.el('div', 'couple');
-    var pair = C.el('div', 'pair');
-    pair.appendChild(nodeBtn(p, 'node'));
-    drawn[p.id] = 1;
-
-    // Draw one spouse alongside, if that spouse isn't already placed.
-    var sp = (spouses[p.id] || []).filter(function (s) { return !drawn[s]; })[0];
-    if (sp && byId[sp]) { pair.appendChild(nodeBtn(byId[sp], 'node')); drawn[sp] = 1; }
-    wrap.appendChild(pair);
-
-    // Children of this couple (union of both partners' children).
-    var children = (kids[p.id] || []).slice();
-    if (sp) (kids[sp] || []).forEach(function (k) {
-      if (children.indexOf(k) === -1) children.push(k);
-    });
-    children = children.filter(function (k) { return byId[k] && !drawn[k]; });
-
-    if (children.length) {
-      var row = C.el('div', 'kids' + (children.length === 1 ? ' single' : ''));
-      children.sort(function (a, b) {
+  // A unit is one card row: a person plus (optionally) a spouse.
+  function buildUnits() {
+    var placed = {}, units = [], order = [];
+    function unitFor(id) {
+      if (placed[id]) return null;
+      placed[id] = 1;
+      var sp = (spouses[id] || []).filter(function (s) { return !placed[s] && byId[s]; })[0] || null;
+      if (sp) placed[sp] = 1;
+      var childIds = (kids[id] || []).slice();
+      if (sp) (kids[sp] || []).forEach(function (k) {
+        if (childIds.indexOf(k) === -1) childIds.push(k);
+      });
+      childIds = childIds.filter(function (k) { return byId[k]; });
+      childIds.sort(function (a, b) {
         var A = byId[a], B = byId[b];
         return (A.b || '9999').localeCompare(B.b || '9999') || A.name.localeCompare(B.name);
-      }).forEach(function (k) {
-        var slot = C.el('div', 'kid');
-        slot.appendChild(coupleNode(byId[k], drawn));
-        row.appendChild(slot);
       });
-      wrap.appendChild(row);
-      // Trim the sibling bar to span first→last child centres.
-      requestAnimationFrame(function () {
-        var slots = row.children;
-        if (slots.length < 2) return;
-        var rowBox = row.getBoundingClientRect();
-        var first = slots[0].getBoundingClientRect();
-        var last = slots[slots.length - 1].getBoundingClientRect();
-        row.style.setProperty('--bar-left', (first.left + first.width / 2 - rowBox.left) + 'px');
-        row.style.setProperty('--bar-right', (rowBox.right - (last.left + last.width / 2)) + 'px');
+      var u = { id: id, spouse: sp, childIds: childIds, children: [] };
+      units.push(u); order.push(u);
+      childIds.forEach(function (k) {
+        var cu = unitFor(k);
+        if (cu) u.children.push(cu);
       });
+      return u;
     }
-    return wrap;
-  }
-
-  function renderPedigree() {
-    var host = document.getElementById('pedigree');
-    C.clear(host);
-    var inner = C.el('div', 'ped-inner');
-    var drawn = {};
-    // Start from the oldest generations so the tree descends naturally.
+    var tops = [];
     roots().sort(function (a, b) {
       return (a.b || '9999').localeCompare(b.b || '9999') || a.name.localeCompare(b.name);
     }).forEach(function (r) {
-      if (drawn[r.id]) return;
-      inner.appendChild(coupleNode(r, drawn));
+      var u = unitFor(r.id);
+      if (u) tops.push(u);
     });
-    host.appendChild(inner);
+    // Anyone unreachable from a root still gets a unit.
+    tree.people.forEach(function (p) {
+      if (!placed[p.id]) {
+        var u = unitFor(p.id);
+        if (u) tops.push(u);
+      }
+    });
+    return tops;
+  }
+
+  function unitWidth(u) { return u.spouse ? NW * 2 + HGAP : NW; }
+
+  // Tidy layout: each subtree gets the width it needs; parents centre on children.
+  function measure(u) {
+    var own = unitWidth(u);
+    if (collapsed[u.id] || !u.children.length) { u.w = own; return u.w; }
+    var kidsW = 0;
+    u.children.forEach(function (c, i) { kidsW += measure(c) + (i ? HGAP : 0); });
+    u.w = Math.max(own, kidsW);
+    return u.w;
+  }
+
+  function place(u, x, depth) {
+    u.depth = depth;
+    u.y = depth * (NH + VGAP);
+    var own = unitWidth(u);
+    if (collapsed[u.id] || !u.children.length) {
+      u.x = x + (u.w - own) / 2;
+      return;
+    }
+    var kidsW = 0;
+    u.children.forEach(function (c, i) { kidsW += c.w + (i ? HGAP : 0); });
+    var cx = x + (u.w - kidsW) / 2;
+    u.children.forEach(function (c) { place(c, cx, depth + 1); cx += c.w + HGAP; });
+    var first = u.children[0], last = u.children[u.children.length - 1];
+    var span = (first.x + unitWidth(first) / 2 + last.x + unitWidth(last) / 2) / 2;
+    u.x = span - own / 2;
+    if (u.x < x) u.x = x;
+  }
+
+  /* ---------- focus: which ids are on the selected person's line ---------- */
+  function lineage(id) {
+    var set = {};
+    (function up(n) {
+      if (!n || set[n]) return; set[n] = 1;
+      (parents[n] || []).forEach(up);
+      (spouses[n] || []).forEach(function (s) { set[s] = 1; });
+    })(id);
+    (function down(n) {
+      (kids[n] || []).forEach(function (k) {
+        if (set[k]) return; set[k] = 1;
+        (spouses[k] || []).forEach(function (s) { set[s] = 1; });
+        down(k);
+      });
+    })(id);
+    return set;
+  }
+
+  /* ---------- render ---------- */
+  function nodeGroup(p, x, y, focusSet) {
+    var g = svgEl('g', { 'class': 'nd' + (isEmig(p.name) ? ' emig' : isApp(p.name) ? ' app' : '') +
+                                  (focusId === p.id ? ' sel' : '') +
+                                  (focusSet && !focusSet[p.id] ? ' dim' : ''),
+                         transform: 'translate(' + x + ',' + y + ')' });
+    g.appendChild(svgEl('rect', { width: NW, height: NH }));
+
+    var name = p.name.length > 26 ? p.name.slice(0, 25) + '…' : p.name;
+    var t1 = svgEl('text', { x: 11, y: 19 });
+    t1.textContent = name;
+    g.appendChild(t1);
+
+    if (p.b) {
+      var t2 = svgEl('text', { x: 11, y: 34, 'class': 'yr' });
+      t2.textContent = p.b + ' – ' + (p.d || '');
+      g.appendChild(t2);
+    }
+
+    g.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      focusId = p.id;
+      openPanel(p);
+      render();
+    });
+    return g;
+  }
+
+  function toggleBadge(u, x, y, count) {
+    var g = svgEl('g', { 'class': 'nd', transform: 'translate(' + x + ',' + y + ')' });
+    g.appendChild(svgEl('circle', { r: 11, cx: 0, cy: 0, 'class': 'toggle' }));
+    var t = svgEl('text', { x: 0, y: 4, 'text-anchor': 'middle', 'class': 'toggle-t' });
+    t.textContent = collapsed[u.id] ? String(count) : '–';
+    g.appendChild(t);
+    g.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      collapsed[u.id] = !collapsed[u.id];
+      render();
+    });
+    return g;
+  }
+
+  function descendantCount(u) {
+    var n = 0;
+    (function walk(x) {
+      x.children.forEach(function (c) { n += c.spouse ? 2 : 1; walk(c); });
+    })(u);
+    return n;
+  }
+
+  function render() {
+    var host = document.getElementById('diagram');
+    C.clear(host);
+    var tops = buildUnits();
+    var totalW = 0;
+    tops.forEach(function (t) { totalW += measure(t) + HGAP; });
+    var x = HGAP, maxDepth = 0;
+    tops.forEach(function (t) { place(t, x, 0); x += t.w + HGAP; });
+
+    var focusSet = focusId ? lineage(focusId) : null;
+    var svg = svgEl('svg');
+    var links = svgEl('g'), nodes = svgEl('g');
+
+    // Declared, not an IIFE — the recursive calls and the tops.forEach below
+    // both need it in scope.
+    function draw(u) {
+      maxDepth = Math.max(maxDepth, u.depth);
+      var ux = u.x, uy = u.y;
+      var onLine = !focusSet || focusSet[u.id];
+
+      // marriage bar
+      if (u.spouse) {
+        links.appendChild(svgEl('line', {
+          x1: ux + NW, y1: uy + NH / 2, x2: ux + NW + HGAP, y2: uy + NH / 2,
+          'class': 'lnk' + (onLine && focusSet ? ' hi' : '')
+        }));
+      }
+      nodes.appendChild(nodeGroup(byId[u.id], ux, uy, focusSet));
+      if (u.spouse) nodes.appendChild(nodeGroup(byId[u.spouse], ux + NW + HGAP, uy, focusSet));
+
+      var cx = ux + unitWidth(u) / 2;
+      var hasKids = u.children.length > 0;
+
+      if (hasKids && !collapsed[u.id]) {
+        var dropY = uy + NH + VGAP / 2;
+        links.appendChild(svgEl('line', {
+          x1: cx, y1: uy + NH, x2: cx, y2: dropY,
+          'class': 'lnk' + (onLine && focusSet ? ' hi' : '')
+        }));
+        var centres = u.children.map(function (c) { return c.x + unitWidth(c) / 2; });
+        links.appendChild(svgEl('line', {
+          x1: Math.min.apply(null, centres.concat([cx])), y1: dropY,
+          x2: Math.max.apply(null, centres.concat([cx])), y2: dropY,
+          'class': 'lnk' + (onLine && focusSet ? ' hi' : '')
+        }));
+        u.children.forEach(function (c) {
+          var ccx = c.x + unitWidth(c) / 2;
+          links.appendChild(svgEl('line', {
+            x1: ccx, y1: dropY, x2: ccx, y2: c.y,
+            'class': 'lnk' + (focusSet && focusSet[c.id] ? ' hi' : '')
+          }));
+          draw(c);
+        });
+      }
+      if (hasKids) {
+        nodes.appendChild(toggleBadge(u, cx, uy + NH + 13, descendantCount(u)));
+      }
+    }
+
+    tops.forEach(draw);
+
+    var w = x + 40, h = (maxDepth + 1) * (NH + VGAP) + 40;
+    svg.setAttribute('width', w);
+    svg.setAttribute('height', h);
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.appendChild(links);
+    svg.appendChild(nodes);
+    host.appendChild(svg);
+
+    var meta = document.getElementById('tree-meta');
+    C.clear(meta);
+    meta.appendChild(document.createTextNode(
+      tree.people.length + ' people' + (focusId && byId[focusId]
+        ? ' · showing ' + byId[focusId].name + "'s line"
+        : '')));
   }
 
   /* ---------- generation list ---------- */
@@ -267,8 +417,8 @@
     seen = seen || {};
     if (seen[id]) return 0;
     seen[id] = 1;
-    var ps = parents[id] || [], best = 0;
-    ps.forEach(function (p) { best = Math.max(best, 1 + depth(p, seen)); });
+    var best = 0;
+    (parents[id] || []).forEach(function (p) { best = Math.max(best, 1 + depth(p, seen)); });
     return best;
   }
 
@@ -276,41 +426,47 @@
     var host = document.getElementById('generations');
     C.clear(host);
     var groups = {};
-    tree.people.forEach(function (p) {
-      var d = depth(p.id);
-      (groups[d] = groups[d] || []).push(p);
-    });
+    tree.people.forEach(function (p) { (groups[depth(p.id)] = groups[depth(p.id)] || []).push(p); });
     Object.keys(groups).map(Number).sort(function (a, b) { return a - b; })
       .forEach(function (d, i) {
         var sec = C.el('div', 'gen');
         sec.appendChild(C.el('p', 'gen-label', 'Generation ' + (i + 1)));
         var row = C.el('div', 'row');
-        groups[d].sort(function (a, b) { return a.name.localeCompare(b.name); })
-          .forEach(function (p) {
-            var c = nodeBtn(p, 'card');
-            var tags = C.el('div', 'tags');
-            if (isEmig(p.name)) tags.appendChild(C.el('span', 'mini emig', 'Emigrant'));
-            if (isApp(p.name)) tags.appendChild(C.el('span', 'mini app', 'Applicant'));
-            if (DOCS[p.name]) tags.appendChild(C.el('span', 'mini docs', 'Docs'));
-            if (tags.childNodes.length) c.appendChild(tags);
-            row.appendChild(c);
-          });
+        groups[d].sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (p) {
+          var c = C.el('button', 'card' + (isEmig(p.name) ? ' emig' : isApp(p.name) ? ' app' : ''));
+          c.type = 'button';
+          c.appendChild(C.el('span', 'nm', p.name));
+          if (p.b) c.appendChild(C.el('span', 'yr', p.b + ' – ' + (p.d || '')));
+          var tags = C.el('div', 'tags');
+          if (isEmig(p.name)) tags.appendChild(C.el('span', 'mini emig', 'Emigrant'));
+          if (isApp(p.name)) tags.appendChild(C.el('span', 'mini app', 'Applicant'));
+          if (DOCS[p.name]) tags.appendChild(C.el('span', 'mini docs', 'Docs'));
+          if (tags.childNodes.length) c.appendChild(tags);
+          c.addEventListener('click', function () { openPanel(p); });
+          row.appendChild(c);
+        });
         sec.appendChild(row);
         host.appendChild(sec);
       });
   }
 
   /* ---------- panel ---------- */
-  function names(ids) {
-    return ids.map(function (i) { return byId[i] ? byId[i].name : null; }).filter(Boolean).sort();
-  }
-  function relLine(host, label, list) {
-    if (!list.length) return;
+  function relLine(host, label, ids) {
+    if (!ids.length) return;
     var p = C.el('p', 'rel');
     p.appendChild(document.createTextNode(label + ': '));
-    list.forEach(function (n, i) {
+    ids.map(function (i) { return byId[i]; }).filter(Boolean)
+       .sort(function (a, b) { return a.name.localeCompare(b.name); })
+       .forEach(function (person, i) {
       if (i) p.appendChild(document.createTextNode(', '));
-      p.appendChild(C.el('b', null, n));
+      var b = C.el('button', 'relbtn', person.name);
+      b.type = 'button';
+      b.addEventListener('click', function () {
+        focusId = person.id;
+        openPanel(person);
+        render();
+      });
+      p.appendChild(b);
     });
     host.appendChild(p);
   }
@@ -333,26 +489,24 @@
 
     var rel = document.getElementById('p-rel');
     C.clear(rel);
-    rel.appendChild(C.el('h3', null, 'Relatives'));
-    relLine(rel, 'Parents', names(parents[p.id] || []));
-    relLine(rel, 'Spouse', names(spouses[p.id] || []));
-    relLine(rel, 'Children', names(kids[p.id] || []));
+    rel.appendChild(C.el('h3', null, 'Relatives — click to jump'));
+    relLine(rel, 'Parents', parents[p.id] || []);
+    relLine(rel, 'Spouse', spouses[p.id] || []);
+    relLine(rel, 'Children', kids[p.id] || []);
     if (rel.childNodes.length === 1) rel.appendChild(C.el('p', 'empty', 'No relatives recorded yet.'));
 
     var dl = document.getElementById('p-docs');
     C.clear(dl);
     dl.appendChild(C.el('h3', null, 'Documents held'));
-    var docs = DOCS[p.name];
-    if (docs) {
+    if (DOCS[p.name]) {
       var ul = C.el('ul', 'docs-list');
-      docs.forEach(function (d) { ul.appendChild(C.el('li', null, d)); });
+      DOCS[p.name].forEach(function (d) { ul.appendChild(C.el('li', null, d)); });
       dl.appendChild(ul);
     } else {
       dl.appendChild(C.el('p', 'empty', 'No documents recorded for this person yet.'));
     }
     dl.appendChild(C.el('p', 'src',
       'Documents live in the family Drive folder — record keepers upload there.'));
-
     document.getElementById('panel').hidden = false;
   }
 
@@ -360,35 +514,44 @@
     document.getElementById('panel').hidden = true;
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') document.getElementById('panel').hidden = true;
+    if (e.key === 'Escape') { document.getElementById('panel').hidden = true; }
   });
 
   document.getElementById('viewbar').addEventListener('click', function (ev) {
-    var b = ev.target.closest('button');
-    if (!b) return;
+    var b = ev.target.closest('button'); if (!b) return;
     var v = b.getAttribute('data-v');
     [].forEach.call(this.querySelectorAll('button'), function (x) {
       x.setAttribute('aria-pressed', String(x === b));
     });
-    document.getElementById('pedigree').hidden = v !== 'ped';
+    document.getElementById('diagram').hidden = v !== 'dia';
+    document.getElementById('dia-hint').hidden = v !== 'dia';
+    document.getElementById('toolbar').hidden = v !== 'dia';
     document.getElementById('generations').hidden = v !== 'gen';
+  });
+
+  document.getElementById('expand-all').addEventListener('click', function () {
+    collapsed = {}; render();
+  });
+  document.getElementById('collapse-all').addEventListener('click', function () {
+    // Fold everything below the emigrant generation.
+    collapsed = {};
+    tree.people.forEach(function (p) {
+      if (isEmig(p.name)) collapsed[p.id] = true;
+    });
+    render();
+  });
+  document.getElementById('clear-focus').addEventListener('click', function () {
+    focusId = null; render();
   });
 
   C.boot(function (identity, r) {
     roster = r;
     fetch('/croatia/tree.json').then(function (x) { return x.json(); })
       .then(function (t) {
-        tree = t;
-        index();
-        renderPedigree();
-        renderGenerations();
-        var meta = document.getElementById('tree-meta');
-        C.clear(meta);
-        meta.appendChild(document.createTextNode(
-          tree.people.length + ' people in the lineage'));
+        tree = t; index(); render(); renderGenerations();
       })
       .catch(function (e) {
-        document.getElementById('pedigree')
+        document.getElementById('diagram')
           .appendChild(C.el('p', 'empty', 'Could not load the family tree: ' + e));
       });
   });
