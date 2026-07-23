@@ -648,6 +648,22 @@
    "variants": null
   },
   {
+   "id": "8ce27e8f",
+   "name": "Margaret Mary Sullivan",
+   "fs": null,
+   "b": "1981",
+   "bd": "1981-04-10",
+   "d": null,
+   "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [
+    "3eb39694"
+   ],
+   "variants": null
+  },
+  {
    "id": "7e6118b4",
    "name": "Margaret Radich",
    "fs": null,
@@ -821,22 +837,6 @@
    ]
   },
   {
-   "id": "8ce27e8f",
-   "name": "Meg Sullivan",
-   "fs": null,
-   "b": "1981",
-   "bd": "1981-04-10",
-   "d": null,
-   "living": true,
-   "tier": 3,
-   "tier_name": "Grandchildren",
-   "married_in": false,
-   "spouse_ids": [
-    "3eb39694"
-   ],
-   "variants": null
-  },
-  {
    "id": "836419ef",
    "name": "Michele Dahl",
    "fs": null,
@@ -846,6 +846,20 @@
    "living": false,
    "tier": 2,
    "tier_name": "Children",
+   "married_in": false,
+   "spouse_ids": [],
+   "variants": null
+  },
+  {
+   "id": "8ee04160",
+   "name": "Michelle Ileen Dahl",
+   "fs": null,
+   "b": null,
+   "bd": null,
+   "d": null,
+   "living": false,
+   "tier": 3,
+   "tier_name": "Grandchildren",
    "married_in": false,
    "spouse_ids": [],
    "variants": null
@@ -1246,6 +1260,10 @@
   [
    "c294a9c9",
    "9dbc2e73"
+  ],
+  [
+   "8ee04160",
+   "836419ef"
   ]
  ],
  "spouse_of": [

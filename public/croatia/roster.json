@@ -192,10 +192,10 @@
       ]
     },
     {
-      "slug": "meg-sullivan",
-      "name": "Meg Sullivan",
-      "display": "Meg Sullivan",
-      "has_legal_name": false,
+      "slug": "margaret-mary-sullivan",
+      "name": "Margaret Mary Sullivan",
+      "display": "Margaret Mary Sullivan",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 3,
       "keeper": false,

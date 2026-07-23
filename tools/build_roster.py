@@ -28,7 +28,7 @@ OUT = '/Users/admin/Sites-wt/coreyiscorey-site/public/croatia/roster.json'
 ROSTER = [
     ('Joan Marita Sullivan',                        'chain',  2),
     ('John Joseph Sullivan',                        'spouse', 0),
-    ('Meg Sullivan',                                'chain',  3),
+    ('Margaret Mary Sullivan',                      'chain',  3),
     ('Corey Scherrer',                              'spouse', 0),
     ('Anna Natalia Sullivan',                       'chain',  3),
     ('Carl Buher',                                  'spouse', 0),
@@ -98,7 +98,7 @@ PERSON_EMAIL = {
     'Natalie Radich':         'noodlenat9@comcast.net',
     'Ian Anthony Sullivan':   'iansullivan2010@gmail.com',
     'Matthew (Matt) Radich':  'matt.radich@gmail.com',
-    'Meg Sullivan':           'megsul99@hotmail.com',
+    'Margaret Mary Sullivan': 'megsul99@hotmail.com',
     'Paula Radich (Aunt Paula)': 'radichp2@frontier.com',
     'Stephen Joseph Grant':   'StephenGrantMBA@outlook.com',
     'Laura Rose Sullivan':    'laurasullivan4@gmail.com',
