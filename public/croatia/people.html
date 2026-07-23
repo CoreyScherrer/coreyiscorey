@@ -62,6 +62,7 @@
 
 <div class="filters" id="filters">
   <button data-f="mine" aria-pressed="true">Just mine</button>
+  <button data-f="yes" aria-pressed="false">Confirmed applying</button>
   <button data-f="all" aria-pressed="false">Everyone</button>
   <button data-f="chain" aria-pressed="false">By descent</button>
   <button data-f="spouse" aria-pressed="false">By marriage</button>
@@ -117,6 +118,7 @@
   function personCard(p) {
     var card = el('div', 'person');
     card.setAttribute('data-route', p.route);
+    card.setAttribute('data-intent', p.intent || '');
     card.setAttribute('data-missing', p.has_legal_name ? '0' : '1');
     var mine = !!(me && me.person && me.person.slug === p.slug);
     card.setAttribute('data-mine', mine ? '1' : '0');
@@ -128,6 +130,9 @@
     if (p.keeper) top.appendChild(el('span', 'tag keep', 'record keeper'));
     if (!p.has_legal_name) top.appendChild(el('span', 'tag miss', 'needs full legal name'));
     if (mine) top.appendChild(el('span', 'tag you', 'you'));
+    if (p.intent === 'yes') top.appendChild(el('span', 'tag keep', 'applying'));
+    if (p.intent === 'with_parent') top.appendChild(el('span', 'tag spouse', 'minor \u2014 with parent'));
+    if (p.intent === 'not_eligible') top.appendChild(el('span', 'tag miss', 'likely not eligible'));
     card.appendChild(top);
 
     var chain = el('p', 'chain');
@@ -144,6 +149,15 @@
       chain.textContent = 'No descent chain found in the family record — eligibility unconfirmed.';
     }
     card.appendChild(chain);
+
+    if (p.residence || p.venue) {
+      var loc = el('p', 'chain');
+      var bits = [];
+      if (p.residence) bits.push(p.residence);
+      if (p.venue && p.venue !== 'N/A') bits.push('files at ' + p.venue);
+      loc.textContent = bits.join('  \u00b7  ');
+      card.appendChild(loc);
+    }
 
     var acts = el('div', 'p-actions');
     var propose = el('button', 'btn', 'Suggest a correction');
@@ -219,6 +233,7 @@
       [].forEach.call(document.querySelectorAll('.person'), function (card) {
         var show = f === 'all'
           || (f === 'mine' && card.getAttribute('data-mine') === '1')
+          || (f === 'yes' && card.getAttribute('data-intent') === 'yes')
           || (f === 'missing' && card.getAttribute('data-missing') === '1')
           || card.getAttribute('data-route') === f;
         card.classList.toggle('hidden', !show);

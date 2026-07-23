@@ -3,8 +3,8 @@
   "source": "discotheque graph (encrypted) + family Pre-Application Checklist",
   "note": "Names and lineage only. No dates, no document contents.",
   "keepers": [
-    "paula-radich",
-    "mark-grant",
+    "paula-ann-radich",
+    "mark-patrick-grant",
     "mark-maurice-sullivan"
   ],
   "checklist_start_stage": 2,
@@ -73,6 +73,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Kirkland, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -138,6 +142,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Kirkland, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -207,6 +215,10 @@
       "needs_verification": false,
       "email_hash": "cdc25c60f85c6151",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Seattle, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -261,10 +273,10 @@
       ]
     },
     {
-      "slug": "corey-scherrer",
-      "name": "Corey Scherrer",
-      "display": "Corey Scherrer",
-      "has_legal_name": false,
+      "slug": "corey-john-scherrer",
+      "name": "Corey John Scherrer",
+      "display": "Corey John Scherrer",
+      "has_legal_name": true,
       "route": "spouse",
       "generation": 0,
       "keeper": false,
@@ -272,6 +284,10 @@
       "needs_verification": false,
       "email_hash": "9491269152562460",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Seattle, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -341,6 +357,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Seattle, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -395,10 +415,10 @@
       ]
     },
     {
-      "slug": "carl-buher",
-      "name": "Carl Buher",
-      "display": "Carl Buher",
-      "has_legal_name": false,
+      "slug": "carl-burton-buher",
+      "name": "Carl Burton Buher",
+      "display": "Carl Burton Buher",
+      "has_legal_name": true,
       "route": "spouse",
       "generation": 0,
       "keeper": false,
@@ -406,6 +426,158 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Seattle, WA",
+      "venue": "LA",
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "luca-anthony-sullivan",
+      "name": "Luca Anthony Sullivan",
+      "display": "Luca Anthony Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 4,
+      "keeper": false,
+      "chain": [
+        "Anna Natalia Sullivan",
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
+      "intent": "with_parent",
+      "minor_of": "Anna Natalia Sullivan",
+      "residence": "Seattle, WA",
+      "venue": "LA",
+      "checklist": [
+        {
+          "key": "participation",
+          "label": "Confirm participation + consulate jurisdiction",
+          "status": "unknown"
+        },
+        {
+          "key": "birth_cert",
+          "label": "Certified birth certificate (order 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "marriage_cert",
+          "label": "Marriage certificate",
+          "status": "unknown"
+        },
+        {
+          "key": "passport_copy",
+          "label": "Notarized copy of US passport photo page",
+          "status": "unknown"
+        },
+        {
+          "key": "state_apostille",
+          "label": "State apostilles on birth/marriage certificates",
+          "status": "unknown"
+        },
+        {
+          "key": "fbi_check",
+          "label": "FBI Identity History Summary + federal apostille",
+          "status": "unknown"
+        },
+        {
+          "key": "biography",
+          "label": "Biography in Croatian (životopis)",
+          "status": "unknown"
+        },
+        {
+          "key": "form",
+          "label": "Application form (Obrazac 1 or 2)",
+          "status": "unknown"
+        },
+        {
+          "key": "appointment",
+          "label": "Consulate appointment booked",
+          "status": "unknown"
+        },
+        {
+          "key": "uploaded",
+          "label": "Everything uploaded to the family Drive folder",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "slug": "nora-margaret-sullivan",
+      "name": "Nora Margaret Sullivan",
+      "display": "Nora Margaret Sullivan",
+      "has_legal_name": true,
+      "route": "chain",
+      "generation": 4,
+      "keeper": false,
+      "chain": [
+        "Anna Natalia Sullivan",
+        "Joan Marita Sullivan",
+        "Anthony John Radich",
+        "Anna Radich (née Hlapcich / Hlapčić)"
+      ],
+      "needs_verification": false,
+      "email_hash": null,
+      "has_login": false,
+      "intent": "with_parent",
+      "minor_of": "Anna Natalia Sullivan",
+      "residence": "Seattle, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -475,6 +647,10 @@
       "needs_verification": false,
       "email_hash": "beb88f1b823db0db",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Spokane, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -544,6 +720,10 @@
       "needs_verification": false,
       "email_hash": "dfcc71609775702c",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Spokane, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -613,6 +793,10 @@
       "needs_verification": false,
       "email_hash": "806d063290850058",
       "has_login": true,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Toronto, ON, CA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -667,10 +851,10 @@
       ]
     },
     {
-      "slug": "rita-grant",
-      "name": "Rita Grant",
-      "display": "Rita Grant",
-      "has_legal_name": false,
+      "slug": "rita-marie-grant",
+      "name": "Rita Marie Grant",
+      "display": "Rita Marie Grant",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 2,
       "keeper": false,
@@ -681,6 +865,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Lanham, MD",
+      "venue": "DC",
       "checklist": [
         {
           "key": "participation",
@@ -735,10 +923,10 @@
       ]
     },
     {
-      "slug": "jeff-grant",
-      "name": "Jeff Grant",
-      "display": "Jeff Grant",
-      "has_legal_name": false,
+      "slug": "patrick-jeff-grant",
+      "name": "Patrick Jeff Grant",
+      "display": "Patrick Jeff Grant",
+      "has_legal_name": true,
       "route": "spouse",
       "generation": 0,
       "keeper": false,
@@ -746,6 +934,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Lanham, MD",
+      "venue": "DC",
       "checklist": [
         {
           "key": "participation",
@@ -800,21 +992,25 @@
       ]
     },
     {
-      "slug": "mark-grant",
-      "name": "Mark Grant",
-      "display": "Mark Grant",
-      "has_legal_name": false,
+      "slug": "mark-patrick-grant",
+      "name": "Mark Patrick Grant",
+      "display": "Mark Patrick Grant",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 3,
       "keeper": true,
       "chain": [
-        "Rita Grant",
+        "Rita Marie Grant",
         "Anthony John Radich",
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
       "email_hash": "0ad170201027b4e3",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Baltimore, MD",
+      "venue": "DC",
       "checklist": [
         {
           "key": "participation",
@@ -877,13 +1073,17 @@
       "generation": 3,
       "keeper": false,
       "chain": [
-        "Rita Grant",
+        "Rita Marie Grant",
         "Anthony John Radich",
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
       "email_hash": "b31030396656d862",
       "has_login": true,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Redmond, WA",
+      "venue": "DC",
       "checklist": [
         {
           "key": "participation",
@@ -946,13 +1146,17 @@
       "generation": 3,
       "keeper": false,
       "chain": [
-        "Rita Grant",
+        "Rita Marie Grant",
         "Anthony John Radich",
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
       "email_hash": "61aa72fea9c4ca98",
       "has_login": true,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Baltimore, MD",
+      "venue": "DC",
       "checklist": [
         {
           "key": "participation",
@@ -1007,10 +1211,10 @@
       ]
     },
     {
-      "slug": "natalie-radich",
-      "name": "Natalie Radich",
-      "display": "Natalie Radich",
-      "has_legal_name": false,
+      "slug": "natalie-kathryn-radich",
+      "name": "Natalie Kathryn Radich",
+      "display": "Natalie Kathryn Radich",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 3,
       "keeper": false,
@@ -1022,6 +1226,10 @@
       "needs_verification": false,
       "email_hash": "a31b2d9727c21ae4",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Seattle, WA",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -1076,10 +1284,10 @@
       ]
     },
     {
-      "slug": "matthew",
-      "name": "Matthew (Matt) Radich",
-      "display": "Matthew",
-      "has_legal_name": false,
+      "slug": "matt-john-radich",
+      "name": "Matt John Radich",
+      "display": "Matt John Radich",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 3,
       "keeper": false,
@@ -1091,6 +1299,10 @@
       "needs_verification": false,
       "email_hash": "dd126b663b56df63",
       "has_login": true,
+      "intent": "yes",
+      "minor_of": null,
+      "residence": "Portland, OR",
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1146,7 +1358,7 @@
     },
     {
       "slug": "rosalia-gobeo",
-      "name": "Rosalia Gobeo (Rose)",
+      "name": "Rosalia Gobeo",
       "display": "Rosalia Gobeo",
       "has_legal_name": false,
       "route": "spouse",
@@ -1156,6 +1368,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Portland, OR",
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1210,15 +1426,15 @@
       ]
     },
     {
-      "slug": "dominic",
-      "name": "Dominic (Dom)",
-      "display": "Dominic",
+      "slug": "dominic-radich",
+      "name": "Dominic Radich",
+      "display": "Dominic Radich",
       "has_legal_name": false,
       "route": "chain",
       "generation": 4,
       "keeper": false,
       "chain": [
-        "Matthew (Matt) Radich",
+        "Matt John Radich",
         "John Radich",
         "Anthony John Radich",
         "Anna Radich (née Hlapcich / Hlapčić)"
@@ -1226,6 +1442,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "with_parent",
+      "minor_of": "Matt John Radich",
+      "residence": "Portland, OR",
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1294,6 +1514,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Lake Oswego, OR",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -1348,10 +1572,10 @@
       ]
     },
     {
-      "slug": "michele-dahl",
-      "name": "Michele Dahl",
-      "display": "Michele Dahl",
-      "has_legal_name": false,
+      "slug": "michele-eileen-dahl",
+      "name": "Michele Eileen Dahl",
+      "display": "Michele Eileen Dahl",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 2,
       "keeper": false,
@@ -1362,6 +1586,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Portland, OR",
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1416,10 +1644,10 @@
       ]
     },
     {
-      "slug": "paula-radich",
-      "name": "Paula Radich (Aunt Paula)",
-      "display": "Paula Radich",
-      "has_legal_name": false,
+      "slug": "paula-ann-radich",
+      "name": "Paula Ann Radich",
+      "display": "Paula Ann Radich",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 2,
       "keeper": true,
@@ -1430,6 +1658,10 @@
       "needs_verification": false,
       "email_hash": "e2db150ffd14f9b1",
       "has_login": true,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "Newberg, OR",
+      "venue": "LA",
       "checklist": [
         {
           "key": "participation",
@@ -1485,7 +1717,7 @@
     },
     {
       "slug": "kathleen-mary-radich",
-      "name": "Kathleen Mary Radich (Sister/Aunt Kathleen)",
+      "name": "Kathleen Mary Radich",
       "display": "Kathleen Mary Radich",
       "has_legal_name": true,
       "route": "chain",
@@ -1498,6 +1730,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": "St. Mary, AK",
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1552,21 +1788,25 @@
       ]
     },
     {
-      "slug": "elizabeth-dahl",
-      "name": "Elizabeth Dahl",
-      "display": "Elizabeth Dahl",
-      "has_legal_name": false,
+      "slug": "elizabeth-anna-dahl",
+      "name": "Elizabeth Anna Dahl",
+      "display": "Elizabeth Anna Dahl",
+      "has_legal_name": true,
       "route": "chain",
       "generation": 3,
       "keeper": false,
       "chain": [
-        "Michele Dahl",
+        "Michele Eileen Dahl",
         "Anthony John Radich",
         "Anna Radich (née Hlapcich / Hlapčić)"
       ],
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
+      "intent": "to_confirm",
+      "minor_of": null,
+      "residence": null,
+      "venue": "TBD",
       "checklist": [
         {
           "key": "participation",
@@ -1632,146 +1872,10 @@
       "needs_verification": false,
       "email_hash": null,
       "has_login": false,
-      "checklist": [
-        {
-          "key": "participation",
-          "label": "Confirm participation + consulate jurisdiction",
-          "status": "unknown"
-        },
-        {
-          "key": "birth_cert",
-          "label": "Certified birth certificate (order 2)",
-          "status": "unknown"
-        },
-        {
-          "key": "marriage_cert",
-          "label": "Marriage certificate",
-          "status": "unknown"
-        },
-        {
-          "key": "passport_copy",
-          "label": "Notarized copy of US passport photo page",
-          "status": "unknown"
-        },
-        {
-          "key": "state_apostille",
-          "label": "State apostilles on birth/marriage certificates",
-          "status": "unknown"
-        },
-        {
-          "key": "fbi_check",
-          "label": "FBI Identity History Summary + federal apostille",
-          "status": "unknown"
-        },
-        {
-          "key": "biography",
-          "label": "Biography in Croatian (životopis)",
-          "status": "unknown"
-        },
-        {
-          "key": "form",
-          "label": "Application form (Obrazac 1 or 2)",
-          "status": "unknown"
-        },
-        {
-          "key": "appointment",
-          "label": "Consulate appointment booked",
-          "status": "unknown"
-        },
-        {
-          "key": "uploaded",
-          "label": "Everything uploaded to the family Drive folder",
-          "status": "unknown"
-        }
-      ]
-    },
-    {
-      "slug": "luca-sullivan",
-      "name": "Luca Sullivan",
-      "display": "Luca Sullivan",
-      "has_legal_name": false,
-      "route": "chain",
-      "generation": 4,
-      "keeper": false,
-      "chain": [
-        "Anna Natalia Sullivan",
-        "Joan Marita Sullivan",
-        "Anthony John Radich",
-        "Anna Radich (née Hlapcich / Hlapčić)"
-      ],
-      "needs_verification": false,
-      "email_hash": null,
-      "has_login": false,
-      "checklist": [
-        {
-          "key": "participation",
-          "label": "Confirm participation + consulate jurisdiction",
-          "status": "unknown"
-        },
-        {
-          "key": "birth_cert",
-          "label": "Certified birth certificate (order 2)",
-          "status": "unknown"
-        },
-        {
-          "key": "marriage_cert",
-          "label": "Marriage certificate",
-          "status": "unknown"
-        },
-        {
-          "key": "passport_copy",
-          "label": "Notarized copy of US passport photo page",
-          "status": "unknown"
-        },
-        {
-          "key": "state_apostille",
-          "label": "State apostilles on birth/marriage certificates",
-          "status": "unknown"
-        },
-        {
-          "key": "fbi_check",
-          "label": "FBI Identity History Summary + federal apostille",
-          "status": "unknown"
-        },
-        {
-          "key": "biography",
-          "label": "Biography in Croatian (životopis)",
-          "status": "unknown"
-        },
-        {
-          "key": "form",
-          "label": "Application form (Obrazac 1 or 2)",
-          "status": "unknown"
-        },
-        {
-          "key": "appointment",
-          "label": "Consulate appointment booked",
-          "status": "unknown"
-        },
-        {
-          "key": "uploaded",
-          "label": "Everything uploaded to the family Drive folder",
-          "status": "unknown"
-        }
-      ]
-    },
-    {
-      "slug": "nora-sullivan",
-      "name": "Nora Sullivan",
-      "display": "Nora Sullivan",
-      "has_legal_name": false,
-      "route": "chain",
-      "generation": 4,
-      "keeper": false,
-      "chain": [
-        "Anna Natalia Sullivan",
-        "Joan Marita Sullivan",
-        "Anthony John Radich",
-        "Anna Radich (née Hlapcich / Hlapčić)"
-      ],
-      "needs_verification": false,
-      "email_hash": null,
-      "has_login": false,
+      "intent": "not_eligible",
+      "minor_of": null,
+      "residence": "Portland, OR",
+      "venue": "N/A",
       "checklist": [
         {
           "key": "participation",

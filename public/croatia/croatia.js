@@ -14,6 +14,7 @@
 
   var PAGES = [
     { href: '/croatia/',                    label: 'Hub' },
+    { href: '/croatia/checklist.html',      label: 'My Checklist' },
     { href: '/croatia/considerations.html', label: 'The Process' },
     { href: '/croatia/people.html',         label: 'Applicants' },
     { href: '/croatia/tree.html',           label: 'Family Tree' }

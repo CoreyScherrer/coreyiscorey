@@ -26,32 +26,35 @@ OUT = '/Users/admin/Sites-wt/coreyiscorey-site/public/croatia/roster.json'
 # generation: 2 = grandchild of an emigrant, 3 = great-grandchild, etc.
 # route: 'chain' proves descent; 'spouse' applies via marriage.
 ROSTER = [
-    ('Joan Marita Sullivan',                        'chain',  2),
-    ('John Joseph Sullivan',                        'spouse', 0),
-    ('Margaret Mary Sullivan',                      'chain',  3),
-    ('Corey Scherrer',                              'spouse', 0),
-    ('Anna Natalia Sullivan',                       'chain',  3),
-    ('Carl Buher',                                  'spouse', 0),
-    ('Mark Maurice Sullivan',                       'chain',  3),
-    ('Ian Anthony Sullivan',                        'chain',  3),
-    ('Laura Rose Sullivan',                         'chain',  3),
-    ('Rita Grant',                                  'chain',  2),
-    ('Jeff Grant',                                  'spouse', 0),
-    ('Mark Grant',                                  'chain',  3),
-    ('Stephen Joseph Grant',                        'chain',  3),
-    ('Jeffery Charles Grant',                       'chain',  3),
-    ('Natalie Radich',                              'chain',  3),
-    ('Matthew (Matt) Radich',                       'chain',  3),
-    ('Rosalia Gobeo (Rose)',                        'spouse', 0),
-    ('Dominic (Dom)',                               'chain',  4),
-    ('Trina Maureen Radich',                        'chain',  2),
-    ('Michele Dahl',                                'chain',  2),
-    ('Paula Radich (Aunt Paula)',                   'chain',  2),
-    ('Kathleen Mary Radich (Sister/Aunt Kathleen)', 'chain',  2),
-    ('Elizabeth Dahl',                              'chain',  3),
-    ('Kathy Hochstettler',                          'chain',  0),
-    ('Luca Sullivan',                               'chain',  4),
-    ('Nora Sullivan',                               'chain',  4),
+    # (name, route, generation, intent, minor_of)
+    # intent: 'yes' = confirmed applying · 'to_confirm' · 'with_parent' (minor)
+    #         · 'not_eligible'.  Source: family Tracker sheet, 2026-07-23.
+    ('Joan Marita Sullivan',    'chain',  2, 'to_confirm',   None),
+    ('John Joseph Sullivan',    'spouse', 0, 'to_confirm',   None),
+    ('Margaret Mary Sullivan',  'chain',  3, 'yes',          None),
+    ('Corey John Scherrer',     'spouse', 0, 'yes',          None),
+    ('Anna Natalia Sullivan',   'chain',  3, 'to_confirm',   None),
+    ('Carl Burton Buher',       'spouse', 0, 'to_confirm',   None),
+    ('Luca Anthony Sullivan',   'chain',  4, 'with_parent',  'Anna Natalia Sullivan'),
+    ('Nora Margaret Sullivan',  'chain',  4, 'with_parent',  'Anna Natalia Sullivan'),
+    ('Mark Maurice Sullivan',   'chain',  3, 'yes',          None),
+    ('Ian Anthony Sullivan',    'chain',  3, 'yes',          None),
+    ('Laura Rose Sullivan',     'chain',  3, 'to_confirm',   None),
+    ('Rita Marie Grant',        'chain',  2, 'to_confirm',   None),
+    ('Patrick Jeff Grant',      'spouse', 0, 'to_confirm',   None),
+    ('Mark Patrick Grant',      'chain',  3, 'yes',          None),
+    ('Stephen Joseph Grant',    'chain',  3, 'to_confirm',   None),
+    ('Jeffery Charles Grant',   'chain',  3, 'to_confirm',   None),
+    ('Natalie Kathryn Radich',  'chain',  3, 'yes',          None),
+    ('Matt John Radich',        'chain',  3, 'yes',          None),
+    ('Rosalia Gobeo',           'spouse', 0, 'to_confirm',   None),
+    ('Dominic Radich',          'chain',  4, 'with_parent',  'Matt John Radich'),
+    ('Trina Maureen Radich',    'chain',  2, 'to_confirm',   None),
+    ('Michele Eileen Dahl',     'chain',  2, 'to_confirm',   None),
+    ('Paula Ann Radich',        'chain',  2, 'to_confirm',   None),
+    ('Kathleen Mary Radich',    'chain',  2, 'to_confirm',   None),
+    ('Elizabeth Anna Dahl',     'chain',  3, 'to_confirm',   None),
+    ('Kathy Hochstettler',      'chain',  0, 'not_eligible', None),
 ]
 
 # The 10 standard per-person items, from the checklist.
@@ -69,7 +72,7 @@ CHECKLIST = [
 ]
 
 # Only these three hold Drive access and may edit anyone's record.
-KEEPERS = ['Paula Radich (Aunt Paula)', 'Mark Grant', 'Mark Maurice Sullivan']
+KEEPERS = ['Paula Ann Radich', 'Mark Patrick Grant', 'Mark Maurice Sullivan']
 
 # Keeper email addresses, mirrored into roster.json so the page can show the
 # right affordances. This is NOT a security boundary — the Cloudflare Access
@@ -94,16 +97,16 @@ EMIGRANTS = {
 # Stored as a hash in the published file so addresses are never served.
 PERSON_EMAIL = {
     'Mark Maurice Sullivan':  'markmsul@gmail.com',
-    'Mark Grant':             'grantmp14@gmail.com',
-    'Natalie Radich':         'noodlenat9@comcast.net',
+    'Mark Patrick Grant':     'grantmp14@gmail.com',
+    'Natalie Kathryn Radich': 'noodlenat9@comcast.net',
     'Ian Anthony Sullivan':   'iansullivan2010@gmail.com',
-    'Matthew (Matt) Radich':  'matt.radich@gmail.com',
+    'Matt John Radich':       'matt.radich@gmail.com',
     'Margaret Mary Sullivan': 'megsul99@hotmail.com',
-    'Paula Radich (Aunt Paula)': 'radichp2@frontier.com',
+    'Paula Ann Radich':       'radichp2@frontier.com',
     'Stephen Joseph Grant':   'StephenGrantMBA@outlook.com',
     'Laura Rose Sullivan':    'laurasullivan4@gmail.com',
     'Jeffery Charles Grant':  'jgrant1@outlook.com',
-    'Corey Scherrer':         'thecoreyis@gmail.com',
+    'Corey John Scherrer':    'thecoreyis@gmail.com',
 }
 
 
@@ -165,7 +168,7 @@ def main():
         return []
 
     people = []
-    for name, route, gen in ROSTER:
+    for name, route, gen, intent, minor_of in ROSTER:
         nid = by_name.get(name)
         p = props.get(nid, {}) if nid else {}
         core = name.split('(')[0].strip()
@@ -183,6 +186,10 @@ def main():
             # Hash, never the address itself — this file is served to browsers.
             'email_hash': ehash(email) if email else None,
             'has_login': bool(email),
+            'intent': intent,
+            'minor_of': minor_of,
+            'residence': p.get('residence'),
+            'venue': p.get('venue'),
             'checklist': [{'key': k, 'label': l, 'status': 'unknown'} for k, l in CHECKLIST],
         })
 

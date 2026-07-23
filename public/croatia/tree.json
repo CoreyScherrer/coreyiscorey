@@ -125,7 +125,7 @@
   },
   {
    "id": "dd2d3d33",
-   "name": "Carl Buher",
+   "name": "Carl Burton Buher",
    "fs": null,
    "b": "1988",
    "bd": "1988-11-19",
@@ -210,7 +210,7 @@
   },
   {
    "id": "3eb39694",
-   "name": "Corey Scherrer",
+   "name": "Corey John Scherrer",
    "fs": null,
    "b": "1977",
    "bd": "1977-12-11",
@@ -222,20 +222,6 @@
    "spouse_ids": [
     "8ce27e8f"
    ],
-   "variants": null
-  },
-  {
-   "id": "3e77a3f1",
-   "name": "Dominic (Dom)",
-   "fs": null,
-   "b": null,
-   "bd": null,
-   "d": null,
-   "living": false,
-   "tier": 4,
-   "tier_name": "Great-Grandchildren",
-   "married_in": false,
-   "spouse_ids": [],
    "variants": null
   },
   {
@@ -259,6 +245,20 @@
    ]
   },
   {
+   "id": "3e77a3f1",
+   "name": "Dominic Radich",
+   "fs": null,
+   "b": null,
+   "bd": null,
+   "d": null,
+   "living": false,
+   "tier": 4,
+   "tier_name": "Great-Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
+   "variants": null
+  },
+  {
    "id": "d84a10c8",
    "name": "Edna Maria Wolf",
    "fs": "L6HC-48M",
@@ -276,7 +276,7 @@
   },
   {
    "id": "95a308b0",
-   "name": "Elizabeth Dahl",
+   "name": "Elizabeth Anna Dahl",
    "fs": null,
    "b": null,
    "bd": null,
@@ -427,22 +427,6 @@
    "variants": null
   },
   {
-   "id": "a04e433c",
-   "name": "Jeff Grant",
-   "fs": null,
-   "b": null,
-   "bd": null,
-   "d": null,
-   "living": false,
-   "tier": 2,
-   "tier_name": "Children",
-   "married_in": true,
-   "spouse_ids": [
-    "e2a2cb29"
-   ],
-   "variants": null
-  },
-  {
    "id": "770297e5",
    "name": "Jeffery Charles Grant",
    "fs": null,
@@ -507,7 +491,7 @@
   },
   {
    "id": "9698c494",
-   "name": "Kathleen Mary Radich (Sister/Aunt Kathleen)",
+   "name": "Kathleen Mary Radich",
    "fs": null,
    "b": null,
    "bd": null,
@@ -599,7 +583,7 @@
   },
   {
    "id": "36d74c36",
-   "name": "Luca Sullivan",
+   "name": "Luca Anthony Sullivan",
    "fs": null,
    "b": null,
    "bd": "2021-01-01",
@@ -757,20 +741,6 @@
    ]
   },
   {
-   "id": "aae56147",
-   "name": "Mark Grant",
-   "fs": null,
-   "b": null,
-   "bd": null,
-   "d": null,
-   "living": false,
-   "tier": 3,
-   "tier_name": "Grandchildren",
-   "married_in": false,
-   "spouse_ids": [],
-   "variants": null
-  },
-  {
    "id": "6f18eb0e",
    "name": "Mark Maurice Sullivan",
    "fs": null,
@@ -778,6 +748,20 @@
    "bd": "1983-09-23",
    "d": null,
    "living": true,
+   "tier": 3,
+   "tier_name": "Grandchildren",
+   "married_in": false,
+   "spouse_ids": [],
+   "variants": null
+  },
+  {
+   "id": "aae56147",
+   "name": "Mark Patrick Grant",
+   "fs": null,
+   "b": null,
+   "bd": null,
+   "d": null,
+   "living": false,
    "tier": 3,
    "tier_name": "Grandchildren",
    "married_in": false,
@@ -802,7 +786,7 @@
   },
   {
    "id": "929f8dd8",
-   "name": "Matthew (Matt) Radich",
+   "name": "Matt John Radich",
    "fs": null,
    "b": null,
    "bd": null,
@@ -838,7 +822,7 @@
   },
   {
    "id": "836419ef",
-   "name": "Michele Dahl",
+   "name": "Michele Eileen Dahl",
    "fs": null,
    "b": null,
    "bd": null,
@@ -866,7 +850,7 @@
   },
   {
    "id": "05240251",
-   "name": "Natalie Radich",
+   "name": "Natalie Kathryn Radich",
    "fs": null,
    "b": null,
    "bd": null,
@@ -880,7 +864,7 @@
   },
   {
    "id": "49d44286",
-   "name": "Nora Sullivan",
+   "name": "Nora Margaret Sullivan",
    "fs": null,
    "b": null,
    "bd": "2023-01-01",
@@ -893,8 +877,24 @@
    "variants": null
   },
   {
+   "id": "a04e433c",
+   "name": "Patrick Jeff Grant",
+   "fs": null,
+   "b": null,
+   "bd": null,
+   "d": null,
+   "living": false,
+   "tier": 2,
+   "tier_name": "Children",
+   "married_in": true,
+   "spouse_ids": [
+    "e2a2cb29"
+   ],
+   "variants": null
+  },
+  {
    "id": "b7a862fb",
-   "name": "Paula Radich (Aunt Paula)",
+   "name": "Paula Ann Radich",
    "fs": null,
    "b": null,
    "bd": null,
@@ -941,7 +941,7 @@
   },
   {
    "id": "e2a2cb29",
-   "name": "Rita Grant",
+   "name": "Rita Marie Grant",
    "fs": null,
    "b": null,
    "bd": null,
@@ -957,7 +957,7 @@
   },
   {
    "id": "6b149d65",
-   "name": "Rosalia Gobeo (Rose)",
+   "name": "Rosalia Gobeo",
    "fs": null,
    "b": null,
    "bd": null,

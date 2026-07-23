@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>My Checklist — Croatian Citizenship</title>
+<link rel="stylesheet" href="/croatia/croatia.css">
+<style>
+  .who-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;
+    background:var(--bg-2);margin-top:20px}
+  .who-card h2{margin:0 0 4px;font-size:19px;font-weight:650;letter-spacing:-.016em}
+  .who-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .prog{margin-top:14px}
+  .bar{height:7px;border-radius:999px;background:var(--line-2);overflow:hidden}
+  .bar span{display:block;height:100%;background:var(--ok);width:0;transition:width .25s ease}
+  .prog-t{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+
+  .task{display:flex;gap:11px;align-items:flex-start;padding:13px 0;
+    border-bottom:1px solid var(--line-2)}
+  .task:last-child{border-bottom:0}
+  .task input[type=checkbox]{width:18px;height:18px;margin:2px 0 0;flex:none;cursor:pointer;
+    accent-color:var(--accent)}
+  .task .body{flex:1;min-width:0}
+  .task .t{font-size:15px;color:var(--ink);font-weight:600}
+  .task.done .t{color:var(--ink-3);text-decoration:line-through}
+  .task .d{font-size:13.6px;color:var(--ink-2);margin-top:4px}
+  .task .links{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
+  .task .links a{font-size:12.6px;text-decoration:none;border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px;color:var(--accent);background:var(--bg)}
+  .task .links a:hover{border-color:var(--accent);background:var(--accent-soft)}
+  .task .warnnote{font-size:12.8px;color:var(--warn);background:var(--warn-soft);
+    border:1px solid var(--warn-line);border-radius:7px;padding:7px 10px;margin-top:7px}
+
+  .minor{margin-top:22px;border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:15px 17px;background:var(--bg-2)}
+  .minor h3{margin:0 0 3px;font-size:15.5px;font-weight:630}
+  .minor .sub{font-size:13px;color:var(--ink-3);margin:0 0 8px}
+
+  .nolist{border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;
+    background:var(--bg-2);margin-top:20px;font-size:14.6px;color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="page-head">
+  <h1>My Checklist</h1>
+  <p class="lede">Everything you personally need for your Article 11 application, in the order it
+  has to happen. Each step links to the form, office, or consulate you need.</p>
+</div>
+
+<div id="content"></div>
+
+<footer>
+  <p>Your progress is saved in this browser against your signed-in email. Record keepers can see
+  everyone's checklist; everyone else sees their own.</p>
+  <p style="margin-top:9px">Nothing here is legal advice. Where a source is uncertain, see the
+  open questions on <a href="/croatia/considerations.html">The Process</a>.</p>
+</footer>
+
+</div>
+
+<script src="/croatia/croatia.js"></script>
+<script>
+(function () {
+  'use strict';
+  var C = window.Croatia;
+
+  var CONSULATE = {
+    LA:  { name: 'Consulate General, Los Angeles',
+           url: 'https://losangeles.mvep.gov.hr/en',
+           email: 'losangeles@mvep.hr',
+           note: 'Jurisdiction: WA, OR and the West Coast. Appointment wait ~3–6 months.' },
+    DC:  { name: 'Embassy of Croatia, Washington DC',
+           url: 'https://washington.mvep.gov.hr/en',
+           email: 'crocons.washington@mvep.hr',
+           note: 'Jurisdiction: VA, MD and the DC area. Appointment wait ~6–12 months.' },
+    TBD: { name: 'Consulate to be confirmed',
+           url: 'https://mvep.gov.hr/en/diplomatic-directory/croatian-embassies-and-consulates-abroad/usa-1229/1229',
+           email: null,
+           note: 'Jurisdiction follows your state of residence — confirm before booking.' }
+  };
+
+  // The 10 standard steps, each with the official links that step needs.
+  var STEPS = [
+    { key: 'participation',
+      t: 'Confirm you are applying, and which consulate covers your state',
+      d: 'Jurisdiction follows your state of residence. You must file in person at that post.',
+      links: 'consulate' },
+    { key: 'birth_cert',
+      t: 'Order a certified copy of your birth certificate — order two',
+      d: 'Must be an official long-form certified copy from the issuing state. A scan or photocopy '
+       + 'cannot be apostilled and will be rejected.',
+      links: [['Washington vital records', 'https://doh.wa.gov/licenses-permits-and-certificates/vital-records/order-birth-death-marriage-divorce-certificate'],
+              ['Oregon vital records', 'https://www.oregon.gov/oha/ph/birthdeathcertificates/pages/index.aspx'],
+              ['Maryland vital records', 'https://health.maryland.gov/vsa/Pages/home.aspx'],
+              ['Other states (CDC directory)', 'https://www.cdc.gov/nchs/w2w/index.htm']] },
+    { key: 'marriage_cert',
+      t: 'Marriage certificate',
+      d: 'Required if you are married. For spouse-route applicants this is the key document that '
+       + 'establishes your claim — order extra certified copies.',
+      links: [['Other states (CDC directory)', 'https://www.cdc.gov/nchs/w2w/index.htm']] },
+    { key: 'passport_copy',
+      t: 'Notarized copy of your US passport photo page',
+      d: 'Do not print a scan at home. The consular official normally certifies this at your '
+       + 'appointment.',
+      links: [['US passport information', 'https://travel.state.gov/content/travel/en/passports.html']] },
+    { key: 'state_apostille',
+      t: 'State apostille on every state-issued document',
+      d: 'Birth certificates, marriage certificates and any affidavit each need an apostille from '
+       + 'the Secretary of State that issued them.',
+      links: [['Washington apostille', 'https://www.sos.wa.gov/corporations-charities/apostilles-and-certificates'],
+              ['Oregon apostille', 'https://sos.oregon.gov/business/Pages/authentication.aspx'],
+              ['Maryland apostille', 'https://sos.maryland.gov/Pages/Apostille/apostilles.aspx']] },
+    { key: 'fbi_check',
+      t: 'FBI Identity History Summary + federal apostille',
+      d: 'Must be the federal FBI check — state, county and local police checks are routinely '
+       + 'rejected. The federal apostille comes only from the US Department of State in Washington DC.',
+      warn: 'Timing trap: the FBI check is valid 6 months, but the federal apostille can take weeks '
+          + 'to months and the appointment queue can be a year. Book the appointment first, then '
+          + 'work backwards so the finished document is under 6 months old on filing day.',
+      links: [['Request an FBI Identity History Summary', 'https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/identity-history-summary-checks'],
+              ['Fingerprints at a US post office', 'https://www.usps.com/manage/fbi-fingerprint.htm'],
+              ['US Dept. of State federal apostille', 'https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html']] },
+    { key: 'translations',
+      t: 'Certified Croatian translation of the whole dossier',
+      d: 'By a sworn court-certified translator (sudski tumač). Apostille first — the apostille '
+       + 'stamp itself must also be translated, so translating early means paying twice.',
+      links: [['Croatian court-certified translators', 'https://mvep.gov.hr/en']] },
+    { key: 'biography',
+      t: 'Biography (životopis) and motivational letter, in Croatian',
+      d: 'Must state your full name, date and place of birth, address, education and career, your '
+       + "parents' details, and exactly how you descend from the Croatian ancestor — who they were, "
+       + 'when and why they emigrated. Spouses write their own.',
+      links: [['Guidance on The Process page', '/croatia/considerations.html#stage-2']] },
+    { key: 'form',
+      t: 'Application form — Obrazac 1, or Obrazac 2 with minor children',
+      d: 'Obrazac 1 for a single adult; Obrazac 2 for an adult filing together with minor children. '
+       + 'Do not sign at home — you sign in person in front of the official.',
+      links: [['Croatian citizenship forms (MUP)', 'https://mup.gov.hr/gradjani-281562/moji-dokumenti-281566/hrvatsko-drzavljanstvo/281566'],
+              ['Ministry of the Interior (MUP)', 'https://mup.gov.hr/en']] },
+    { key: 'appointment',
+      t: 'Book your consulate appointment',
+      d: 'Book as early as allowed — the queue is longer than document preparation, and '
+       + 'rescheduling is far easier than joining the back of the line.',
+      links: 'consulate' }
+  ];
+
+  var MINOR_STEPS = [
+    { key: 'm_birth_cert', t: "Child's certified birth certificate",
+      d: 'Long-form certified copy naming both parents.',
+      links: [['Other states (CDC directory)', 'https://www.cdc.gov/nchs/w2w/index.htm']] },
+    { key: 'm_apostille', t: "Apostille on the child's birth certificate",
+      d: 'Same state apostille process as your own documents.', links: null },
+    { key: 'm_consent', t: 'Notarized consent from the other parent',
+      d: 'Required whenever a minor is included and both parents are not co-filing.', links: null },
+    { key: 'm_form', t: 'Include the child on your Obrazac 2',
+      d: 'Minors are added to a parent’s Obrazac 2 rather than filing their own form.',
+      links: [['Croatian citizenship forms (MUP)', 'https://mup.gov.hr/gradjani-281562/moji-dokumenti-281566/hrvatsko-drzavljanstvo/281566']] },
+    { key: 'm_register', t: 'Note: consular registration at 18 (males)',
+      d: 'Croatia reinstated compulsory service in 2026. Males abroad must register with a consulate '
+       + 'in the year they turn 18 — an administrative step, not service. Not called up while '
+       + 'resident outside Croatia.',
+      links: [['Details on The Process page', '/croatia/considerations.html#open']] }
+  ];
+
+  var me = null, roster = null, state = {};
+
+  function saveState() { C.saveState(me, state); }
+
+  function consulateLinks(venue) {
+    var c = CONSULATE[venue] || CONSULATE.TBD;
+    var out = [[c.name, c.url]];
+    if (c.email) out.push(['Email ' + c.email, 'mailto:' + c.email]);
+    return out;
+  }
+
+  function taskRow(step, person, prefix) {
+    var row = C.el('div', 'task');
+    var box = C.el('input');
+    box.type = 'checkbox';
+    var key = prefix + ':' + step.key;
+    box.checked = !!state[key];
+    if (box.checked) row.classList.add('done');
+
+    var body = C.el('div', 'body');
+    body.appendChild(C.el('div', 't', step.t));
+    if (step.d) body.appendChild(C.el('div', 'd', step.d));
+    if (step.warn) body.appendChild(C.el('div', 'warnnote', step.warn));
+
+    var links = step.links === 'consulate'
+      ? consulateLinks(person && person.venue)
+      : step.links;
+    if (links && links.length) {
+      var wrap = C.el('div', 'links');
+      links.forEach(function (l) {
+        var a = C.el('a', null, l[0]);
+        a.href = l[1];
+        if (l[1].indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        wrap.appendChild(a);
+      });
+      body.appendChild(wrap);
+    }
+
+    box.addEventListener('change', function () {
+      state[key] = box.checked;
+      row.classList.toggle('done', box.checked);
+      saveState();
+      updateProgress();
+    });
+
+    row.appendChild(box);
+    row.appendChild(body);
+    return row;
+  }
+
+  function updateProgress() {
+    var boxes = document.querySelectorAll('.task input[type=checkbox]');
+    var done = [].filter.call(boxes, function (b) { return b.checked; }).length;
+    var bar = document.querySelector('.bar span');
+    var txt = document.querySelector('.prog-t');
+    if (!bar) return;
+    bar.style.width = boxes.length ? Math.round(done / boxes.length * 100) + '%' : '0';
+    C.clear(txt);
+    txt.appendChild(document.createTextNode(done + ' of ' + boxes.length + ' complete'));
+  }
+
+  function renderFor(person) {
+    var host = document.getElementById('content');
+    C.clear(host);
+
+    var card = C.el('div', 'who-card');
+    card.appendChild(C.el('h2', null, person.display));
+    var basis = person.route === 'spouse'
+      ? 'Applying through marriage — Article 11'
+      : 'Applying by descent — Article 11';
+    card.appendChild(C.el('p', 'lede', basis));
+    var meta = C.el('div', 'who-meta');
+    if (person.residence) meta.appendChild(C.el('span', 'fact', person.residence));
+    var c = CONSULATE[person.venue] || CONSULATE.TBD;
+    meta.appendChild(C.el('span', 'fact', c.name));
+    if (person.intent === 'yes') meta.appendChild(C.el('span', 'fact', 'Confirmed applying'));
+    card.appendChild(meta);
+    card.appendChild(C.el('p', 'src', c.note));
+
+    var prog = C.el('div', 'prog');
+    var bar = C.el('div', 'bar');
+    bar.appendChild(C.el('span'));
+    prog.appendChild(bar);
+    prog.appendChild(C.el('p', 'prog-t'));
+    card.appendChild(prog);
+    host.appendChild(card);
+
+    var list = C.el('div');
+    STEPS.forEach(function (s) {
+      if (s.key === 'marriage_cert' && person.route !== 'spouse' && !person.married) {
+        // still shown — many descendants are married — but softened above.
+      }
+      list.appendChild(taskRow(s, person, person.slug));
+    });
+    host.appendChild(list);
+
+    // Minors attached to this parent.
+    var minors = (roster.people || []).filter(function (p) {
+      return p.minor_of === person.name;
+    });
+    minors.forEach(function (kid) {
+      var box = C.el('div', 'minor');
+      box.appendChild(C.el('h3', null, 'Checklist for minors — ' + kid.display));
+      box.appendChild(C.el('p', 'sub',
+        'Included on your Obrazac 2. These are the extra documents ' + kid.display + ' needs.'));
+      MINOR_STEPS.forEach(function (s) {
+        box.appendChild(taskRow(s, person, kid.slug));
+      });
+      host.appendChild(box);
+    });
+
+    updateProgress();
+  }
+
+  function renderKeeperPicker(people) {
+    var host = document.getElementById('content');
+    var pick = C.el('div', 'nolist');
+    pick.appendChild(C.el('b', null, 'Record keeper view. '));
+    pick.appendChild(document.createTextNode('Choose whose checklist to open:'));
+    var row = C.el('div', 'who-meta');
+    people.filter(function (p) { return p.intent === 'yes' || p.intent === 'to_confirm'; })
+      .forEach(function (p) {
+        var b = C.el('button', 'btn', p.display);
+        b.type = 'button';
+        b.addEventListener('click', function () {
+          renderFor(p);
+          window.scrollTo(0, 0);
+        });
+        row.appendChild(b);
+      });
+    pick.appendChild(row);
+    host.appendChild(pick);
+  }
+
+  C.boot(function (identity, r) {
+    me = identity;
+    roster = r;
+    state = C.loadState(me);
+    var host = document.getElementById('content');
+
+    if (!roster) {
+      host.appendChild(C.el('p', 'nolist', 'Could not load the family roster.'));
+      return;
+    }
+    if (me && me.person) {
+      renderFor(me.person);
+      if (me.keeper) renderKeeperPicker(roster.people);
+      return;
+    }
+    if (me && me.keeper) {
+      renderKeeperPicker(roster.people);
+      return;
+    }
+    var msg = C.el('div', 'nolist');
+    msg.appendChild(document.createTextNode(
+      me && me.email
+        ? 'No applicant record is linked to ' + me.email
+          + ' yet. Ask a record keeper to connect your address.'
+        : 'Sign in to see your own checklist.'));
+    host.appendChild(msg);
+  });
+})();
+</script>
+</body>
+</html>
